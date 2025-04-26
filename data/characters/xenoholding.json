@@ -1,0 +1,65 @@
+{
+    "version": "1.0.0",
+    "name": "Sonic.exe (Final Escape - Holding Boyfriend)",
+    "assetPath": "characters/xenoholding",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xeno",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "xeno_idle",
+            "offsets": [
+                -62,
+                91
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "xeno_left",
+            "offsets": [
+                -82,
+                94
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "xeno_up",
+            "offsets": [
+                -73,
+                179
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "xeno_down",
+            "offsets": [
+                -62,
+                26
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "xeno_right",
+            "offsets": [
+                -35,
+                73
+            ]
+        },
+        {
+            "name": "laugh",
+            "prefix": "laugh",
+            "offsets": [
+                -26,
+                175
+            ]
+        }
+    ],
+    "flipX": false
+}

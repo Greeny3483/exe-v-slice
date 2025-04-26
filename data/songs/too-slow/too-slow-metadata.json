@@ -1,0 +1,40 @@
+{
+  "version": "2.2.2",
+  "songName": "Too Slow",
+  "artist": "MarStarBro",
+  "charter": "MarStarBro",
+  "playData": {
+    "album": "exeVol1OST",
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "sonicexe",
+      "instrumental": "",
+      "altInstrumentals": ["encore"]
+    },
+    "songVariations": ["encore"],
+    "stage": "hillZone",
+    "noteStyle": "exeFourKey",
+    "ratings": {"easy": 5, "normal": 6, "hard": 7},
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 135,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

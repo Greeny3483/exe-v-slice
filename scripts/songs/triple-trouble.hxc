@@ -1,0 +1,77 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+
+// Check the other script in scripts/stages/xenoStage for the stage prop editing, everything else is done here.
+
+class TripleTroubleSong extends Song {
+    var game;
+
+    var lanex = Float = FlxG.width - 592;
+
+    var blinds:FunkinSprite;
+    var rocks:FunkinSprite;
+    var under:FunkinSprite;
+
+    var dad:BaseCharacter;
+
+    var screenGlitch1:FunkinSprite;
+
+    public function new() {
+        super("triple-trouble");
+    }
+
+    override function onCreate(event:ScriptEvent):Void {
+
+        game = PlayState.instance;
+
+        super.onCreate(event);
+
+        FunkinSprite.cacheTexture(Paths.image('Xenostage/P3_Stat'));
+
+    }
+
+    /*function onStepHit(event:SongTimeScriptEvent):Void 
+    {      
+        super.onStepHit(event)
+
+        if (event.step == 1) {
+            game.add(screenGlitch1)
+        } 
+    }*/
+
+    // Reset the script state on game over
+    function onGameOver():Void {
+        super.onGameOver();
+    }
+    function onSongRetry():Void {
+        super.onSongRetry();
+
+        //onCreate(null);
+    }
+}
+

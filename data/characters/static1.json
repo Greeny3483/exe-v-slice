@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Static1",
+    "assetPath": "characters/end",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "majin",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "menuSTATICNEW instance",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

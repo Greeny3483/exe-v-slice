@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Daroom",
+    "assetPath": "characters/daroom",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "majin",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "daroom",
+            "offsets": [
+                -62,
+                91
+            ]
+        }
+    ],
+    "flipX": true
+}

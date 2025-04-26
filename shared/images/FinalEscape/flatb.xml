@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="flatb.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="a instance 10000" x="0" y="0" width="4869" height="873"/>
+	<SubTexture name="a instance 10001" x="0" y="0" width="4869" height="873"/>
+	<SubTexture name="a instance 10002" x="0" y="873" width="4465" height="873" frameX="-200" frameY="0" frameWidth="4869" frameHeight="873"/>
+	<SubTexture name="a instance 10003" x="0" y="873" width="4465" height="873" frameX="-200" frameY="0" frameWidth="4869" frameHeight="873"/>
+</TextureAtlas>

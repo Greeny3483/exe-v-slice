@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Static2",
+    "assetPath": "characters/hitStatic",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "majin",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "staticANIMATION",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

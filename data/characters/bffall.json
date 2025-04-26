@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Bffall",
+    "assetPath": "characters/bffall",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "bffall",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

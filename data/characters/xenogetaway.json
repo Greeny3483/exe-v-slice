@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Xenogetaway",
+    "assetPath": "characters/getaway",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xenoangry",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "no",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

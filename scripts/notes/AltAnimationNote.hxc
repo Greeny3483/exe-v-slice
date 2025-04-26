@@ -1,0 +1,65 @@
+import funkin.audio.FunkinSound;
+import flixel.FlxSprite;
+import funkin.modding.module.Module;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.Preferences;
+
+// Borrowed some code from the VS Tricky V-Slice Port. Made by thisiscub
+/*https://gamebanana.com/mods/513337*/
+
+class AltAnimation extends Module {
+    function new() {
+        super("altanimation");
+    }
+
+	function onNoteHit(event:HitNoteScriptEvent) {
+
+		if (event.note.noteData.kind == "altanimation") {
+			event.cancelEvent();
+
+			PlayState.instance.currentStage.getDad().playAnimation('singDOWN-alt', true); 
+		}
+	}
+
+	function onNoteIncoming(event:NoteScriptEvent) {
+		if (event.note.noteData.kind == "altanimation") {
+			event.note.frames = Paths.getSparrowAtlas("notes");
+
+			if (!Preferences.downscroll) {
+				event.note.animation.addByPrefix("blueScroll", "noteDown");
+				event.note.animation.addByPrefix("greenScroll", "noteUp");
+			} else {
+				event.note.animation.addByPrefix("greenScroll", "noteDown");
+				event.note.animation.addByPrefix("blueScroll", "noteUp");
+			}
+
+			event.note.animation.addByPrefix("redScroll", "noteRight");
+			event.note.animation.addByPrefix("purpleScroll", "noteLeft");
+
+			/*if (Preferences.downscroll)
+				event.note.flipY = true;
+
+			event.note.offset.set(93, 145);*/
+
+			var animName:String;
+
+			switch (event.note.noteData.data % 4) {
+				case 0:
+					animName = "purpleScroll";
+				case 1:
+					animName = "blueScroll";
+				case 2:
+					animName = "greenScroll";
+				case 3:
+					animName = "redScroll";
+			}
+
+			event.note.animation.play(animName);
+		}
+	}
+	function onNoteMiss(event:NoteScriptEvent) {
+		if (event.note.noteData.kind == "altanimation")
+			event.cancelEvent();
+	}
+}

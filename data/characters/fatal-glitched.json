@@ -1,0 +1,101 @@
+{
+    "assetPath": "characters/fatal-error-sonic-glitched",
+    "name": "Fatal Error (Sonic - Glitched)",
+    "singTime": 4,
+    "version": "1.0.0",
+    "scale": 4.00000000000001,
+    "flipX": false,
+    "isPixel": true,
+    "offsets": [
+        150,
+        360
+    ],
+    "cameraOffsets": [
+        720,
+        -600
+    ],
+    "healthIcon": {
+        "id": "fatal-sonic",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singUP",
+            "prefix": "Fatal sonic up",
+            "looped": false,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Fatal sonic right",
+            "looped": false,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Fatal sonic left",
+            "looped": false,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Fatal sonic down",
+            "looped": false,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "idle",
+            "prefix": "Fatal sonic idle",
+            "looped": false,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "idle-loop",
+            "prefix": "Fatal sonic idle",
+            "looped": true,
+            "offsets": [
+                4,
+                519
+            ],
+            "frameRate": 24,
+            "frameIndices": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+            ]
+        }
+    ]
+}

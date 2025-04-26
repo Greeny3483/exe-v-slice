@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Final Escape - Running, Alt Perspective)",
+    "assetPath": "characters/bfrun2",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                10,
+                -6
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                0,
+                -11
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                -6,
+                15
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                -18,
+                -7
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                -5,
+                0
+            ]
+        }
+    ],
+    "flipX": true
+}

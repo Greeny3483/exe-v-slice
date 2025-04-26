@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Final Escape - Phase 3)",
+    "assetPath": "characters/bfstring",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                -5,
+                0
+            ]
+        }
+    ],
+    "flipX": true
+}

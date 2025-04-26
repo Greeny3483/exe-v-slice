@@ -1,0 +1,89 @@
+{
+    "assetPath": "characters/Beast",
+    "name": "Xenophanes Sonic.exe",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        -50,
+        260
+    ],
+    "cameraOffsets": [
+        -50,
+        -40
+    ],
+    "healthIcon": {
+        "id": "xenophanes",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Beast_IDLE",
+            "looped": false,
+            "offsets": [
+                0,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Beast_LEFT",
+            "looped": false,
+            "offsets": [
+                180,
+                -95
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Beast_DOWN",
+            "looped": false,
+            "offsets": [
+                20,
+                -95
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "Beast_UP",
+            "looped": false,
+            "offsets": [
+                50,
+                80
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Beast_RIGHT",
+            "looped": false,
+            "offsets": [
+                -160,
+                -60
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "laugh",
+            "prefix": "Beast_LAUGH",
+            "looped": false,
+            "offsets": [
+                -120,
+                -225
+            ],
+            "frameRate": 24
+        }
+    ]
+}

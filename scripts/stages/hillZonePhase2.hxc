@@ -1,0 +1,165 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+
+// This script adds the proper events for You Can't Run.
+
+class HillZonePhase2 extends Stage
+{
+	public function new()
+	{
+		super('hillZonePhase2');
+	}
+
+
+    var stepCounter:FlxText;
+	var staticScreen:FunkinSprite;
+	var sonicJumpscare:FunkinSprite;
+	var sonicJump:FunkinSprite;
+	var redVignette:FunkinSprite;
+	//var greenHill:FunkinSprite;
+
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		game = PlayState.instance;
+		if (game.currentSong.id.toLowerCase() == "you-cant-run") {
+			FunkinSprite.cacheTexture(Paths.image('staticNotes'));
+			FunkinSprite.cacheTexture(Paths.image('PhantomNote'));
+			FunkinSprite.cacheTexture(Paths.image('run/GreenHill'));
+			FunkinSprite.cacheTexture(Paths.image('RedVG'));
+
+			
+            // Green Hill Zone is added through the stage props.
+
+			staticScreen = FunkinSprite.create(100, 0);
+            staticScreen.frames = Paths.getSparrowAtlas('daSTAT');
+            staticScreen.animation.addByPrefix('static', 'staticFLASH', 30, false); // Speed it up
+            staticScreen.animation.play('static');
+			staticScreen.scale.set(5, 5);
+            staticScreen.zIndex = 5000;
+			staticScreen.cameras = [game.camHUD];
+			game.add(staticScreen);
+			staticScreen.visible = false;
+
+			staticScreen.animation.finishCallback = function() {
+                staticScreen.visible = false;
+            };
+
+			redVignette = FunkinSprite.create(0, 0, 'RedVG');
+			//redVignette.alpha = 0.5;
+			redVignette.zIndex = 1000;
+			redVignette.scrollFactor.set(0, 0); // Make it static (doesn't scroll with the camera)
+			redVignette.cameras = [game.camHUD];
+			game.add(redVignette);
+			redVignette.visible = false;
+		}
+
+		stepCounter = new FlxText(10, 200, 300, "Step: 0");
+		stepCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
+		stepCounter.color = 0xFFFFFFFF; // Set text color to white
+		stepCounter.scrollFactor.set(0, 0);
+		stepCounter.cameras = [game.camHUD];
+		game.add(stepCounter);
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		super.onStepHit(event);
+
+		var greenHill = getNamedProp('GreenHill');
+
+		stepCounter.text = "Step: " + event.step;
+
+		if (game.currentSong.id.toLowerCase() == "you-cant-run" && (event.beat == 2 || event.beat % 50 == 0)) // Show static screen at beat 2 and every 50 beats
+		{
+			staticScreen.visible = true;
+			staticScreen.animation.play('static');
+			var staticScreenSound = FunkinSound.playOnce(Paths.sound("staticBUZZ"), 0.6);
+			FlxTween.tween(staticScreenSound, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					staticScreenSound.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "you-cant-run" && event.step >= 80 && event.step % 20 == 0) // Flash red vignette repeatedly every 20 steps
+		{
+			redVignette.visible = true;
+			redVignette.alpha = 0;
+
+			// Tween to fade in
+			FlxTween.tween(redVignette, { alpha: 0.5 }, 0.75, { // Faster fade in
+				ease: FlxEase.quadInOut,
+				onComplete: function(tween:FlxTween) {
+					// Tween to fade out
+					FlxTween.tween(redVignette, { alpha: 0 }, 0.75, { // Faster fade out
+						ease: FlxEase.quadInOut,
+						onComplete: function(tween:FlxTween) {
+							redVignette.visible = false;
+						}
+					});
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "you-cant-run" && event.step == 527)
+		{
+			greenHill.zIndex = 2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+
+			staticScreen.visible = true;
+			staticScreen.animation.play('static');
+			var staticScreenSound = FunkinSound.playOnce(Paths.sound("staticBUZZ"), 0.6);
+			FlxTween.tween(staticScreenSound, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					staticScreenSound.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "you-cant-run" && event.step == 783)
+		{
+			greenHill.zIndex = -30; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+
+			staticScreen.visible = true;
+			staticScreen.animation.play('static');
+			var staticScreenSound = FunkinSound.playOnce(Paths.sound("staticBUZZ"), 0.6);
+			FlxTween.tween(staticScreenSound, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					staticScreenSound.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+	}
+}

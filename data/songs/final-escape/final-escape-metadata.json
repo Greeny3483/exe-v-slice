@@ -1,0 +1,61 @@
+{
+  "version": "2.2.4",
+  "songName": "Final Escape",
+  "artist": "MarStarBro / Saster",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {    },
+    "vocals": {    },
+    "altVocals": {    }
+  },
+  "playData": {
+    "songVariations": [    ],
+    "difficulties": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "characters": {
+      "player": "bffrontxeno",
+      "girlfriend": "",
+      "opponent": "introxeno",
+      "instrumental": "",
+      "altInstrumentals": [      ],
+      "opponentVocals": [
+        "introxeno"
+      ],
+      "playerVocals": [
+        "bffrontxeno"
+      ]
+    },
+    "stage": "finalstage",
+    "noteStyle": "exeFourKey",
+    "ratings": {
+      "easy": 8,
+      "normal": 11,
+      "hard": 13
+    },
+    "album": "exeVol3OST",
+    "previewStart": 13500,
+    "previewEnd": 0
+  },
+  "generatedBy": "Friday Night Funkin' - v0.6.2",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 195,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf_leg.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="run legs0000" x="0" y="0" width="401" height="201" frameX="-14" frameY="-21" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0001" x="401" y="0" width="406" height="200" frameX="-6" frameY="-21" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0002" x="0" y="201" width="371" height="209" frameX="-20" frameY="-27" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0003" x="371" y="201" width="266" height="214" frameX="-82" frameY="-44" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0004" x="637" y="201" width="202" height="240" frameX="-62" frameY="-37" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0005" x="0" y="441" width="381" height="217" frameX="-2" frameY="-1" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0006" x="381" y="441" width="381" height="214" frameX="0" frameY="0" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0007" x="0" y="658" width="343" height="241" frameX="-11" frameY="-3" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0008" x="343" y="658" width="252" height="263" frameX="-80" frameY="-5" frameWidth="415" frameHeight="277"/>
+	<SubTexture name="run legs0009" x="595" y="658" width="221" height="248" frameX="-59" frameY="-17" frameWidth="415" frameHeight="277"/>
+</TextureAtlas>

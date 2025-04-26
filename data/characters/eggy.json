@@ -1,0 +1,89 @@
+{
+    "assetPath": "characters/eggman_soul",
+    "name": "Eggman.exe",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        -10,
+        255
+    ],
+    "cameraOffsets": [
+        0,
+        -50
+    ],
+    "healthIcon": {
+        "id": "eggman",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Eggman_Idle",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Eggman_Down",
+            "looped": false,
+            "offsets": [
+                70,
+                -100
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Eggman_Left",
+            "looped": false,
+            "offsets": [
+                160,
+                95
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "Eggman_Up",
+            "looped": false,
+            "offsets": [
+                100,
+                239
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Eggman_Right",
+            "looped": false,
+            "offsets": [
+                0,
+                170
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "jijijija",
+            "prefix": "Eggman_Laugh",
+            "looped": false,
+            "offsets": [
+                0,
+                205
+            ],
+            "frameRate": 36
+        }
+    ]
+}

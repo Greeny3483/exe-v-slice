@@ -1,0 +1,83 @@
+import funkin.play.PlayState;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.Preferences;
+import funkin.Paths;
+
+/*  Author: DaWaterMalone
+    Description: A chart event handler that adds text ( lyrics ) to the camHUD 
+        by listening to event calls from LyricsEvent.hxc.
+*/
+
+class LyricsHandler extends Module
+{
+    public var usingLyrics:Bool = false;
+    public var lyrics:FlxText;
+    private var loadedLyrics:Bool = false;
+
+    public function new()
+    {
+        super( 'LyricsHandler' );
+    }
+
+    public override function onSongLoaded( event:SongLoadScriptEvent )
+    {
+        super.onSongLoaded( event );
+
+        // Shortcut way to access the PlayState file from the source code.
+		var state = PlayState.instance;
+		if ( state == null ) return;
+
+        if ( !loadedLyrics )
+        {
+            // Create a new lyrics Text we can modify.
+            lyrics = new FlxText( 0, 0, 1200, "", 32 );
+            lyrics.setFormat( Paths.font( "VCR_OSD_MONO.ttf" ), 32, 0xFFFFFFFF, 
+                                'center', FlxTextBorderStyle.OUTLINE, 0xFF000000 );
+            lyrics.borderSize = 1.5;
+            lyrics.alpha = 0;
+            lyrics.cameras = [ state.camHUD ];
+            lyrics.zIndex = state.playerStrumline.zIndex + 20;
+            lyrics.x = state.healthBar.x - 306;
+            state.add( lyrics );
+
+            if ( Preferences.downscroll )
+            {
+                lyrics.y = state.healthBar.y + 60;
+            }
+            else
+            {
+                lyrics.y = state.healthBar.y - 110;
+            }
+    
+            state.refresh();
+
+            // Sets the flag so this section only runs once.
+            loadedLyrics = true;
+        }
+    }
+
+    public override function onUpdate( event:UpdateScriptEvent )
+    {
+        super.onUpdate( event );
+
+        if ( usingLyrics )
+        {
+            // Gets access to the lyrics variable inside the LyricsEvent.hxc file.
+            if ( ModuleHandler.getModule( 'LyricsHandler' ).scriptGet( 'lyrics' ) != null )
+            {
+                if ( ModuleHandler.getModule( 'LyricsHandler' ).scriptGet( 'lyrics' ) == "" )
+                {
+                    lyrics.alpha = 0;
+                }
+                else
+                {
+                    lyrics = ModuleHandler.getModule( 'LyricsHandler' ).scriptGet( 'lyrics' );
+                    lyrics.alpha = 1;
+                }
+            }
+        }
+    }
+}

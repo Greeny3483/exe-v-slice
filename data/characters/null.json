@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "No Character",
+    "assetPath": "characters/null",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 0.01,
+    "healthIcon": {
+        "id": "xeno",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "leg",
+            "offsets": [
+                -5,
+                0
+            ]
+        }
+    ],
+    "flipX": false
+}

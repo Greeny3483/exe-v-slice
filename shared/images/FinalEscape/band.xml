@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="band.png"><SubTexture name="band idle0000" x="0" y="0" width="3704" height="2447" frameX="0" frameY="0" frameWidth="3704" frameHeight="2447" />
+<SubTexture name="band idle0001" x="3704" y="0" width="3704" height="2447" frameX="0" frameY="0" frameWidth="3704" frameHeight="2447" />
+<SubTexture name="band idle0002" x="0" y="2447" width="3704" height="2447" frameX="0" frameY="0" frameWidth="3704" frameHeight="2447" />
+<SubTexture name="band idle0003" x="3704" y="2447" width="3704" height="2447" frameX="0" frameY="0" frameWidth="3704" frameHeight="2447" />
+</TextureAtlas>

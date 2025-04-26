@@ -1,0 +1,127 @@
+{
+    "assetPath": "characters/YCR_Mad",
+    "name": "Sonic.exe (Phase 2 - Mad)",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        0,
+        110
+    ],
+    "cameraOffsets": [
+        -80,
+        90
+    ],
+    "healthIcon": {
+        "id": "ycr-pissy",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "laugh",
+            "prefix": "laugh_Instance",
+            "looped": false,
+            "offsets": [
+                18,
+                -35
+            ],
+            "frameRate": 24,
+            "frameIndices": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
+        },
+        {
+            "name": "scream",
+            "prefix": "scream",
+            "looped": false,
+            "offsets": [
+                360,
+                7
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN-alt",
+            "prefix": "laugh",
+            "looped": false,
+            "offsets": [
+                18,
+                -35
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "mad_left",
+            "looped": false,
+            "offsets": [
+                192,
+                32
+            ],
+            "frameRate": 38
+        },
+        {
+            "name": "singUP",
+            "prefix": "mad_up",
+            "looped": false,
+            "offsets": [
+                -61,
+                238
+            ],
+            "frameRate": 42
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "mad_down",
+            "looped": false,
+            "offsets": [
+                -20,
+                -26
+            ],
+            "frameRate": 40
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "mad_right",
+            "looped": false,
+            "offsets": [
+                -26,
+                0
+            ],
+            "frameRate": 35
+        },
+        {
+            "name": "idle",
+            "prefix": "mad_idle",
+            "looped": true,
+            "offsets": [
+                -18,
+                67
+            ],
+            "frameRate": 26
+        },
+        {
+            "name": "die",
+            "prefix": "just_die",
+            "looped": false,
+            "offsets": [
+                170,
+                20
+            ],
+            "frameRate": 24
+        }
+    ]
+}

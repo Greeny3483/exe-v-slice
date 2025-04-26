@@ -1,0 +1,224 @@
+{
+    "version": "1.0.0",
+    "name": "Fleetway Super Sonic",
+    "assetPath": "characters/Fleetway_Super_Sonic",
+    "singTime": 4,
+    "renderType": "multisparrow",
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "fleetway",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Fleetway Idle",
+            "offsets": [
+                -46,
+                -50
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Fleetway Up",
+            "offsets": [
+                -80,
+                -67
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Fleetway Right",
+            "offsets": [
+                8,
+                -195
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Fleetway Down",
+            "offsets": [
+                -83,
+                -201
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Fleetway Left",
+            "offsets": [
+                3,
+                -170
+            ]
+        },
+        {
+            "name": "fastanim",
+            "prefix": "Fleetway HowFast",
+            "offsets": [
+                32,
+                -59
+            ]
+        },
+        {
+            "name": "singDOWN-loop",
+            "prefix": "Fleetway Down",
+            "offsets": [
+                -83,
+                -201
+            ]
+        },
+        {
+            "name": "singLEFT-loop",
+            "prefix": "Fleetway Left",
+            "offsets": [
+                3,
+                -170
+            ]
+        },
+        {
+            "name": "singUP-loop",
+            "prefix": "Fleetway Up",
+            "offsets": [
+                -80,
+                -67
+            ]
+        },
+        {
+            "name": "singRIGHT-loop",
+            "prefix": "Fleetway Right",
+            "offsets": [
+                8,
+                -195
+            ]
+        },
+        {
+            "name": "Growl",
+            "assetPath": "characters/fleetway2",
+            "prefix": "Fleetway Growl",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT-alt",
+            "assetPath": "characters/fleetway2",
+            "prefix": "Fleetway Right Alt",
+            "offsets": [
+                90,
+                -60
+            ]
+        },
+        {
+            "name": "AAAA",
+            "assetPath": "characters/fleetway2",
+            "prefix": "Fleetway Scream",
+            "offsets": [
+                0,
+                -40
+            ]
+        },
+        {
+            "name": "Ill show you",
+            "assetPath": "characters/fleetway2",
+            "prefix": "Fleetway Show You",
+            "offsets": [
+                160,
+                90
+            ]
+        },
+        {
+            "name": "Shut up",
+            "assetPath": "characters/fleetway2",
+            "prefix": "Fleetway Shut Up",
+            "offsets": [
+                60,
+                26
+            ]
+        },
+        {
+            "name": "AAAA",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Scream",
+            "offsets": [
+                0,
+                -40
+            ]
+        },
+        {
+            "name": "Shut up",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Shut Up",
+            "offsets": [
+                60,
+                26
+            ]
+        },
+        {
+            "name": "Grrr",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Grrr",
+            "offsets": [
+                60,
+                120
+            ]
+        },
+        {
+            "name": "Laser Blast",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Laser Blast",
+            "offsets": [
+                250,
+                10
+            ]
+        },
+        {
+            "name": "lmao",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Laugh",
+            "offsets": [
+                100,
+                0
+            ]
+        },
+        {
+            "name": "Step it up",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway StepItUp",
+            "offsets": [
+                90,
+                90
+            ]
+        },
+        {
+            "name": "fatphobia",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway Too Slow",
+            "offsets": [
+                13,
+                78
+            ]
+        },
+        {
+            "name": "WHAT",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway WHAT?!",
+            "offsets": [
+                110,
+                90
+            ]
+        },
+        {
+            "name": "Finished",
+            "assetPath": "characters/fleetway1",
+            "prefix": "Fleetway YoureFinished",
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ],
+    "flipX": false
+}

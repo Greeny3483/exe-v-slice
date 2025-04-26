@@ -1,0 +1,119 @@
+{
+    "assetPath": "characters/P3_BF",
+    "name": "Boyfriend (3rd Person)",
+    "singTime": 4,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": true,
+    "isPixel": false,
+    "offsets": [
+        0,
+        0
+    ],
+    "cameraOffsets": [
+        -100,
+        -140
+    ],
+    "healthIcon": {
+        "id": "bf",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Idle_Flip",
+            "looped": false,
+            "offsets": [
+                -5,
+                -20
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Sing_Left_Flip",
+            "looped": false,
+            "offsets": [
+                48,
+                -28
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Sing_Down_Flip",
+            "looped": false,
+            "offsets": [
+                30,
+                -33
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "Sing_Up_Flip",
+            "looped": false,
+            "offsets": [
+                -69,
+                37
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Sing_Right_Flip",
+            "looped": false,
+            "offsets": [
+                -23,
+                -5
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "Left_Miss_Flip",
+            "looped": false,
+            "offsets": [
+                59,
+                56
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "Down_Miss_Flip",
+            "looped": false,
+            "offsets": [
+                35,
+                -19
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "Up_Miss_Flip",
+            "looped": false,
+            "offsets": [
+                -86,
+                130
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "Right_Miss_Flip",
+            "looped": false,
+            "offsets": [
+                -44,
+                82
+            ],
+            "frameRate": 24
+        }
+    ]
+}

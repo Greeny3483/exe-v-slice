@@ -1,0 +1,143 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.play.Countdown;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+
+// Check the other script in scripts/stages/xenoStage for the stage prop editing, everything else is done here.
+
+class TooSlowSong extends Song {
+    var game;
+    
+    public var songIntroCircle:FunkinSprite;
+    public var songIntroText:FunkinSprite;
+
+
+    public function new() {
+        super("too-slow");
+    }
+
+    override function onCreate(event:ScriptEvent):Void {
+        game = PlayState.instance;
+
+        super.onCreate(event);
+        FunkinSprite.cacheTexture(Paths.image('staticNotes'));
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-too-slow')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-too-slow')); // An automated system is in progress.
+
+		/*songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-too-slow');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        //songIntroCircle.visible = false;
+        game.add(songIntroCircle);
+
+        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Text-too-slow');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        //songIntroText.visible = false;
+        game.add(songIntroText);
+
+        // Add intro images for "too-slow"*/
+    }
+
+    // Reset the script state on game over
+    function onGameOver():Void {
+        super.onGameOver();
+    }
+    function onSongRetry():Void {
+        super.onSongRetry();
+
+        //onCreate(null);
+    }
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+        super.onCountdownStart(event);
+
+        new FlxTimer().start(2, function(tmr)
+        {
+            game.startSong();
+            Countdown.skipCountdown();
+        });
+
+        // Start the custom Sonic intro
+        startSonicIntro();
+    }
+
+    function startSonicIntro():Void {
+
+        var blackBackground = new FlxSprite(0, 0);
+        blackBackground.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+        blackBackground.cameras = [PlayState.instance.camCutscene];
+        blackBackground.zIndex = 999;
+        game.add(blackBackground);
+
+        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-too-slow');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        songIntroCircle.x = FlxG.width;
+        game.add(songIntroCircle);
+
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-too-slow');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        songIntroText.x = -songIntroText.width;
+        game.add(songIntroText);
+
+        FlxTween.tween(songIntroCircle, {x: (FlxG.width / 2) - (songIntroCircle.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroCircle, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroCircle);
+                    }
+                });
+            }
+        });
+
+        FlxTween.tween(songIntroText, {x: (FlxG.width / 2) - (songIntroText.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroText, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroText);
+                    }
+                });
+
+                FlxTween.tween(blackBackground, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(blackBackground);
+                        game.startSong();
+                    }
+                });
+            }
+        });
+    }
+
+}
+

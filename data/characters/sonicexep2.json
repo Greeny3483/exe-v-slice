@@ -1,0 +1,147 @@
+{
+    "assetPath": "characters/YCR",
+    "name": "Sonic.exe (Phase 2)",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        0,
+        110
+    ],
+    "cameraOffsets": [
+        -80,
+        90
+    ],
+    "healthIcon": {
+        "id": "ycr",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "laugh",
+            "prefix": "laugh_Instance",
+            "looped": false,
+            "offsets": [
+                18,
+                -51
+            ],
+            "frameRate": 24,
+            "frameIndices": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ]
+        },
+        {
+            "name": "scream",
+            "prefix": "scream",
+            "looped": false,
+            "offsets": [
+                360,
+                7
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN-alt",
+            "prefix": "laugh",
+            "looped": false,
+            "offsets": [
+                17,
+                -51
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "normal_up",
+            "looped": false,
+            "offsets": [
+                -69,
+                129
+            ],
+            "frameRate": 42
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "normal_left",
+            "looped": false,
+            "offsets": [
+                184,
+                22
+            ],
+            "frameRate": 38
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "normal_down",
+            "looped": false,
+            "offsets": [
+                21,
+                -6
+            ],
+            "frameRate": 40
+        },
+        {
+            "name": "idle",
+            "prefix": "normal_idle",
+            "looped": true,
+            "offsets": [
+                -18,
+                67
+            ],
+            "frameRate": 26
+        },
+        {
+            "name": "singUP-alt",
+            "prefix": "normal_up",
+            "looped": false,
+            "offsets": [
+                -69,
+                129
+            ],
+            "frameRate": 42
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "normal_right",
+            "looped": false,
+            "offsets": [
+                -26,
+                -31
+            ],
+            "frameRate": 35
+        },
+        {
+            "name": "singRIGHT-alt",
+            "prefix": "normal_right",
+            "looped": false,
+            "offsets": [
+                -26,
+                -30
+            ],
+            "frameRate": 35
+        },
+        {
+            "name": "singLEFT-alt",
+            "prefix": "normal_left",
+            "looped": false,
+            "offsets": [
+                183,
+                22
+            ],
+            "frameRate": 34
+        }
+    ]
+}

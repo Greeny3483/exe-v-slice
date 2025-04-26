@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Sbf2",
+    "assetPath": "characters/sbf_lol",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                1005,
+                454
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                960,
+                399
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                974,
+                507
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                841,
+                442
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                945,
+                480
+            ]
+        }
+    ],
+    "flipX": true
+}

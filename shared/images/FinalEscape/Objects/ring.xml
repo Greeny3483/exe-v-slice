@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="ring.png">
+<SubTexture name="ring idle0000" x="276" y="0" width="165" height="166" frameX="-58" frameY="-43" frameWidth="300" frameHeight="239" />
+<SubTexture name="ring idle0001" x="0" y="0" width="138" height="179" frameX="-78" frameY="-36" frameWidth="300" frameHeight="239" />
+<SubTexture name="ring idle0002" x="0" y="179" width="61" height="161" frameX="-111" frameY="-45" frameWidth="300" frameHeight="239" />
+<SubTexture name="ring idle0003" x="138" y="0" width="138" height="178" frameX="-72" frameY="-35" frameWidth="300" frameHeight="239" />
+</TextureAtlas>

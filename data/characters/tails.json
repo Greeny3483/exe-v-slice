@@ -1,0 +1,79 @@
+{
+    "assetPath": "characters/Tails",
+    "name": "Tails.exe",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1.2,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        0,
+        240
+    ],
+    "cameraOffsets": [
+        -170,
+        0
+    ],
+    "healthIcon": {
+        "id": "tails",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Tails IDLE",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Tails LEFT",
+            "looped": false,
+            "offsets": [
+                85,
+                -15
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Tails DOWN",
+            "looped": false,
+            "offsets": [
+                20,
+                -62
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "Tails UP",
+            "looped": false,
+            "offsets": [
+                20,
+                45
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Tails RIGHT",
+            "looped": false,
+            "offsets": [
+                0,
+                -20
+            ],
+            "frameRate": 24
+        }
+    ]
+}

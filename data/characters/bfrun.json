@@ -1,0 +1,61 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Final Escape - Phase 2)",
+    "assetPath": "characters/bfru",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "offsets": [
+        -363,
+        -80
+    ],
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                5,
+                -6
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                -20,
+                -51
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                -46,
+                27
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                -48,
+                -7
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                -5,
+                0
+            ]
+        }
+    ],
+    "flipX": true
+}

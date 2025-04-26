@@ -1,0 +1,369 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -10,
+            "position": [
+                -2500.0,
+                -920.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "bg",
+            "isPixel": false,
+            "assetPath": "Chamber/Wall",
+            "scroll": [
+                0.5,
+                0.5
+            ]
+        },
+        {
+            "zIndex": -9,
+            "position": [
+                -4000.0,
+                280.0
+            ],
+            "scale": [
+                1.2,
+                1.2
+            ],
+            "animType": "sparrow",
+            "name": "ChamberFloor",
+            "isPixel": false,
+            "startingAnimation": "blue",
+            "assetPath": "Chamber/Floor",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 0,
+                    "prefix": "floor yellow",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "yellow"
+                },
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 0,
+                    "prefix": "floor blue",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "blue"
+                }
+            ]
+        },
+        {
+            "zIndex": -8,
+            "position": [
+                -3600.0,
+                -2020.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "ChamberRock",
+            "isPixel": false,
+            "startingAnimation": "Idle",
+            "assetPath": "Chamber/FleetwayBGshit",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "BGyellow",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "yellow"
+                },
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "BGblue",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "normal"
+                }
+            ]
+        },
+        {
+            "zIndex": -7,
+            "position": [
+                -250.0,
+                530.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "ChamberPebles",
+            "isPixel": false,
+            "startingAnimation": "Idle",
+            "assetPath": "Chamber/pebles",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "pebles instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "normal"
+                },
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "pebles instance 2",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "yellow"
+                }
+            ]
+        },
+        {
+            "zIndex": -6,
+            "position": [
+                1400.0,
+                -900.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Porker",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "Chamber/Porker Lewis",
+            "scroll": [
+                1.2,
+                1.2
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "Porker FG",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -3,
+            "position": [
+                -1000.0,
+                -1120.0
+            ],
+            "scale": [
+                1,
+                0.6
+            ],
+            "animType": "sparrow",
+            "name": "ChamberRainEmerald",
+            "isPixel": false,
+            "startingAnimation": "Idle",
+            "assetPath": "Chamber/Emerald Beam",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "Emerald Beam instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "rain"
+                }
+            ]
+        },
+        {
+            "zIndex": -300,
+            "position": [
+                -1200.0,
+                -1120.0
+            ],
+            "scale": [
+                1,
+                0.6
+            ],
+            "animType": "sparrow",
+            "name": "ChamberRainEmerald2",
+            "isPixel": false,
+            "startingAnimation": "rain",
+            "assetPath": "Chamber/Emerald Beam Charged",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "Emerald Beam Charged instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "rain"
+                }
+            ]
+        },
+        {
+            "zIndex": -2,
+            "position": [
+                -600.0,
+                -920.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "ChamberMasterEmerald",
+            "isPixel": false,
+            "startingAnimation": "fly",
+            "assetPath": "Chamber/Emeralds",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "TheEmeralds instance",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "fly"
+                }
+            ]
+        },
+        {
+            "zIndex": 1,
+            "position": [
+                -1200.0,
+                -170.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Chamber",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "Chamber/The Chamber",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "Chamber Sonic Fall0",
+                    "looped": false,
+                    "flipX": false,
+                    "name": "wowSonic"
+                }
+            ]
+        }
+    ],
+    "cameraZoom": 0.7,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                1350,
+                500.6
+            ],
+            "cameraOffsets": [
+                -100,
+                -100
+            ]
+        },
+        "dad": {
+            "zIndex": 0,
+            "position": [
+                -300,
+                0
+            ],
+            "cameraOffsets": [
+                150,
+                0
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                400,
+                30
+            ]
+        }
+    },
+    "name": "Emerald Chambers"
+}

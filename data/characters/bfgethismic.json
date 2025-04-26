@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Bfgethismic",
+    "assetPath": "characters/bfgethismic",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xenoangry",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "bfgethismic",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

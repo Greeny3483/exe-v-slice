@@ -1,0 +1,38 @@
+{
+  "version": "2.2.2",
+  "songName": "You Can't Run",
+  "artist": "MarStarBro",
+  "charter": "MarStarBro",
+  "playData": {
+    "album": "exeVol2OST",
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "gf",
+      "opponent": "sonicexep2",
+      "instrumental": ""
+    },
+    "stage": "hillZonePhase2",
+    "noteStyle": "exeFourKey",
+    "ratings": {"easy": 6, "normal": 8, "hard": 10},
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 140,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

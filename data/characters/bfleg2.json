@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "name": "Bfleg2",
+    "assetPath": "characters/hisleg2",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "leg",
+            "offsets": [
+                -5,
+                0
+            ]
+        }
+    ],
+    "flipX": false
+}

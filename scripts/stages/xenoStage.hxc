@@ -1,0 +1,244 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import funkin.audio.FunkinSound;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+
+class XenoStage extends Stage
+{
+    var game;
+    var tailsJump:FunkinSprite;
+	var knucklesJump:FunkinSprite;
+	var eggmanJump:FunkinSprite;
+
+	var stepCounter:FlxText;
+	var beatCounter:FlxText;
+
+
+    //This script adds the proper events for Triple Trouble.
+	// Positioning a changed character in the script would take too long, so it's done in the respective character's json files.
+
+	public function new()
+	{
+		super('xenoStage');
+	}
+
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		game = PlayState.instance;
+		if (game.currentSong.id.toLowerCase() == "triple-trouble") {
+			FunkinSprite.cacheTexture(Paths.image('STATIC_NOTES'));
+			FunkinSprite.cacheTexture(Paths.image('Xenostage/P3_Stat'));
+			FunkinSprite.cacheTexture(Paths.image('Tails'));
+			FunkinSprite.cacheTexture(Paths.image('Knuckles'));
+			FunkinSprite.cacheTexture(Paths.image('Eggman'));
+
+			tailsJump = FunkinSprite.create(0, 0, 'Tails');
+			tailsJump.cameras = [game.camHUD];
+			game.add(tailsJump);
+			tailsJump.visible = false;
+
+			knucklesJump = FunkinSprite.create(0, 0, 'Knuckles');
+			knucklesJump.cameras = [game.camHUD];
+			game.add(knucklesJump);
+			knucklesJump.visible = false;
+
+			eggmanJump = FunkinSprite.create(0, 0, 'Eggman');
+			eggmanJump.cameras = [game.camHUD];
+			game.add(eggmanJump);
+			eggmanJump.visible = false;
+
+		    screenGlitch1 = FunkinSprite.create(-600, -200);
+            screenGlitch1.frames = Paths.getSparrowAtlas('Xenostage/P3_Stat');
+            screenGlitch1.scrollFactor.set(1, 1);
+            screenGlitch1.scale.set(5.5, 5.5);
+            screenGlitch1.animation.addByPrefix('busk', 'Phase3Static instance 1', 34, false); // org. framerate is 36 // 24 (base game)
+            screenGlitch1.animation.play('busk');
+            screenGlitch1.zIndex = 20;
+			game.add(screenGlitch1);
+			screenGlitch1.visible = false;
+			screenGlitch1.animation.finishCallback = function() {
+                screenGlitch1.visible = false;
+            };
+
+			stepCounter = new FlxText(10, 200, 300, "Step: 0");
+			stepCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
+			stepCounter.color = 0xFFFFFFFF; // Set text color to white
+			stepCounter.scrollFactor.set(0, 0);
+			stepCounter.cameras = [game.camHUD];
+			game.add(stepCounter);
+
+			beatCounter = new FlxText(10, 250, 300, "Beat: 0");
+			beatCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
+			beatCounter.color = 0xFFFFFFFF; // Set text color to white
+			beatCounter.scrollFactor.set(0, 0);
+			beatCounter.cameras = [game.camHUD];
+			game.add(beatCounter);
+
+		}
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+
+		//var p3_Stats = getNamedProp('p3_Stats');
+		//p3_Stats.zIndex = -2;
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		super.onStepHit(event);
+
+		var strumLine = game.playerStrumline; // This is kinda useless but I took code from my VS Annie OC Week port
+        var opStrum = game.opponentStrumline; 
+		var p3_Stats = getNamedProp('p3_Stats');
+
+		stepCounter.text = "Step: " + event.step;
+		beatCounter.text = "Beat: " + event.beat;
+
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 4) // Song start, start a static screen
+		{
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 151)
+		{
+			tailsJump.visible = true;
+			tailsJump.alpha = 1;
+			FlxTween.tween(tailsJump, { alpha: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					tailsJump.visible = false; // Hide after fading out
+				}
+				});
+			
+			var screamSoundTails = FunkinSound.playOnce(Paths.sound("TailsScreamLOL"), 0.6);
+			FlxTween.tween(screamSoundTails, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					screamSoundTails.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1029) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1040) { // This is where Sonic appears
+			p3_Stats.zIndex = 2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1094) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1221) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1285) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 1296) { // This is where Knuckles appears
+			p3_Stats.zIndex = -2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+
+			strumLine.x = 45; // Swap player and opponent strums
+            opStrum.x = 680;
+
+			knucklesJump.visible = true;
+			knucklesJump.alpha = 1;
+			FlxTween.tween(knucklesJump, { alpha: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					knucklesJump.visible = false; // Hide after fading out
+				}
+				});
+			
+			var screamSoundKnuckles = FunkinSound.playOnce(Paths.sound("KnucklesScreamLOL"), 0.6);
+			FlxTween.tween(screamSoundKnuckles, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					screamSoundKnuckles.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 2308) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 2320) { // This is where Sonic appears for the 2nd time
+			p3_Stats.zIndex = 2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 2820) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 2824) { // This is where Eggman appears
+			p3_Stats.zIndex = -2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+
+			strumLine.x = 680; // Swap them back
+            opStrum.x = 45;
+
+			eggmanJump.visible = true;
+			eggmanJump.alpha = 1;
+			FlxTween.tween(eggmanJump, { alpha: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					eggmanJump.visible = false; // Hide after fading out
+				}
+				});
+			
+			var screamSoundEggman = FunkinSound.playOnce(Paths.sound("EggmanScreamLOL"), 0.6);
+			FlxTween.tween(screamSoundEggman, { volume: 0 }, 1, {
+				onComplete: function(tween:FlxTween) {
+					screamSoundEggman.stop(); // Stop the sound after fading out
+				}
+			});
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 3160) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 3384) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 3947) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 3957) { // This is where Sonic appears for the 3rd time
+			p3_Stats.zIndex = 2; // Change the Z-Index.
+			PlayState.instance.currentStage.refresh(); // Apply the Z-Index.
+		}
+		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 4850) {
+			screenGlitch1.visible = true;
+			screenGlitch1.animation.play('busk');
+		}
+	} // Close the onStepHit function properly
+} // Close the XenoStage class properly

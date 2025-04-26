@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Beef",
+    "assetPath": "characters/beef",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "bf_left",
+            "offsets": [
+                25,
+                4
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "bf_down",
+            "offsets": [
+                0,
+                -21
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "bf_up",
+            "offsets": [
+                -16,
+                27
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "bf_right",
+            "offsets": [
+                -38,
+                -7
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "bf_idle",
+            "offsets": [
+                -3,
+                0
+            ]
+        }
+    ],
+    "flipX": true
+}

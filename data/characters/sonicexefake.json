@@ -1,0 +1,89 @@
+{
+    "assetPath": "characters/Fake_Sonic",
+    "name": "Sonic.exe (Sonic Impersonation)",
+    "singTime": 4,
+    "version": "1.0.0",
+    "scale": 1.2,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        80,
+        60
+    ],
+    "cameraOffsets": [
+        220,
+        110
+    ],
+    "healthIcon": {
+        "id": "fuck",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "looped": false,
+            "offsets": [
+                -83,
+                -51
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "looped": false,
+            "offsets": [
+                -82,
+                -64
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "looped": false,
+            "offsets": [
+                -66,
+                -69
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "looped": false,
+            "offsets": [
+                -77,
+                -70
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "Revaled",
+            "prefix": "revaled",
+            "looped": false,
+            "offsets": [
+                27,
+                -44
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "looped": false,
+            "offsets": [
+                -60,
+                -70
+            ],
+            "frameRate": 24
+        }
+    ]
+}

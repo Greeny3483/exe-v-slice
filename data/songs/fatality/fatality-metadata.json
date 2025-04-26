@@ -1,0 +1,38 @@
+{
+  "version": "2.2.2",
+  "songName": "Fatality",
+  "artist": "Saster",
+  "charter": "Saster",
+  "playData": {
+    "album": "exeVol3OST",
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf-fatal",
+      "girlfriend": "",
+      "opponent": "fatal-sonic",
+      "instrumental": ""
+    },
+    "stage": "fatalZone",
+    "noteStyle": "exeFatal",
+    "ratings": {"easy": 7, "normal": 9, "hard": 11},
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 240,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

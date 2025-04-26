@@ -1,0 +1,178 @@
+{
+    "props": [
+        {
+            "zIndex": 10,
+            "position": [
+                -2200.0,
+                -1620.0
+            ],
+            "scale": [
+                5.7,
+                5.7
+            ],
+            "animType": "sparrow",
+            "name": "fatalityBg1",
+            "isPixel": true,
+            "startingAnimation": "idle",
+            "assetPath": "fatal/launchbase",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 14,
+                    "prefix": "idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": 9,
+            "position": [
+                -2200.0,
+                -1620.0
+            ],
+            "scale": [
+                5.7,
+                5.7
+            ],
+            "animType": "sparrow",
+            "name": "fatalityBg2",
+            "isPixel": true,
+            "startingAnimation": "moviment",
+            "assetPath": "fatal/domain",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 14,
+                    "prefix": "idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "moviment"
+                }
+            ]
+        },
+        {
+            "zIndex": 8,
+            "position": [
+                -2200.0,
+                -1620.0
+            ],
+            "scale": [
+                5.7,
+                5.7
+            ],
+            "animType": "sparrow",
+            "name": "fatalityBg3",
+            "isPixel": true,
+            "startingAnimation": "moviment",
+            "assetPath": "fatal/domain2",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 14,
+                    "prefix": "idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "moviment"
+                }
+            ]
+        },
+        {
+            "zIndex": 7,
+            "position": [
+                -2200.0,
+                -1615.0
+            ],
+            "scale": [
+                5.7,
+                5.7
+            ],
+            "animType": "sparrow",
+            "name": "fatalityBg4",
+            "isPixel": true,
+            "startingAnimation": "moviment",
+            "assetPath": "fatal/truefatalstage",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 14,
+                    "prefix": "idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "moviment"
+                }
+            ]
+        }
+    ],
+    "cameraZoom": 0.5,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                700,
+                100
+            ],
+            "cameraOffsets": [
+                -100,
+                -160
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -1000,
+                500
+            ],
+            "cameraOffsets": [
+                0,
+                0
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                400,
+                130
+            ]
+        }
+    },
+    "name": "Fatal Zone"
+}

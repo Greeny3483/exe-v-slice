@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Final Escape - Void, Standing)",
+    "assetPath": "characters/beefdrownsing",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                355,
+                100
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                355,
+                94
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                350,
+                99
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                354,
+                118
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                352,
+                102
+            ]
+        }
+    ],
+    "flipX": false
+}

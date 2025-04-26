@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="menu_annie.png">
+<SubTexture name="idle0000" x="0" y="0" width="1280" height="386" frameX="0" frameY="0" frameWidth="1280" frameHeight="386" />
+</TextureAtlas>

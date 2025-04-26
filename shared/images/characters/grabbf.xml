@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="grabbf.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="grab0000" x="0" y="0" width="411" height="524" frameX="-180" frameY="-198" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0001" x="0" y="0" width="411" height="524" frameX="-180" frameY="-198" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0002" x="411" y="0" width="410" height="528" frameX="-106" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0003" x="821" y="0" width="410" height="528" frameX="-104" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0004" x="821" y="0" width="410" height="528" frameX="-104" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0005" x="1231" y="0" width="410" height="528" frameX="-102" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0006" x="1231" y="0" width="410" height="528" frameX="-102" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0007" x="1231" y="0" width="410" height="528" frameX="-102" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0008" x="1231" y="0" width="410" height="528" frameX="-102" frameY="-194" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0009" x="0" y="528" width="410" height="527" frameX="-107" frameY="-184" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0010" x="0" y="528" width="410" height="527" frameX="-107" frameY="-184" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0011" x="410" y="528" width="421" height="532" frameX="-113" frameY="0" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0012" x="410" y="528" width="421" height="532" frameX="-113" frameY="0" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0013" x="831" y="528" width="434" height="520" frameX="-81" frameY="-25" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0014" x="1265" y="528" width="425" height="869" frameX="0" frameY="-792" frameWidth="591" frameHeight="1661"/>
+	<SubTexture name="grab0015" x="1265" y="528" width="425" height="869" frameX="0" frameY="-792" frameWidth="591" frameHeight="1661"/>
+</TextureAtlas>

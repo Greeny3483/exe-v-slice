@@ -1,0 +1,79 @@
+{
+    "assetPath": "characters/KnucklesEXE",
+    "name": "Knuckles.exe",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 1.1,
+    "flipX": true,
+    "isPixel": false,
+    "offsets": [
+        200,
+        240
+    ],
+    "cameraOffsets": [
+        -50,
+        0
+    ],
+    "healthIcon": {
+        "id": "knux",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Knux Idle",
+            "looped": false,
+            "offsets": [
+                -150,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Knux Down",
+            "looped": false,
+            "offsets": [
+                -80,
+                -105
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "Knux Up",
+            "looped": false,
+            "offsets": [
+                -130,
+                54
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Knux Right",
+            "looped": false,
+            "offsets": [
+                30,
+                -70
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Knux Left",
+            "looped": false,
+            "offsets": [
+                -170,
+                -70
+            ],
+            "frameRate": 24
+        }
+    ]
+}

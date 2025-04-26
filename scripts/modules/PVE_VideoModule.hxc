@@ -1,0 +1,390 @@
+import flixel.FlxG;
+import flixel.group.FlxTypedGroup;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.graphics.video.FunkinVideoSprite;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.module.Module;
+import funkin.play.PlayState;
+import funkin.ui.AtlasText;
+import thx.Objects;
+
+/**
+ * PVE_VideoModule is the module that handles actual video creation with the help of hxvlc.
+ * You are able to call this module directly in your song scripts:
+ *
+ * ModuleHandler.getModule("PVE_VideoModule").scriptCall("createVideo", [
+ *   Paths.videos("VIDEO_FILE_NAME_HERE"),
+ *   {
+ *     videoType: 1,
+ *     disableControls: false,
+ *     hudFadeDuration: 1,
+ *     resync: true,
+ *     zIndex: 300,
+ *     mute: false,
+ *     timestamp: Conductor.instance.songPosition
+ *   }
+ * ]);
+ *
+ * This tells PVE_VideoModule to play a video behind the HUD,
+ * enable inputs, set a HUD fade duration of 1,
+ * resync the video, have a custom zIndex of 3000,
+ * and mute the video.
+ *
+ * Additionally, you can use the function as a normal `FunkinVideoSprite` object:
+ *
+ * var vid:FunkinVideoSprite = ModuleHandler.getModule("PVE_VideoModule").scriptCall("createVideo", [
+ *   Paths.videos("VIDEO_FILE_NAME_HERE"),
+ *   {
+ *     videoType: 1,
+ *     disableControls: false,
+ *     hudFadeDuration: 1,
+ *     resync: true,
+ *     zIndex: 300,
+ *     mute: false,
+ *     timestamp: Conductor.instance.songPosition
+ *   }
+ * ]);
+ *
+ * vid.bitmap.onEndReached.add(function() {
+ *   // Insert logic here I guess.
+ * });
+ */
+class PVE_VideoModule extends Module
+{
+  /**
+   * An group of video objects.
+   */
+  var videoSpriteGroup:FlxTypedGroup<PVE_VideoData> = new FlxTypedGroup();
+
+  /**
+   * Whether or not to fade the HUD.
+   * This is a global variable since other parts of the code outside of `createVideo()` use this.
+   */
+  var fadeHUD:Bool = false;
+
+  /**
+   * The tween used for fading the HUD out.
+   */
+  var fadeOutTween:FlxTween;
+
+  /**
+   * The tween used for fading the HUD in.
+   */
+  var fadeInTween:FlxTween;
+
+  /**
+   * The threshold for resyncing a video, in milliseconds.
+   */
+  var VIDEO_RESYNC_THRESHOLD:Int = 600;
+
+  function new()
+  {
+    super('PVE_VideoModule');
+  }
+
+  /**
+   * Handles video creation
+   * @param config The data to configure the video.
+   */
+  function createVideo(filePath:String, ?config:PVE_ConfigData):FunkinVideoSprite
+  {
+    if (config == null)
+    {
+      config = getDefaultConfig();
+    }
+    else
+    {
+      config = Objects.shallowCombine(getDefaultConfig(), config);
+    }
+
+    var videoSprite:FunkinVideoSprite = new FunkinVideoSprite(0, 0);
+    var blackBars:FunkinSprite = new FunkinSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+
+    videoSprite.zIndex = config.zIndex;
+    blackBars.zIndex = config.zIndex - 1;
+
+    if (filePath == null)
+    {
+      trace('ALERT: The video is null! How did you come across this?');
+      return;
+    }
+
+    // Add the hud fade time (converted to ms) to the timestamp
+    if (config.videoType == 2) config.timestamp += (config.hudFadeDuration * 1000);
+
+    // Ideally, the video itself should play without any issues.
+    // If for some reason hxvlc shits itself or something, this error text will automatically show.
+    videoSprite.bitmap.onEncounteredError.add(function() {
+      if (videoSprite != null)
+      {
+        blackBars.destroy();
+        videoSprite.destroy();
+        videoSprite = null;
+      }
+      var someErrorTextThing:AtlasText = new AtlasText(140, 240, ' AN ERROR OCCURED' + '\nDURING VIDEO PLAYBACK!', 'bold');
+      someErrorTextThing.camera = PlayState.instance.camHUD;
+      someErrorTextThing.zIndex = 5000;
+      PlayState.instance.add(someErrorTextThing);
+      new FlxTimer().start(10, function(errortextshit) {
+        PlayState.instance.remove(someErrorTextThing);
+      });
+    }, true);
+
+    videoSprite.bitmap.onEndReached.add(function() {
+      if (fadeHUD)
+      {
+        fadeInTween = FlxTween.tween(PlayState.instance.camHUD, {alpha: 1}, 0.5,
+          {
+            ease: FlxEase.quadInOut
+          });
+        fadeHUD = false;
+      }
+      blackBars.destroy();
+      videoSprite.destroy();
+      PlayState.instance.camHUD.visible = true;
+      PlayState.instance.disableKeys = false;
+    }, true);
+
+    // scale the video to fit the screen while keepin the aspect ratio!!
+    videoSprite.bitmap.onFormatSetup.add(() -> {
+      var scale:Float = Math.min(FlxG.width / videoSprite.bitmap.bitmapData.width, FlxG.height / videoSprite.bitmap.bitmapData.height);
+
+      videoSprite.setGraphicSize((videoSprite.bitmap.bitmapData.width * scale) + 10, videoSprite.bitmap.bitmapData.height * scale);
+      videoSprite.updateHitbox();
+      videoSprite.screenCenter();
+    });
+
+    PlayState.instance.add(blackBars);
+    PlayState.instance.add(videoSprite);
+    PlayState.instance.refresh();
+
+    if (config.disableControls)
+    {
+      PlayState.instance.disableKeys = true;
+    }
+
+    switch (config.videoType)
+    {
+      case 2:
+        fadeHUD = true;
+        iSwearToGodIWillLiterallyStrangleFNFTheFilePathIsLiterallyRightThereYouCanFindItStopLying = filePath;
+        fuckingHell = (config.mute ? 0 : 1);
+        fadeOutTween = FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, config.hudFadeDuration,
+          {
+            ease: FlxEase.quadOut,
+            onComplete: function(twn:FlxTween) {
+              videoSprite.camera = PlayState.instance.camCutscene;
+              blackBars.camera = PlayState.instance.camCutscene;
+              if (videoSprite.load(Assets.getBytes(iSwearToGodIWillLiterallyStrangleFNFTheFilePathIsLiterallyRightThereYouCanFindItStopLying)))
+              {
+                videoSprite.play();
+                videoSprite.volumeAdjust = fuckingHell;
+              }
+            }
+          });
+      case 3:
+        videoSprite.camera = PlayState.instance.camCutscene;
+        blackBars.camera = PlayState.instance.camCutscene;
+        PlayState.instance.camHUD.visible = false;
+        if (videoSprite.load(Assets.getBytes(filePath)))
+        {
+          videoSprite.play();
+          videoSprite.volumeAdjust = config.mute ? 0 : 1;
+        }
+      default:
+        videoSprite.camera = PlayState.instance.camHUD;
+        blackBars.camera = PlayState.instance.camHUD;
+        if (videoSprite.load(Assets.getBytes(filePath)))
+        {
+          videoSprite.play();
+          videoSprite.volumeAdjust = config.mute ? 0 : 1;
+        }
+    }
+
+    videoSpriteGroup.add(
+      {
+        videoSprite: videoSprite,
+        config: config,
+        letterBoxing: blackBars
+      });
+
+    return videoSprite;
+  }
+
+  /**
+   * Check and resync the video.
+   * @param video The video data.
+   * @param instant Resync the video instantly without checking.
+   * @param resume Whether or not to resume the video after resyncing.
+   */
+  function checkResync(video:PVE_VideoData, ?instant:Bool = false, ?resume:Bool = true):Void
+  {
+    var correctSync:Float = Math.min((FlxG.sound.music?.length ?? video.videoSprite.bitmap.length),
+      Math.max(0, Conductor.instance.songPosition - video.config.timestamp - Conductor.instance.combinedOffset));
+    var videoError:Float = video.videoSprite.bitmap.time - correctSync;
+
+    if (instant || Math.abs(videoError) > VIDEO_RESYNC_THRESHOLD)
+    {
+      trace('VIDEO NEEDS RESYNC!');
+      trace('Resyncing video to ' + correctSync + 'ms (was ' + video.videoSprite.bitmap.time + 'ms)');
+      video.videoSprite.pause();
+      video.videoSprite.bitmap.time = correctSync;
+      if (resume) video.videoSprite.resume();
+    }
+  }
+
+  /**
+   * Clears all the video sprites from the sprite group.
+   */
+  function clearVideoSprites():Void
+  {
+    for (video in videoSpriteGroup.members)
+    {
+      if (video?.videoSprite != null)
+      {
+        video.videoSprite.destroy();
+      }
+    }
+    videoSpriteGroup.clear();
+  }
+
+  /**
+   * Gets the default video configuration.
+   */
+  function getDefaultConfig():Void
+  {
+    // Reasonable defaults
+    return {
+      videoType: 1,
+      disableControls: false,
+      hudFadeDuration: 1,
+      resync: true,
+      zIndex: 300,
+      mute: false,
+      timestamp: Conductor.instance.songPosition
+    }
+  }
+
+  override function onUpdate(event:UpdateScriptEvent):Void
+  {
+    super.onUpdate(event);
+
+    for (video in videoSpriteGroup.members)
+    {
+      video.letterBoxing.visible = video.videoSprite.visible;
+      video.letterBoxing.alpha = video.videoSprite.alpha;
+    }
+  }
+
+  override function onFocusGained(event:FocusScriptEvent):Void
+  {
+    super.onFocusGained(event);
+    if (videoSpriteGroup != null)
+    {
+      // Re-pause the video when we regain focus due to a weird bug.
+      if (PlayState.instance?.isGamePaused)
+      {
+        for (video in videoSpriteGroup.members)
+        {
+          video.videoSprite.pause();
+        }
+      }
+    }
+  }
+
+  override function onStepHit(event:SongTimeScriptEvent):Void
+  {
+    super.onStepHit(event);
+    for (video in videoSpriteGroup.members)
+    {
+      if (video.config.resync && video.videoSprite.bitmap.isPlaying)
+      {
+        checkResync(video, false, true);
+      }
+    }
+  }
+
+  override function onPause(event:PauseScriptEvent):Void
+  {
+    if (fadeOutTween != null) fadeOutTween.active = false;
+    if (fadeInTween != null) fadeInTween.active = false;
+    for (video in videoSpriteGroup.members)
+    {
+      video.videoSprite.pause();
+      if (video.config.resync)
+      {
+        // Force a resync to prevent the video from desyncing when pausing multiple times.
+        checkResync(video, true, false);
+      }
+    }
+  }
+
+  override function onResume(event:ScriptEvent):Void
+  {
+    if (fadeOutTween != null) fadeOutTween.active = true;
+    if (fadeInTween != null) fadeInTween.active = true;
+    for (video in videoSpriteGroup.members)
+    {
+      video.videoSprite.resume();
+    }
+  }
+
+  override function onSongRetry(event:SongRetryEvent):Void
+  {
+    if (fadeHUD)
+    {
+      if (fadeOutTween != null) fadeOutTween.cancel(); // For some reason this is needed to prevent a stack overflow thing I guess???
+      fadeInTween = FlxTween.tween(PlayState.instance.camHUD, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut});
+    }
+    else
+    {
+      PlayState.instance.camHUD.visible = true;
+    }
+    clearVideoSprites();
+  }
+
+  override function onGameOver(event:ScriptEvent):Void
+  {
+    clearVideoSprites();
+  }
+}
+
+typedef PVE_VideoData =
+{
+  /**
+   * The video sprite object itself.
+   */
+  videoSprite:FunkinVideoSprite,
+
+  /**
+   * The configuration for the video.
+   */
+  config:PVE_ConfigData,
+}
+
+typedef PVE_ConfigData =
+{
+  /**
+   * The type of video (1 = normal, 2 = fade HUD, 3 = hide HUD).
+   */
+  videoType:Int,
+
+  /**
+   * The duration of the HUD fade.
+   */
+  hudFadeDuration:Float,
+
+  /**
+   * Whether to resync the video.
+   */
+  resync:Bool,
+
+  /**
+   * The timestamp the video was played at.
+   */
+  timestamp:Float
+}

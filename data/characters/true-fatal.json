@@ -1,0 +1,79 @@
+{
+    "assetPath": "characters/true-fatal",
+    "name": "Fatal Error",
+    "singTime": 6.1,
+    "version": "1.0.0",
+    "scale": 5.1,
+    "flipX": false,
+    "isPixel": true,
+    "offsets": [
+        160,
+        -32
+    ],
+    "cameraOffsets": [
+        815,
+        -130
+    ],
+    "healthIcon": {
+        "id": "true-fatal",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Idle",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ],
+            "frameRate": 12
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Left",
+            "looped": false,
+            "offsets": [
+                -1,
+                0
+            ],
+            "frameRate": 12
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Down",
+            "looped": false,
+            "offsets": [
+                -1,
+                0
+            ],
+            "frameRate": 12
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Right",
+            "looped": false,
+            "offsets": [
+                0,
+                0
+            ],
+            "frameRate": 12
+        },
+        {
+            "name": "singUP",
+            "prefix": "Up",
+            "looped": false,
+            "offsets": [
+                1,
+                0
+            ],
+            "frameRate": 12
+        }
+    ]
+}

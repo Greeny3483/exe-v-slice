@@ -1,0 +1,20 @@
+{
+  "title": "VERSUS SONIC.EXE [V-Slice Add-On | W.I.P]",
+  "description": "Port of VERSUS SONIC.EXE to the base game engine through softcode!",
+  "homepage": "https://gamebanana.com/mods/511838",
+  "contributors": [
+    {
+      "name": "Greeny3483",
+      "role": "Port Creator (Coder)",
+      "url": "https://gamebanana.com/members/1895178"
+    },
+    {
+      "name": "SONIC.EXE Team || Place Holder",
+      "role": "Art, Animation, Music",
+      "url": "https://gamebanana.com/mods/316022"
+    }
+  ],
+  "api_version": "0.5.3",
+  "mod_version": "1.0.0",
+  "license": "Apache-2.0"
+}

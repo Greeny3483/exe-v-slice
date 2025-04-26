@@ -1,0 +1,99 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -3,
+            "position": [
+                -1550.0,
+                -1320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "bg",
+            "isPixel": false,
+            "assetPath": "bgs/serious/bg",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -2,
+            "position": [
+                -1550.0,
+                -1320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "table",
+            "isPixel": false,
+            "assetPath": "bgs/serious/table",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": 299,
+            "position": [
+                -1550.0,
+                -1320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "light",
+            "isPixel": false,
+            "assetPath": "bgs/serious/light",
+            "scroll": [
+                1,
+                1
+            ]
+        }
+    ],
+    "cameraZoom": 0.45,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                280,
+                215
+            ],
+            "cameraOffsets": [
+                -100,
+                -100
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -870,
+                220
+            ],
+            "cameraOffsets": [
+                150,
+                -100
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                400,
+                -1130
+            ]
+        }
+    },
+    "name": "Badass Table"
+}

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="checkpoint.png">
+<SubTexture name="checkpoint idle0000" x="0" y="0" width="395" height="378" frameX="-56" frameY="-100" frameWidth="495" frameHeight="514" />
+<SubTexture name="checkpoint idle0001" x="395" y="0" width="395" height="378" frameX="-56" frameY="-100" frameWidth="495" frameHeight="514" />
+<SubTexture name="checkpoint idle0002" x="0" y="378" width="395" height="378" frameX="-56" frameY="-100" frameWidth="495" frameHeight="514" />
+</TextureAtlas>

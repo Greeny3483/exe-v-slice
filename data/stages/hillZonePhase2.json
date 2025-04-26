@@ -1,0 +1,175 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -6,
+            "position": [
+                -1600.0,
+                -1220.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunSky",
+            "isPixel": false,
+            "assetPath": "run/Sky",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -5,
+            "position": [
+                -1600.0,
+                -1220.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunBG",
+            "isPixel": false,
+            "assetPath": "Phase3/Normal/BackBush",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -4,
+            "position": [
+                -1650.0,
+                -920.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunTrees",
+            "isPixel": false,
+            "assetPath": "run/trees",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -2,
+            "position": [
+                -1650.0,
+                -1020.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunTreesFront",
+            "isPixel": false,
+            "assetPath": "run/TreesFront",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -3,
+            "position": [
+                -1600.0,
+                -920.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunGround",
+            "isPixel": false,
+            "assetPath": "Phase3/Normal/TopBushes",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -1,
+            "position": [
+                -1650.0,
+                -870.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "RunTopOverlay",
+            "isPixel": false,
+            "assetPath": "run/TopOverlay",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -7,
+            "position": [
+                -1600,
+                -1000
+            ],
+            "scale": [
+                9,
+                9
+            ],
+            "name": "GreenHill",
+            "isPixel": true,
+            "assetPath": "run/GreenHill",
+            "scroll": [
+                1,
+                1
+            ]
+        }
+    ],
+    "cameraZoom": 0.65,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                0,
+                50
+            ],
+            "cameraOffsets": [
+                -150,
+                -100
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -700,
+                -100
+            ],
+            "cameraOffsets": [
+                150,
+                -40
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                -200,
+                0
+            ]
+        }
+    },
+    "name": "... Zone (Phase 2)"
+}

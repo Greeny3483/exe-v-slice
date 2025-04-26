@@ -1,0 +1,65 @@
+{
+    "version": "1.0.0",
+    "name": "Sonic.exe (Pixel)",
+    "assetPath": "characters/Sonic_EXE_Pixel",
+    "singTime": 4,
+    "isPixel": true,
+    "scale": 12,
+    "offsets": [
+        -120,
+        -25
+    ],
+    "cameraOffsets": [
+        -120,
+        250
+    ],
+    "healthIcon": {
+        "id": "pixelsonic",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Sonic_EXE_Pixel idle",
+            "offsets": [
+                -106,
+                -50
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Sonic_EXE_Pixel NOTE UP",
+            "offsets": [
+                -106,
+                -50
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Sonic_EXE_Pixel Sonic_EXE_Pixel NOTE DOWN",
+            "offsets": [
+                -106,
+                -50
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Sonic_EXE_Pixel Sonic_EXE_Pixel NOTE LEFT",
+            "offsets": [
+                -106,
+                -50
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Sonic_EXE_Pixel NOTE RIGHT",
+            "offsets": [
+                -106,
+                -50
+            ]
+        }
+    ],
+    "flipX": false
+}

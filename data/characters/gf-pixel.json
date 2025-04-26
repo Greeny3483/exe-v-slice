@@ -1,0 +1,37 @@
+{
+    "version": "1.0.0",
+    "name": "Girlfriend (Genesis)",
+    "assetPath": "characters/Pixel_gf",
+    "singTime": 4,
+    "isPixel": true,
+    "scale": 10,
+    "offsets": [
+        -20,
+        10
+    ],
+    "healthIcon": {
+        "id": "gf",
+        "isPixel": true,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "danceLeft",
+            "prefix": "Pixel gf dance0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "danceRight",
+            "prefix": "Pixel gf dance0",
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ],
+    "flipX": false
+}

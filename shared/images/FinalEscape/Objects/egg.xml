@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="egg.png"><SubTexture name="egg idle0000" x="0" y="0" width="1763" height="1052" frameX="0" frameY="0" frameWidth="1763" frameHeight="1052" />
+<SubTexture name="egg idle0001" x="1763" y="0" width="1763" height="1052" frameX="0" frameY="0" frameWidth="1763" frameHeight="1052" />
+<SubTexture name="egg idle0002" x="0" y="1052" width="1763" height="1052" frameX="0" frameY="0" frameWidth="1763" frameHeight="1052" />
+<SubTexture name="egg idle0003" x="1763" y="1052" width="1763" height="1052" frameX="0" frameY="0" frameWidth="1763" frameHeight="1052" />
+</TextureAtlas>

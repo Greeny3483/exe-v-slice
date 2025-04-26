@@ -1,0 +1,81 @@
+import funkin.audio.FunkinSound;
+import flixel.FlxSprite;
+import funkin.modding.module.Module;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.Preferences;
+
+// Borrowed some code from the VS Tricky V-Slice Port. Made by thisiscub
+/*https://gamebanana.com/mods/513337*/
+
+class StaticNote extends Module {
+    function new() {
+        super("staticnote");
+    }
+
+	function onNoteMiss(event:HitNoteScriptEvent) {
+
+		if (event.note.noteData.kind == "staticnote") {
+			event.cancelEvent();
+
+			FunkinSound.playOnce(Paths.sound("hitStatic1"));
+			PlayState.instance.health -= 0.3;
+
+			var staticFlash:FlxSprite = new FlxSprite(-100, -100);
+			staticFlash.frames = Paths.getSparrowAtlas("hitStatic");
+			staticFlash.animation.addByPrefix("flash", "staticANIMATION000", 30, false);
+			staticFlash.animation.play("flash");
+            staticFlash.scale.set(1.25, 1.25);
+			staticFlash.updateHitbox();
+			staticFlash.zIndex = 1002;
+			staticFlash.cameras = [PlayState.instance.camHUD]; // Can't see anything if you miss
+			PlayState.instance.add(staticFlash);
+			staticFlash.animation.finishCallback = function(name:String) {
+				PlayState.instance.remove(staticFlash);
+			}
+		}
+	}
+
+	function onNoteIncoming(event:NoteScriptEvent) {
+		if (event.note.noteData.kind == "staticnote") {
+			event.note.frames = Paths.getSparrowAtlas("staticNotes");
+
+			if (!Preferences.downscroll) {
+				event.note.animation.addByPrefix("blueScroll", "B000");
+				event.note.animation.addByPrefix("greenScroll", "C000");
+			} else {
+				event.note.animation.addByPrefix("greenScroll", "B000");
+				event.note.animation.addByPrefix("blueScroll", "C000");
+			}
+
+			event.note.animation.addByPrefix("redScroll", "D000");
+			event.note.animation.addByPrefix("purpleScroll", "A000");
+
+			/*if (Preferences.downscroll)
+				event.note.flipY = true;
+
+			event.note.offset.set(93, 145);*/
+
+			var animName:String;
+
+			switch (event.note.noteData.data % 4) {
+				case 0:
+					animName = "purpleScroll";
+				case 1:
+					animName = "blueScroll";
+				case 2:
+					animName = "greenScroll";
+				case 3:
+					animName = "redScroll";
+			}
+
+			event.note.animation.play(animName);
+		}
+	}
+	function onNoteHit(event:HitNoteScriptEvent) {
+        if (event.judgement == "perfect" || event.judgement == "good") { // I forgot you actually NEEDED to hit these at first
+    		super.onNoteHit(event);
+			return;
+		}
+	}
+}

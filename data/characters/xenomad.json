@@ -1,0 +1,65 @@
+{
+    "version": "1.0.0",
+    "name": "Xenomad",
+    "assetPath": "characters/xenoangry",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xenoangry",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "xeno_idle",
+            "offsets": [
+                -1555,
+                70
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "xeno_left",
+            "offsets": [
+                -1469,
+                55
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "xeno_down",
+            "offsets": [
+                -1559,
+                -10
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "xeno_up",
+            "offsets": [
+                -1551,
+                123
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "xeno_right",
+            "offsets": [
+                -1557,
+                76
+            ]
+        },
+        {
+            "name": "where",
+            "prefix": "where",
+            "offsets": [
+                -1510,
+                90
+            ]
+        }
+    ],
+    "flipX": false
+}

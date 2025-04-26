@@ -1,0 +1,65 @@
+{
+    "version": "1.0.0",
+    "name": "Xeno==",
+    "assetPath": "characters/xino",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xenoangry",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                -1555,
+                70
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                -1549,
+                125
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                -1539,
+                120
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                -1561,
+                323
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                -1559,
+                136
+            ]
+        },
+        {
+            "name": "where",
+            "prefix": "where",
+            "offsets": [
+                -1560,
+                280
+            ]
+        }
+    ],
+    "flipX": false
+}

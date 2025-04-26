@@ -1,0 +1,101 @@
+{
+    "assetPath": "characters/sonicexe",
+    "name": "Sonic.exe",
+    "singTime": 4,
+    "renderType": "multisparrow",
+    "version": "1.0.0",
+    "scale": 0.8,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        0,
+        0
+    ],
+    "cameraOffsets": [
+        -10,
+        110
+    ],
+    "healthIcon": {
+        "id": "sonic-exe",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singDOWN-alt",
+            "prefix": "SONIClaugh",
+            "looped": false,
+            "offsets": [
+                0,
+                -40
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "SONICmoveUP",
+            "looped": false,
+            "offsets": [
+                34,
+                31
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "SONICmoveRIGHT",
+            "looped": false,
+            "offsets": [
+                -90,
+                -16
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "idle",
+            "prefix": "SONICmoveIDLE",
+            "looped": true,
+            "offsets": [
+                -60,
+                -80
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "SONICmoveDOWN",
+            "looped": false,
+            "offsets": [
+                20,
+                -160
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "SONICmoveLEFT",
+            "looped": false,
+            "offsets": [
+                110,
+                -63
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "gotcha",
+            "prefix": "Gotcha",
+            "assetPath": "characters/sonicexe-gotcha",
+            "looped": false,
+            "offsets": [
+                100,
+                0
+            ],
+            "frameRate": 24 
+        }
+    ]
+}

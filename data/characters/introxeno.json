@@ -1,0 +1,65 @@
+{
+    "version": "1.0.0",
+    "name": "Sonic.exe (Final Escape - Intro)",
+    "assetPath": "characters/FExeno_assets",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 3,
+    "healthIcon": {
+        "id": "normal",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "offsets": [
+        0,
+        -80
+    ],
+    "cameraOffsets": [
+        0,
+        -190
+    ],
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Xeno_idle",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Xeno_left",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Xeno_up",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Xeno_down",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Xeno_right",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

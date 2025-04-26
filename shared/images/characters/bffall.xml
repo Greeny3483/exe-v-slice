@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bffall.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bffall0000" x="0" y="0" width="2514" height="1484"/>
+	<SubTexture name="bffall0001" x="2514" y="0" width="2514" height="1479" frameX="0" frameY="-5" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0002" x="5028" y="0" width="2514" height="1464" frameX="0" frameY="-20" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0003" x="0" y="1484" width="2514" height="1438" frameX="0" frameY="-46" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0004" x="2514" y="1484" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0005" x="5028" y="1484" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0006" x="0" y="2922" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0007" x="2514" y="2922" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0008" x="5028" y="2922" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0009" x="0" y="4334" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0010" x="2514" y="4334" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0011" x="5028" y="4334" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0012" x="0" y="5746" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0013" x="2514" y="5746" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+	<SubTexture name="bffall0014" x="5028" y="5746" width="2514" height="1412" frameX="0" frameY="-72" frameWidth="2514" frameHeight="1484"/>
+</TextureAtlas>

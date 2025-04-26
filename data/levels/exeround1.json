@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "name": "ROUND 1",
+  "titleAsset": "storymenu/titles/round1",
+  "props": [
+    {
+      "assetPath": "storymenu/props/menu_exe",
+      "scale": 1.05,
+      "offsets": [0, 61],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "idle0",
+          "frameRate": 24
+        }
+      ]
+    }
+  ],
+  "background": "#F9CF51",
+  "songs": ["too-slow", "you-cant-run", "triple-trouble", "final-escape"]
+}

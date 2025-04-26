@@ -1,0 +1,97 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Fatal Error - Small)",
+    "assetPath": "characters/tiny-bf",
+    "singTime": 4,
+    "isPixel": true,
+    "scale": 4,
+    "healthIcon": {
+        "id": "bf-fatal",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "offsets": [
+        -147,
+        2
+    ],
+    "cameraOffsets": [
+        -500,
+        0
+    ],
+    "animations": [
+        {
+            "name": "singDOWN",
+            "prefix": "Down",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Right",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Up",
+            "offsets": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Left",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "MDown",
+            "offsets": [
+                -6,
+                -1
+            ]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "MLeft",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "MUp",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "MRight",
+            "offsets": [
+                -5,
+                -1
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "Idle",
+            "offsets": [
+                -5,
+                -1
+            ]
+        }
+    ],
+    "flipX": false
+}

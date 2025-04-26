@@ -1,0 +1,36 @@
+import flixel.FlxObject;
+import flixel.FlxSprite;
+import flixel.FlxState;
+import flixel.FlxG;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.ui.mainmenu.MainMenuState;
+import funkin.play.PlayState;
+import funkin.Paths;
+import funkin.api.newgrounds.NewgroundsClient;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+
+class ExeSplashText extends Module
+{
+  public var exeVNUM:String = ''; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
+
+  public function new()
+  {
+    super('ExeSplashText');
+  }
+  
+  override function onUpdate(event:UpdateScriptEvent)
+  {
+	  super.onUpdate(event);
+    
+    if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.ui.mainmenu.MainMenuState")
+    {
+      /* Using Constants.VERSION eliminates the need to update this script when a new version of the game is released.
+          * Unless the game code changes the way the version number is handled of course. */
+      FlxG.state.leftWatermarkText.text = "FRIDAY NIGHT FUNKIN' " + Constants.VERSION + " | VERSUS SONIC.EXE BETA (GitHub Initial Release)" + exeVNUM;
+    }
+  }
+}

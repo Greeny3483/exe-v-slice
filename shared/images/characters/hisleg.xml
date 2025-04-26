@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="hisleg.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="leg0000" x="0" y="0" width="289" height="300" frameX="-36" frameY="-3" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0001" x="289" y="0" width="294" height="303" frameX="-36" frameY="0" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0002" x="583" y="0" width="289" height="301" frameX="-36" frameY="-2" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0003" x="872" y="0" width="312" height="290" frameX="-13" frameY="-13" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0004" x="1184" y="0" width="331" height="223" frameX="0" frameY="-80" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0005" x="1515" y="0" width="326" height="261" frameX="-36" frameY="-42" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0006" x="0" y="303" width="334" height="261" frameX="-36" frameY="-42" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0007" x="334" y="303" width="334" height="261" frameX="-36" frameY="-42" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0008" x="668" y="303" width="325" height="252" frameX="-36" frameY="-51" frameWidth="370" frameHeight="303"/>
+	<SubTexture name="leg0009" x="993" y="303" width="298" height="245" frameX="-27" frameY="-58" frameWidth="370" frameHeight="303"/>
+</TextureAtlas>

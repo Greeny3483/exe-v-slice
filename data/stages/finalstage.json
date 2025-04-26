@@ -1,0 +1,436 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -15,
+            "position": [
+                -2300.0,
+                -1320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "Background",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Sky",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -14,
+            "position": [
+                -510.0,
+                -1370.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "Rock",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/THE ROCK",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -13,
+            "position": [
+                -750.0,
+                -1120.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "Sega",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/SEGA",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -12,
+            "position": [
+                -2650.0,
+                -70.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "S",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/S",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -11,
+            "position": [
+                -2250.0,
+                -170.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "O",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/O",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -10,
+            "position": [
+                -900.0,
+                -540.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "N",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/N",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -9,
+            "position": [
+                -490.0,
+                -580.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "I",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/I",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -8,
+            "position": [
+                -160.0,
+                -560.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "C",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Objects/C",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -7,
+            "position": [
+                -2300.0,
+                -1520.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "Mountains",
+            "isPixel": false,
+            "assetPath": "FinalEscape/Mountains",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "zIndex": -6,
+            "position": [
+                -1640.0,
+                -1040.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Ring",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/Objects/ring",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 16,
+                    "prefix": "ring idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -5,
+            "position": [
+                -2250.0,
+                -320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Checkpoint",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/Objects/checkpoint",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "checkpoint idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -4,
+            "position": [
+                -450.0,
+                -960.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Eggman",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/Objects/egg",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 16,
+                    "prefix": "egg idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -3,
+            "position": [
+                -1550.0,
+                -1420.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Text",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/Objects/text",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "text idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -2,
+            "position": [
+                -2350.0,
+                -960.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Lake",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/water",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 16,
+                    "prefix": "water idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": -1,
+            "position": [
+                -2250.0,
+                -1200.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "Band",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FinalEscape/band",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "band idle",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": 100,
+            "position": [
+                -1700,
+                -1200
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "IntroBG",
+            "isPixel": false,
+            "assetPath": "FinalEscape/introbg",
+            "scroll": [
+                1,
+                1
+            ]
+        }
+    ],
+    "cameraZoom": 0.4,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                725,
+                610
+            ],
+            "cameraOffsets": [
+                -610,
+                -350
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -50,
+                800
+            ],
+            "cameraOffsets": [
+                150,
+                -100
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                205,
+                150
+            ]
+        }
+    },
+    "name": "Final Act"
+}

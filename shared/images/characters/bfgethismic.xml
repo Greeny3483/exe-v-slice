@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bfgethismic.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bfgethismic0000" x="0" y="0" width="1456" height="1153" frameX="-604" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0001" x="0" y="0" width="1456" height="1153" frameX="-534" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0002" x="0" y="0" width="1456" height="1153" frameX="-534" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0003" x="0" y="0" width="1456" height="1153" frameX="-534" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0004" x="0" y="0" width="1456" height="1153" frameX="-534" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0005" x="0" y="0" width="1456" height="1153" frameX="-534" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0006" x="0" y="0" width="1456" height="1153" frameX="-504" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0007" x="0" y="0" width="1456" height="1153" frameX="-504" frameY="0" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0008" x="1456" y="0" width="1677" height="1282" frameX="-420" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0009" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0010" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0011" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0012" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0013" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0014" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0015" x="1456" y="0" width="1677" height="1282" frameX="-470" frameY="-88" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0016" x="3133" y="0" width="1623" height="1240" frameX="-497" frameY="-109" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0017" x="3133" y="0" width="1623" height="1240" frameX="-497" frameY="-109" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0018" x="4756" y="0" width="1057" height="650" frameX="0" frameY="-560" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0019" x="4756" y="0" width="1057" height="650" frameX="0" frameY="-560" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0020" x="5813" y="0" width="1057" height="650" frameX="-239" frameY="-560" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0021" x="6870" y="0" width="1064" height="577" frameX="-410" frameY="-520" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0022" x="6870" y="0" width="1064" height="577" frameX="-410" frameY="-520" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0023" x="6870" y="0" width="1064" height="577" frameX="-410" frameY="-520" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0024" x="0" y="1282" width="1207" height="669" frameX="-407" frameY="-488" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0025" x="0" y="1282" width="1207" height="669" frameX="-407" frameY="-488" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0026" x="0" y="1282" width="1207" height="669" frameX="-407" frameY="-488" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0027" x="1207" y="1282" width="1064" height="602" frameX="-407" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0028" x="1207" y="1282" width="1064" height="602" frameX="-407" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0029" x="2271" y="1282" width="1064" height="602" frameX="-407" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0030" x="2271" y="1282" width="1064" height="602" frameX="-407" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0031" x="3335" y="1282" width="1064" height="625" frameX="-407" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0032" x="4399" y="1282" width="1015" height="634" frameX="-353" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0033" x="4399" y="1282" width="1015" height="634" frameX="-353" frameY="-521" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0034" x="5414" y="1282" width="1003" height="775" frameX="-380" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0035" x="5414" y="1282" width="1003" height="775" frameX="-380" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0036" x="6417" y="1282" width="1035" height="775" frameX="-343" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0037" x="6417" y="1282" width="1035" height="775" frameX="-343" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0038" x="0" y="2057" width="1043" height="775" frameX="-331" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0039" x="0" y="2057" width="1043" height="775" frameX="-331" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0040" x="0" y="2057" width="1043" height="775" frameX="-331" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0041" x="0" y="2057" width="1043" height="775" frameX="-192" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0042" x="0" y="2057" width="1043" height="775" frameX="-192" frameY="-349" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0043" x="1043" y="2057" width="826" height="1011" frameX="-974" frameY="-128" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0044" x="1043" y="2057" width="826" height="1011" frameX="-974" frameY="-128" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0045" x="1869" y="2057" width="875" height="1010" frameX="-925" frameY="-129" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0046" x="1869" y="2057" width="875" height="1010" frameX="-925" frameY="-129" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0047" x="2744" y="2057" width="874" height="1011" frameX="-926" frameY="-128" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0048" x="2744" y="2057" width="874" height="1011" frameX="-926" frameY="-128" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0049" x="3618" y="2057" width="768" height="951" frameX="-1024" frameY="-131" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0050" x="3618" y="2057" width="768" height="951" frameX="-1024" frameY="-131" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0051" x="4386" y="2057" width="803" height="1094" frameX="-949" frameY="-25" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0052" x="5189" y="2057" width="1263" height="1159" frameX="-582" frameY="-25" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0053" x="6452" y="2057" width="654" height="1049" frameX="-1098" frameY="-25" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0054" x="7106" y="2057" width="654" height="1049" frameX="-1090" frameY="-14" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0055" x="0" y="3216" width="645" height="1045" frameX="-1107" frameY="-25" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0056" x="645" y="3216" width="644" height="1046" frameX="-1113" frameY="-27" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0057" x="1289" y="3216" width="645" height="1045" frameX="-1107" frameY="-22" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0058" x="1934" y="3216" width="644" height="1045" frameX="-1113" frameY="-17" frameWidth="2147" frameHeight="1370"/>
+	<SubTexture name="bfgethismic0059" x="2578" y="3216" width="645" height="1045" frameX="-1102" frameY="-22" frameWidth="2147" frameHeight="1370"/>
+</TextureAtlas>

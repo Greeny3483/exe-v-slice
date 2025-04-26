@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Bfend",
+    "assetPath": "characters/bffinal",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "bfidle",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "bfleft",
+            "offsets": [
+                17,
+                184
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "bfup",
+            "offsets": [
+                -43,
+                289
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "bfdown",
+            "offsets": [
+                -42,
+                184
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "bfright",
+            "offsets": [
+                -72,
+                183
+            ]
+        }
+    ],
+    "flipX": true
+}

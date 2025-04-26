@@ -1,0 +1,199 @@
+{
+    "assetPath": "characters/BOYFRIEND",
+    "name": "Boyfriend (Flipped)",
+    "singTime": 4,
+    "version": "1.0.0",
+    "scale": 1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        -470,
+        0
+    ],
+    "cameraOffsets": [
+        -200,
+        0
+    ],
+    "healthIcon": {
+        "id": "bf",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "BF idle dance",
+            "looped": false,
+            "offsets": [
+                -5,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "BF NOTE DOWN0",
+            "looped": false,
+            "offsets": [
+                -26,
+                -45
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "BF NOTE UP0",
+            "looped": false,
+            "offsets": [
+                1,
+                27
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "BF NOTE LEFT MISS",
+            "looped": false,
+            "offsets": [
+                -26,
+                23
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "BF NOTE DOWN MISS",
+            "looped": false,
+            "offsets": [
+                -15,
+                -19
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "BF NOTE UP MISS",
+            "looped": false,
+            "offsets": [
+                -6,
+                27
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "BF NOTE RIGHT MISS",
+            "looped": false,
+            "offsets": [
+                26,
+                22
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "hey",
+            "prefix": "BF HEY",
+            "looped": false,
+            "offsets": [
+                -3,
+                5
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "hurt",
+            "prefix": "BF hit",
+            "looped": false,
+            "offsets": [
+                15,
+                18
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "scared",
+            "prefix": "BF idle shaking",
+            "looped": true,
+            "offsets": [
+                -4,
+                0
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "firstDeath",
+            "prefix": "BF dies",
+            "looped": false,
+            "offsets": [
+                37,
+                11
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "deathLoop",
+            "prefix": "BF Dead Loop",
+            "looped": true,
+            "offsets": [
+                37,
+                5
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "deathConfirm",
+            "prefix": "BF Dead confirm",
+            "looped": false,
+            "offsets": [
+                37,
+                69
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "dodge",
+            "prefix": "boyfriend dodge",
+            "looped": false,
+            "offsets": [
+                -10,
+                -16
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "attack",
+            "prefix": "boyfriend attack",
+            "looped": false,
+            "offsets": [
+                294,
+                267
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "BF NOTE LEFT0",
+            "looped": false,
+            "offsets": [
+                -38,
+                -7
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "BF NOTE RIGHT0",
+            "looped": false,
+            "offsets": [
+                36,
+                -7
+            ],
+            "frameRate": 24
+        }
+    ]
+}

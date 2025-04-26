@@ -1,0 +1,104 @@
+import funkin.play.PlayState;
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.Preferences;
+import funkin.Paths;
+
+/*  Author: DaWaterMalone
+    Description: A chart event that adds text ( lyrics ) to the camHUD.
+
+    Example use in Monster-chart-spooky.json:
+
+    {
+        "t": 30947.3684210526,
+        "e": "Lyrics",
+        "v": {
+            "lyric": "Guess it's time"
+    }
+*/
+
+class LyricsEvent extends SongEvent
+{
+    private var lyrics:FlxText;
+
+    public function new()
+    {
+        // Name of the event to call in the songs JSON file.
+        super( 'Lyrics' );
+    }
+
+    // Executes when the song gets to this chart event.
+    public override function handleEvent( data:SongEventData ):Void
+    {
+        // Shortcut way to access the PlayState file from the source code.
+		var state = PlayState.instance;
+		if ( state == null ) return;
+
+        var lyric:Null<String> = data.value.lyric != null ? data.value.lyric : "";
+
+        if ( lyrics != null )
+        {
+            lyrics.destroy();
+        }
+
+        // Modify the "Lyrics" event to add a special design during "Personel".
+        if (PlayState.instance != null && PlayState.instance.currentSong.id.toLowerCase() == "personel") {
+            lyrics = new FlxText( 0, 0, 1200, "", 32 );
+            lyrics.setFormat( Paths.font("PressStart2P.ttf" ), 32, 0xFFC000FF, 'center', FlxTextBorderStyle.OUTLINE, 0xFF000000 );
+            lyrics.borderSize = 1.5;
+            lyrics.alpha = 0;
+        } else {
+            lyrics = new FlxText( 0, 0, 1200, "", 32 );
+            lyrics.setFormat( Paths.font( "VCR_OSD_MONO.ttf" ), 32, 0xFFFFFFFF, 'center', FlxTextBorderStyle.OUTLINE, 0xFF000000 );
+            lyrics.borderSize = 1.5;
+            lyrics.alpha = 0;
+        }
+
+        lyrics.cameras = [ state.camHUD ];
+        lyrics.zIndex = state.playerStrumline.zIndex + 20;
+        lyrics.x = state.healthBar.x - 306;
+
+        lyrics.text = lyric;
+        lyrics.alpha = 1;
+        state.add( lyrics );
+
+        if ( Preferences.downscroll )
+        {
+            lyrics.y = state.healthBar.y + 60;
+        }
+        else
+        {
+            lyrics.y = state.healthBar.y - 110;
+        }
+
+        if ( lyric == "" )
+        {
+            lyrics.text = "";
+            lyrics.alpha = 0;
+        }
+
+        state.refresh();
+    }
+
+    // The name of the event within the Chart Editor screen.
+    public function getTitle():String
+    {
+        return "Lyrics";
+    }
+
+    // Event information that will show within the Chart Editor screen,
+    // and how the game will know what to run.
+    public function getEventSchema():SongEventSchema
+    {
+        return [
+            {
+                name: 'lyric',
+                title: 'Lyric',
+                type: 'string',
+                defaultValue: "",
+            }
+        ];
+    }
+}

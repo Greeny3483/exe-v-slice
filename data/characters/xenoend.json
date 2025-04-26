@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Xenoend",
+    "assetPath": "characters/xfinal",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "xenoangry",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "xidle",
+            "offsets": [
+                -42,
+                183
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "xleft",
+            "offsets": [
+                -43,
+                184
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "xup",
+            "offsets": [
+                -43,
+                209
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "xdown",
+            "offsets": [
+                -42,
+                184
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "xright",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

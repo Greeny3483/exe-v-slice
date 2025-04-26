@@ -1,0 +1,24 @@
+{
+	"version": "2.2.3",
+	"songName": "Chaos",
+	"artist": "Jacaris",
+	"charter": "jacaris",
+	"playData": {
+	  "album": "exeVol2OST",
+	  "difficulties": ["easy", "normal", "hard"],
+	  "characters": {
+		"player": "bf",
+		"girlfriend": "",
+		"opponent": "fleetway",
+		"instrumental": ""
+	  },
+	  "stage": "emeraldChamber",
+	  "noteStyle": "exeFourKey",
+	  "ratings": {"easy": 8, "normal": 11, "hard": 13},
+	  "previewStart": 0,
+	  "previewEnd": 15000
+	},
+	"generatedBy": "Chart Editor Import (FNF Legacy)",
+	"timeFormat": "ms",
+	"timeChanges": [{"t": 0, "bpm": 189}]
+}

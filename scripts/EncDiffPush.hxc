@@ -1,0 +1,25 @@
+import flixel.FlxG;
+
+import funkin.util.Constants;
+import funkin.util.ReflectUtil;
+//import funkin.util.FlxColor;
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+
+class EncDiffPush extends Module
+{
+  public function new()
+  {
+    super('EncDiffPush');
+  }
+  override function onSubStateOpenBegin(event:SubStateScriptEvent)
+  {
+    super.onSubStateOpenBegin(event);
+
+    Constants.DEFAULT_DIFFICULTY_LIST_FULL.push("encore"); // Enable the ENCORE difficulty image by pushing the variation into the base difficulty list.
+
+  }
+}

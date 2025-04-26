@@ -1,0 +1,89 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Fatal Error)",
+    "assetPath": "characters/fatal-bf",
+    "singTime": 4,
+    "isPixel": true,
+    "scale": 4,
+    "healthIcon": {
+        "id": "bf-fatal",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Idle",
+            "offsets": [
+                -6,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Left",
+            "offsets": [
+                -6,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Down",
+            "offsets": [
+                -1,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Up",
+            "offsets": [
+                1,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Right",
+            "offsets": [
+                -4,
+                -2
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "MLeft",
+            "offsets": [
+                3,
+                -1
+            ]
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "MDown",
+            "offsets": [
+                5,
+                1
+            ]
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "MUp",
+            "offsets": [
+                4,
+                7
+            ]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "MRight",
+            "offsets": [
+                6,
+                2
+            ]
+        }
+    ],
+    "flipX": true
+}

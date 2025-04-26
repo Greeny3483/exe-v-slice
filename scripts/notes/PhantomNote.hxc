@@ -1,0 +1,89 @@
+import funkin.audio.FunkinSound;
+import flixel.FlxSprite;
+import funkin.modding.module.Module;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.Preferences;
+import flixel.util.FlxTimer;
+import flixel.FlxG;
+
+// Borrowed some code from the VS Tricky V-Slice Port. Made by thisiscub
+/*https://gamebanana.com/mods/513337*/
+
+// Contents from this script are free to use.
+
+class PhantomNote extends Module {
+
+    private var drainRate:Float = 0.01; // The rate of the health drain.
+    private var drainTimer:FlxTimer;
+
+    function new() {
+        super("phantomnote");
+    }
+
+	override function onCreate(event:ScriptEvent):Void {
+		
+        game = PlayState.instance;
+        drainTimer = new FlxTimer();
+
+        super.onCreate(event);
+	}
+
+	function onNoteHit(event:HitNoteScriptEvent) {
+    	if (event.judgement == "perfect" || event.judgement == "good") {
+    		super.onNoteHit(event);
+			return;
+		}
+		if (event.note.noteData.kind == "phantomnote") {
+			drainRate += 0.005; // Increase drain rate with each note hit.
+			startHealthDrain();
+		}
+	}
+
+	private function startHealthDrain():Void {
+		drainTimer.start(0.1, function(timer:FlxTimer):Void {
+			PlayState.instance.health -= drainRate; // Drain health.
+			if (PlayState.instance.health <= 0) {
+				if (drainTimer != null) {
+				    drainTimer.stop();
+				}
+			}
+		}, 70); // Run for 7 seconds (0.1 * 70).
+	}
+
+	function onNoteIncoming(event:NoteScriptEvent) {
+		if (event.note.noteData.kind == "phantomnote") {
+			event.note.frames = Paths.getSparrowAtlas("PhantomNote");
+
+			if (!Preferences.downscroll) {
+				event.note.animation.addByPrefix("blueScroll", "B000");
+				event.note.animation.addByPrefix("greenScroll", "C000");
+			} else {
+				event.note.animation.addByPrefix("greenScroll", "B000");
+				event.note.animation.addByPrefix("blueScroll", "C000");
+			}
+
+			event.note.animation.addByPrefix("redScroll", "D000");
+			event.note.animation.addByPrefix("purpleScroll", "A000");
+
+			var animName:String;
+
+			switch (event.note.noteData.data % 4) {
+				case 0:
+					animName = "purpleScroll";
+				case 1:
+					animName = "blueScroll";
+				case 2:
+					animName = "greenScroll";
+				case 3:
+					animName = "redScroll";
+			}
+
+			event.note.animation.play(animName);
+		}
+	}
+	function onNoteMiss(event:NoteScriptEvent) {
+		if (event.note.noteData.kind == "phantomnote")
+			event.cancelEvent();
+	}
+}

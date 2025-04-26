@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Sbf1",
+    "assetPath": "characters/sbf1",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "bf_left",
+            "offsets": [
+                1005,
+                454
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "bf_down",
+            "offsets": [
+                960,
+                409
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "bf_up",
+            "offsets": [
+                974,
+                497
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "bf_right",
+            "offsets": [
+                911,
+                452
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "bf_idle",
+            "offsets": [
+                945,
+                480
+            ]
+        }
+    ],
+    "flipX": true
+}

@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Final Escape - Intro)",
+    "assetPath": "characters/bffrontxeno",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "idle",
+            "offsets": [
+                655,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "left",
+            "offsets": [
+                667,
+                -3
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "down",
+            "offsets": [
+                660,
+                -31
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "up",
+            "offsets": [
+                654,
+                16
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "right",
+            "offsets": [
+                644,
+                -2
+            ]
+        }
+    ],
+    "flipX": true
+}
