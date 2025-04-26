@@ -1,6 +1,6 @@
 ![Oops! Image didn't load! (Insert EXE logo)](dump/exeV.png)
 
-# 🎮 Versus Sonic.exe V-Slice Port
+# Versus Sonic.exe V-Slice Port
 
 > ⚠️ **Work in Progress**  
 > This mod is a major **W.I.P.** — most, if not everything, is **subject to change**.  
