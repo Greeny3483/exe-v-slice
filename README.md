@@ -25,6 +25,18 @@
 - **Final Escape**  
   _Needs transitions, animations, events, and much more._
 
+### ❗Noticed Issues (READ)
+> These songs are still fully functional in the grand scheme of things, most of these things shouldn't bother you.
+
+- **Too Slow**  
+  _Scaling in Too Slow isn't accurate, and there are missing but not very noticable BG elements_
+- **Fatality**  
+  _Script fails to load when opening the song at random times, press F5 to reload the script and it will work._
+- **Personel (Serious)**  
+  _Rank percentage will be 75% (G) no matter if you 100% "Sick!" the song or not._
+- **Triple Trouble**  
+  _Currently uses old stage assets. (I found this out after I'd already finished the song, Lol.)_
+
 > ⚙️ _Note: All songs still need proper transitions._
 
 ---
