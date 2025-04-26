@@ -90,8 +90,8 @@ class HillZone extends Stage
 			topBorder.scale.set(5, 5);
 			bottomBorder.scale.set(5, 5);
 	
-			topBorder.cameras = [game.camHUD];
-			bottomBorder.cameras = [game.camHUD];
+			topBorder.cameras = [game.camCutscene];
+			bottomBorder.cameras = [game.camCutscene];
 	
 			game.add(topBorder);
 			game.add(bottomBorder);
@@ -136,15 +136,6 @@ class HillZone extends Stage
 		}
 		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1166 && game.currentSong.difficulty != "encore")
 		{
-			// Fade out elements
-			FlxTween.tween(game.opponentStrumline, { alpha: 0 }, 1);
-			FlxTween.tween(game.playerStrumline, { alpha: 0 }, 1);
-			FlxTween.tween(game.healthBar, { alpha: 0 }, 1);
-			FlxTween.tween(game.healthBarBG, { alpha: 0 }, 1);
-			FlxTween.tween(game.iconP1, { alpha: 0 }, 1);
-			FlxTween.tween(game.iconP2, { alpha: 0 }, 1);
-			FlxTween.tween(game.scoreText, { alpha: 0 }, 1);
-
 			// Fade in borders
 			topBorder.visible = true;
 			bottomBorder.visible = true;
@@ -161,15 +152,6 @@ class HillZone extends Stage
 		}
 		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1270 && game.currentSong.difficulty != "encore")
 		{
-			// Fade in elements
-			FlxTween.tween(game.opponentStrumline, { alpha: 1 }, 1);
-			FlxTween.tween(game.playerStrumline, { alpha: 1 }, 1);
-			FlxTween.tween(game.healthBar, { alpha: 1 }, 1);
-			FlxTween.tween(game.healthBarBG, { alpha: 1 }, 1);
-			FlxTween.tween(game.iconP1, { alpha: 1 }, 1);
-			FlxTween.tween(game.iconP2, { alpha: 1 }, 1);
-			FlxTween.tween(game.scoreText, { alpha: 1 }, 1);
-
 			// Fade out borders
 			FlxTween.tween(topBorder, { alpha: 0 }, 1, {
 				onComplete: function(tween:FlxTween) {
