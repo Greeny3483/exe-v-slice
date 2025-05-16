@@ -1,0 +1,21 @@
+{
+	"songName": "Black Sun",
+	"timeFormat": "ms",
+	"artist": "Revie",
+	"charter": "Revie / MarStarBro",
+	"playData": {
+		"album": "exeVol2OST",
+		"stage": "deadHill",
+		"noteStyle": "exeFourKey",
+		"difficulties": ["easy", "normal", "hard"],
+		"ratings": {"easy": 4, "normal": 5, "hard": 7},
+		"previewStart": 0,
+		"previewEnd": 15000,
+		"characters": {"girlfriend": "faker-gf", "opponent": "FakerExe", "player": "bf"}
+	},
+	"timeChanges": [
+		{"t": 0, "bpm": 150}
+	],
+	"generatedBy": "Psych Engine v1.0.4 - Chart Editor V-Slice Exporter",
+	"version": "2.2.3"
+}

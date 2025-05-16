@@ -7,6 +7,7 @@ import flixel.FlxCamera;
 import funkin.audio.FunkinSound;
 import funkin.Conductor;
 import funkin.play.Countdown;
+import funkin.play.cutscene.VideoCutscene;
 import funkin.graphics.FunkinSprite;
 import funkin.modding.module.ScriptedModule;
 import funkin.modding.events.ScriptEvent;
@@ -50,6 +51,10 @@ class FinalEscapeSong extends Song {
 	public override function onCountdownStart(event:CountdownScriptEvent):Void
 	{
 		super.onCountdownStart(event);
+
+        /*var targetVideo = Paths.videos('finalescapeopening');
+
+        VideoCutscene.play(targetVideo);*/
 
         new FlxTimer().start(0.000001, function(tmr)
         {

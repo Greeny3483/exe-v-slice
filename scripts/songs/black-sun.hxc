@@ -1,0 +1,75 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.play.Countdown;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+import funkin.save.Save;
+
+// Check the other script in scripts/stages/xenoStage for the stage prop editing, everything else is done here.
+
+class BlackSunSong extends Song {
+    var game;
+    
+    public var songIntroCircle:FunkinSprite;
+    public var songIntroText:FunkinSprite;
+
+
+    public function new() {
+        super("black-sun");
+    }
+
+    override function onCreate(event:ScriptEvent):Void {
+
+        super.onCreate(event);
+        FunkinSprite.cacheTexture(Paths.image('staticNotes'));
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-too-slow')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-too-slow')); // An automated system is in progress.
+
+        PlayState.instance.opponentStrumline.visible = false;
+
+    }
+
+    /*public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
+	{
+		if (showLocked || Save.instance.hasBeatenSong('faker', null, 'default'))
+		{
+			return super.listDifficulties(variationId, variationIds);
+		}
+
+		// Hide all difficulties if the player has not beaten the week.
+		return [];
+	}*/
+
+    // Reset the script state on game over
+    function onGameOver():Void {
+        super.onGameOver();
+    }
+    function onSongRetry():Void {
+        super.onSongRetry();
+    }
+
+}
+

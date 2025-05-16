@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Faker (Exe)",
+    "assetPath": "characters/Exe_assets",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "faker-exe",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Exe Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Exe Note left",
+            "offsets": [
+                235,
+                15
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Exe Note Down",
+            "offsets": [
+                190,
+                -191
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Exe Note Up",
+            "offsets": [
+                78,
+                56
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Exe Note Right",
+            "offsets": [
+                26,
+                -7
+            ]
+        }
+    ],
+    "flipX": false
+}

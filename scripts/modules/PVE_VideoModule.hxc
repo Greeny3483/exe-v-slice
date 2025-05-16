@@ -79,7 +79,7 @@ class PVE_VideoModule extends Module
   /**
    * The threshold for resyncing a video, in milliseconds.
    */
-  var VIDEO_RESYNC_THRESHOLD:Int = 600;
+  var VIDEO_RESYNC_THRESHOLD:Int = 550;
 
   function new()
   {
@@ -179,10 +179,10 @@ class PVE_VideoModule extends Module
             onComplete: function(twn:FlxTween) {
               videoSprite.camera = PlayState.instance.camCutscene;
               blackBars.camera = PlayState.instance.camCutscene;
-              if (videoSprite.load(Assets.getBytes(iSwearToGodIWillLiterallyStrangleFNFTheFilePathIsLiterallyRightThereYouCanFindItStopLying)))
+              if (videoSprite.load(iSwearToGodIWillLiterallyStrangleFNFTheFilePathIsLiterallyRightThereYouCanFindItStopLying))
               {
                 videoSprite.play();
-                videoSprite.volumeAdjust = fuckingHell;
+                videoSprite.bitmap.volumeAdjust = fuckingHell;
               }
             }
           });
@@ -190,18 +190,18 @@ class PVE_VideoModule extends Module
         videoSprite.camera = PlayState.instance.camCutscene;
         blackBars.camera = PlayState.instance.camCutscene;
         PlayState.instance.camHUD.visible = false;
-        if (videoSprite.load(Assets.getBytes(filePath)))
+        if (videoSprite.load(filePath))
         {
           videoSprite.play();
-          videoSprite.volumeAdjust = config.mute ? 0 : 1;
+          videoSprite.bitmap.volumeAdjust = config.mute ? 0 : 1;
         }
       default:
         videoSprite.camera = PlayState.instance.camHUD;
         blackBars.camera = PlayState.instance.camHUD;
-        if (videoSprite.load(Assets.getBytes(filePath)))
+        if (videoSprite.load(filePath))
         {
           videoSprite.play();
-          videoSprite.volumeAdjust = config.mute ? 0 : 1;
+          videoSprite.bitmap.volumeAdjust = config.mute ? 0 : 1;
         }
     }
 
@@ -223,16 +223,18 @@ class PVE_VideoModule extends Module
    */
   function checkResync(video:PVE_VideoData, ?instant:Bool = false, ?resume:Bool = true):Void
   {
-    var correctSync:Float = Math.min((FlxG.sound.music?.length ?? video.videoSprite.bitmap.length),
-      Math.max(0, Conductor.instance.songPosition - video.config.timestamp - Conductor.instance.combinedOffset));
-    var videoError:Float = video.videoSprite.bitmap.time - correctSync;
+    if (video?.videoSprite?.bitmap == null) return;
+
+    var expectedVideoTime:Float = Conductor.instance.songPosition - Conductor.instance.combinedOffset - video.config.timestamp;
+    var videoError:Float = video.videoSprite.bitmap.time - expectedVideoTime;
 
     if (instant || Math.abs(videoError) > VIDEO_RESYNC_THRESHOLD)
     {
       trace('VIDEO NEEDS RESYNC!');
-      trace('Resyncing video to ' + correctSync + 'ms (was ' + video.videoSprite.bitmap.time + 'ms)');
+      trace('Video error: ' + Std.int(Math.abs(videoError)) + 'ms');
+      trace('Resyncing video to ' + Std.int(expectedVideoTime) + 'ms (was ' + Std.int(video.videoSprite.bitmap.time) + 'ms)');
       video.videoSprite.pause();
-      video.videoSprite.bitmap.time = correctSync;
+      video.videoSprite.bitmap.time = expectedVideoTime;
       if (resume) video.videoSprite.resume();
     }
   }
@@ -242,11 +244,12 @@ class PVE_VideoModule extends Module
    */
   function clearVideoSprites():Void
   {
-    for (video in videoSpriteGroup.members)
+    for (video in videoSpriteGroup?.members)
     {
       if (video?.videoSprite != null)
       {
         video.videoSprite.destroy();
+        video.letterBoxing.destroy();
       }
     }
     videoSpriteGroup.clear();
@@ -301,7 +304,7 @@ class PVE_VideoModule extends Module
     super.onStepHit(event);
     for (video in videoSpriteGroup.members)
     {
-      if (video.config.resync && video.videoSprite.bitmap.isPlaying)
+      if (video.config.resync && video.videoSprite?.bitmap?.isPlaying)
       {
         checkResync(video, false, true);
       }
@@ -348,6 +351,16 @@ class PVE_VideoModule extends Module
   }
 
   override function onGameOver(event:ScriptEvent):Void
+  {
+    clearVideoSprites();
+  }
+
+  override function onSongEnd(event:ScriptEvent):Void
+  {
+    clearVideoSprites();
+  }
+
+  override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     clearVideoSprites();
   }

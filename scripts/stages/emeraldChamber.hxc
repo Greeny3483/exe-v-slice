@@ -2,6 +2,7 @@ import flixel.FlxG;
 import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import funkin.play.Countdown;
 import flixel.util.FlxTimer;
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
@@ -32,6 +33,8 @@ import flixel.math.FlxPoint;
 
 class EmeraldChamber extends Stage
 {
+	public var opponentFloatOffset:Float = 0;
+
 	public function new()
 	{
 		super('emeraldChamber');
@@ -42,7 +45,9 @@ class EmeraldChamber extends Stage
 		super.onCreate(event);
 
 		game = PlayState.instance;
+
 	}
+
 	public override function onCountdownStart(event:CountdownScriptEvent):Void {
         super.onCountdownStart(event);
 
@@ -82,9 +87,12 @@ class EmeraldChamber extends Stage
         });
 		new FlxTimer().start(7, function(tmr)
         {
-			FlxTween.tween(dad, {y: -700}, 0.5, { ease: FlxEase.quadOut }).onComplete = function()
-
-			startSong();
+			PlayState.instance.startCountdown();
+			new FlxTimer().start(0.000001, function(tmr)
+            {
+                Countdown.skipCountdown();
+            });
+			FlxTween.tween(dad, {y: -700}, 0.5, { ease: FlxEase.quadOut }).onComplete = function() {};
         });
 
 		game.opponentStrumline.visible = false;
@@ -94,7 +102,6 @@ class EmeraldChamber extends Stage
 		game.healthBarBG.visible = false;
 		game.iconP1.visible = false;
 		game.iconP2.visible = false;
-
 		
 	}
 
@@ -102,8 +109,27 @@ class EmeraldChamber extends Stage
 	{
 		super.buildStage();
 	}
-	function startSong() {
-		PlayState.instance.startSong();
+
+	override function update(elapsed:Float):Void {
+		super.update(elapsed);
+
+		if (PlayState.instance != null) {
+			opponentFloatOffset += elapsed * 1.5;
+			game.currentStage.getDad().y += Math.sin(opponentFloatOffset) * 1.5;
+		}
+	}
+
+	function disableHud() {
+		game.opponentStrumline.visible = false;
+		game.playerStrumline.visible = false;
+		game.scoreText.visible = false;
+		game.healthBar.visible = false;
+		game.healthBarBG.visible = false;
+		game.iconP1.visible = false;
+		game.iconP2.visible = false;
+	}
+
+	function enableHud() {
 		game.opponentStrumline.visible = true;
 		game.playerStrumline.visible = true;
 		game.scoreText.visible = true;
@@ -111,6 +137,5 @@ class EmeraldChamber extends Stage
 		game.healthBarBG.visible = true;
 		game.iconP1.visible = true;
 		game.iconP2.visible = true;
-
 	}
 }

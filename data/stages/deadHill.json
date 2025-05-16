@@ -1,0 +1,133 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -4,
+            "position": [
+                -1800.0,
+                -1220.0
+            ],
+            "scale": [
+                1.3,
+                1.3
+            ],
+            "name": "FakerExeBG",
+            "isPixel": false,
+            "assetPath": "exeBg/sky",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -3,
+            "position": [
+                -1100.0,
+                -1520.0
+            ],
+            "scale": [
+                1.2,
+                1.2
+            ],
+            "name": "FakerExeBg2",
+            "isPixel": false,
+            "assetPath": "exeBg/ground",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": 1,
+            "position": [
+                -85.0,
+                -570.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "FakerExeTails",
+            "isPixel": false,
+            "assetPath": "exeBg/TailsCorpse",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "zIndex": -1,
+            "position": [
+                -1200.0,
+                -1520.0
+            ],
+            "scale": [
+                1.15,
+                1.15
+            ],
+            "animType": "sparrow",
+            "name": "FakerExeGround",
+            "isPixel": false,
+            "startingAnimation": "anim",
+            "assetPath": "exeBg/ExeAnimatedBG_Assets",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "ExeBGAnim",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "anim"
+                }
+            ]
+        }
+    ],
+    "cameraZoom": 0.9,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                700,
+                20
+            ],
+            "cameraOffsets": [
+                -100,
+                -140
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -170,
+                100
+            ],
+            "cameraOffsets": [
+                150,
+                -250
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                280,
+                -80
+            ]
+        }
+    },
+    "name": "Dead Hill"
+}

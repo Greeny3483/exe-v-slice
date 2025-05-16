@@ -3,77 +3,53 @@ import flixel.math.FlxBasePoint;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
-import flixel.text.FlxText;
-import flixel.text.FlxTextBorderStyle;
 import flixel.FlxCamera;
-import funkin.audio.FunkinSound;
-import funkin.Conductor;
 import funkin.graphics.FunkinSprite;
-import funkin.modding.module.ScriptedModule;
-import funkin.modding.events.ScriptEvent;
-import funkin.modding.events.ScriptEventDispatcher;
-import funkin.util.ReflectUtil;
 import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
-import funkin.play.stage.Bopper;
-import funkin.play.stage.StageProp;
-import funkin.data.stage.StageRegistry;
-import funkin.play.character.CharacterType;
-import funkin.play.character.BaseCharacter;
-import funkin.play.character.CharacterDataParser;
 import funkin.play.song.Song;
 import flixel.FlxSprite;
-import haxe.Json;
-import funkin.play.notes.Strumline;
-import funkin.play.notes.StrumlineNote;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 
 /* ---------------------------------------
     Script by Greeny3483
 	Permissions to use are granted, just credit me.
-
-	Note:
-	- Fatal Error's "Fatal Strumline" is located in the character scripts (fatal-sonic).
-	- These functions are still a work in progress.
-	---------------------------------------
 */
 
 class FatalZone extends Stage
 {
 
-	public var middlescroll = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2;
-	//public var invisible = -50000;         
-
 	var statix:FunkinSprite;
 	var leftBorder:FlxSprite;
 	var rightBorder:FlxSprite;
-	var popups:Array<FlxSprite>; // Array to hold popup sprites
-	public var popupTimer:FlxTimer; // Timer to control popup appearance
-	var fatalCursor:FlxSprite; // Custom mouse cursor sprite
+	var popups:Array<FlxSprite>;
+	public var popupTimer:FlxTimer;
+	var fatalCursor:FlxSprite;
 
 
 	public var popup = FunkinSprite.create(FlxG.random.float(0, FlxG.width - 300), FlxG.random.float(0, FlxG.height - 300)); // Insert popup as a class-level variable
 
 	public function new()
 	{
-		super('fatalZone');
+		super("fatalZone");
+		trace("FatalZone stage initialized."); // Trace added here
 	}
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
+		trace("FatalZone stage onCreate called."); // Trace added here
 
 		game = PlayState.instance;
 
-		FunkinSprite.cacheTexture(Paths.image('fatal/domain')); // Despite the stage already loading them just with a low Z-Index, the game lagged if I didn't do this.
+
+		FunkinSprite.cacheTexture(Paths.image('fatal/domain'));
 		FunkinSprite.cacheTexture(Paths.image('fatal/domain2'));
 		FunkinSprite.cacheTexture(Paths.image('fatal/truefatalstage'));
 		FunkinSprite.cacheTexture(Paths.image('error_popups'));
 
-
-		if (game.currentSong.id.toLowerCase() == "fatality") {
 
 			statix = FunkinSprite.create(0, 0);
 			statix.frames = Paths.getSparrowAtlas('statix');
@@ -98,7 +74,6 @@ class FatalZone extends Stage
 			rightBorder.scale.set(5, 3);
 			rightBorder.cameras = [game.camHUD];
 			game.add(rightBorder);
-		}
 
 		fatalCursor = new FlxSprite();
 		fatalCursor.loadGraphic(Paths.image('fatal_mouse_cursor'));
@@ -110,6 +85,7 @@ class FatalZone extends Stage
 		game.add(fatalCursor);
 
 		fatalCursor.zIndex = 9999;
+		fatalCursor.cameras = [game.camCutscene];
 		PlayState.instance.currentStage.refresh();
 
 		FlxG.mouse.visible = false; // Hide the default system cursor
@@ -242,7 +218,7 @@ class FatalZone extends Stage
 		var phase2bg = getNamedProp('fatalityBg3');
 		var phase3bg = getNamedProp('fatalityBg4');
 
-		if (event.step == 257 && game.currentSong.id.toLowerCase() == "fatality")
+		if (event.step == 257)
 		{
 			statix.visible = true;
 			statix.animation.play('static');
@@ -264,7 +240,7 @@ class FatalZone extends Stage
 			}, 0);
 		}
 
-		if (event.step == 513 && game.currentSong.id.toLowerCase() == "fatality")
+		if (event.step == 513)
 		{
 			// Start creating popups every 2 beats
 			popupTimer.start(event.beat % 2 == 0, function(timer:FlxTimer):Void {
@@ -272,7 +248,7 @@ class FatalZone extends Stage
 			}, 0);
 		}
 
-		if (event.step == 897 && game.currentSong.id.toLowerCase() == "fatality")
+		if (event.step == 897)
 		{
 			clearPopups();
 			popupTimer.start(2, function(timer:FlxTimer):Void {
@@ -280,12 +256,12 @@ class FatalZone extends Stage
 			}, 0);
 		}
 
-		if (event.step == 1727 && game.currentSong.id.toLowerCase() == "fatality")
+		if (event.step == 1727)
 		{
 			clearPopupsQuickly();
 		}
 
-	    if (event.step == 1984 && game.currentSong.id.toLowerCase() == "fatality")
+	    if (event.step == 1984)
 		{
 			clearPopups();
 			popupTimer.start(event.beat % 1 == 0, function(timer:FlxTimer):Void { // Intense
@@ -301,14 +277,15 @@ class FatalZone extends Stage
 					statix.visible = false;
 				});
 			}
+
+			PlayState.instance.playerStrumline.x = FlxG.width / 2 - game.playerStrumline.width / 2;
+			PlayState.instance.opponentStrumline.visible = false;
 			
 			phase3bg.zIndex = 20;
 			PlayState.instance.currentStage.refresh(); // Apply Z-Index.
 
-			game.playerStrumline.x = middlescroll; // Enable middlescroll
-
 		}
-		if (event.step == 2527 && game.currentSong.id.toLowerCase() == "fatality")
+		if (event.step == 2527)
 		{
 			clearPopupsQuickly();
 		}

@@ -28,38 +28,54 @@
                 183
             ]
         },
-        {
-            "name": "singLEFT",
-            "prefix": "Xeno_left",
-            "offsets": [
-                -42,
-                183
-            ]
-        },
-        {
-            "name": "singUP",
-            "prefix": "Xeno_up",
-            "offsets": [
-                -42,
-                183
-            ]
-        },
-        {
-            "name": "singDOWN",
-            "prefix": "Xeno_down",
-            "offsets": [
-                -42,
-                183
-            ]
-        },
-        {
-            "name": "singRIGHT",
-            "prefix": "Xeno_right",
-            "offsets": [
-                -42,
-                183
-            ]
-        }
+		{
+			"flipY": false,
+			"offsets": [
+				-40,
+				166
+			],
+			"frameRate": 24,
+			"prefix": "Xeno_left",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-40,
+				258
+			],
+			"frameRate": 24,
+			"prefix": "Xeno_up",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-40,
+				194
+			],
+			"frameRate": 24,
+			"prefix": "Xeno_down",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-40,
+				192
+			],
+			"frameRate": 24,
+			"prefix": "Xeno_right",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
     ],
     "flipX": false
 }

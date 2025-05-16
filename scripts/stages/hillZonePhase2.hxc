@@ -12,6 +12,7 @@ import funkin.graphics.FunkinSprite;
 import funkin.modding.module.ScriptedModule;
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.events.ScriptEventDispatcher;
+import funkin.data.notestyle.NoteStyleRegistry;
 import funkin.util.ReflectUtil;
 import funkin.Paths;
 import funkin.play.PlayState;

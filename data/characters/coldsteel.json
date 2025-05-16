@@ -1,79 +1,92 @@
 {
-    "assetPath": "characters/coldsteel",
-    "name": "Coldsteel",
-    "singTime": 4,
-    "version": "1.0.0",
-    "scale": 1.5,
-    "flipX": false,
-    "isPixel": false,
-    "offsets": [
-        -150,
-        0
-    ],
-    "cameraOffsets": [
-        100,
-        -50
-    ],
-    "healthIcon": {
-        "id": "coldsteel-serious",
-        "offsets": [
-            0,
-            0
-        ],
-        "flipX": false,
-        "isPixel": false,
-        "scale": 1
-    },
-    "animations": [
-        {
-            "name": "singLEFT",
-            "prefix": "left",
-            "looped": false,
-            "offsets": [
-                -2,
-                38
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singRIGHT",
-            "prefix": "right",
-            "looped": false,
-            "offsets": [
-                -277,
-                -57
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singUP",
-            "prefix": "up",
-            "looped": false,
-            "offsets": [
-                -48,
-                255
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singDOWN",
-            "prefix": "down",
-            "looped": false,
-            "offsets": [
-                -224,
-                -67
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "idle",
-            "prefix": "idle",
-            "looped": false,
-            "offsets": [
-                -170,
-                0
-            ],
-            "frameRate": 24
-        }
-    ]
+	"version": "1.0.0",
+	"offsets": [
+		-150,
+		0
+	],
+	"renderType": "sparrow",
+	"danceEvery": 1,
+	"scale": 1.5,
+	"name": "Coldsteel",
+	"flipX": false,
+	"cameraOffsets": [
+		100,
+		-50
+	],
+	"isPixel": false,
+	"singTime": 4,
+	"startingAnimation": "idle",
+	"assetPath": "characters/coldsteel",
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "coldsteel-serious",
+		"flipX": false
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				73,
+				48
+			],
+			"frameRate": 24,
+			"prefix": "left",
+			"flipX": false,
+			"name": "singLEFT",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-232,
+				-31
+			],
+			"frameRate": 24,
+			"prefix": "right",
+			"flipX": false,
+			"name": "singRIGHT",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-93,
+				170
+			],
+			"frameRate": 24,
+			"prefix": "up",
+			"flipX": false,
+			"name": "singUP",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-201,
+				-42
+			],
+			"frameRate": 24,
+			"prefix": "down",
+			"flipX": false,
+			"name": "singDOWN",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-170,
+				0
+			],
+			"frameRate": 24,
+			"prefix": "idle",
+			"flipX": false,
+			"name": "idle",
+			"looped": false
+		}
+	]
 }

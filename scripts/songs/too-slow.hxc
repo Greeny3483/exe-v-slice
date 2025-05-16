@@ -48,16 +48,16 @@ class TooSlowSong extends Song {
         FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-too-slow')); // An automated system is in progress.
         FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-too-slow')); // An automated system is in progress.
 
-		/*songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-too-slow');
+		songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-too-slow');
         songIntroCircle.cameras = [PlayState.instance.camCutscene];
         songIntroCircle.zIndex = 1000;
-        //songIntroCircle.visible = false;
+        songIntroCircle.visible = false;
         game.add(songIntroCircle);
 
-        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Text-too-slow');
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-too-slow');
         songIntroText.cameras = [PlayState.instance.camCutscene];
         songIntroText.zIndex = 1000;
-        //songIntroText.visible = false;
+        songIntroText.visible = false;
         game.add(songIntroText);
 
         // Add intro images for "too-slow"*/
@@ -73,20 +73,14 @@ class TooSlowSong extends Song {
         //onCreate(null);
     }
 
-	/*public override function onCountdownStart(event:CountdownScriptEvent):Void {
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
         super.onCountdownStart(event);
-
-        new FlxTimer().start(2, function(tmr)
-        {
-            game.startSong();
-            Countdown.skipCountdown();
-        });
 
         // Start the custom Sonic intro
         startSonicIntro();
-    }*/
+    }
 
-    /*function startSonicIntro():Void {
+    function startSonicIntro():Void {
 
         var blackBackground = new FlxSprite(0, 0);
         blackBackground.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
@@ -132,12 +126,11 @@ class TooSlowSong extends Song {
                     ease: FlxEase.quadOut,
                     onComplete: function(tween:FlxTween) {
                         game.remove(blackBackground);
-                        game.startSong();
                     }
                 });
             }
         });
-    }*/
+    }
 
 }
 

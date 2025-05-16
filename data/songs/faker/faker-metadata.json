@@ -1,0 +1,21 @@
+{
+	"songName": "Faker",
+	"timeFormat": "ms",
+	"artist": "Revie",
+	"charter": "Revie / MarStarBro",
+	"playData": {
+		"album": "exeVol2OST",
+		"stage": "barrenHill",
+		"noteStyle": "exeFourKey",
+		"difficulties": ["easy", "normal", "hard"],
+		"ratings": {"easy": 2, "normal": 3, "hard": 4},
+		"previewStart": 0,
+		"previewEnd": 15000,
+		"characters": {"girlfriend": "faker-gf", "opponent": "faker", "player": "bf"}
+	},
+	"timeChanges": [
+		{"t": 0, "bpm": 105}
+	],
+	"generatedBy": "Psych Engine v1.0.4 - Chart Editor V-Slice Exporter",
+	"version": "2.2.3"
+}

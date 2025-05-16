@@ -1,0 +1,41 @@
+{
+    "version": "1.0.0",
+    "name": "Faker Gf",
+    "assetPath": "characters/exe_gf_assets",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "gf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "danceLeft",
+            "prefix": "gf dance",
+            "offsets": [
+                0,
+                -9
+            ]
+        },
+        {
+            "name": "danceRight",
+            "prefix": "gf dance",
+            "offsets": [
+                0,
+                -9
+            ]
+        },
+        {
+            "name": "sad",
+            "prefix": "gf miss",
+            "offsets": [
+                -10,
+                -21
+            ]
+        }
+    ],
+    "flipX": false
+}

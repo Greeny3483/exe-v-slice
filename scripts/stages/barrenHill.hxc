@@ -1,0 +1,78 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+
+// Faker is 2nd favorite EXE song.
+
+class BarrenHill extends Stage
+{
+	public function new()
+	{
+		super('barrenHill');
+	}
+
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		game = PlayState.instance;
+
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+		if (event.step == 768)
+		{
+			var hudElements = [
+				game.opponentStrumline, 
+				game.playerStrumline, 
+				game.scoreText, 
+				game.healthBar, 
+				game.healthBarBG, 
+				game.iconP1, 
+				game.iconP2
+			];
+
+			for (element in hudElements)
+			{
+				if (element != null)
+				{
+					FlxTween.tween(element, { alpha: 0 }, 3, { ease: FlxEase.quadOut });
+				}
+			}
+		}
+	}
+}

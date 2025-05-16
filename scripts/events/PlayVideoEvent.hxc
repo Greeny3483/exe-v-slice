@@ -44,7 +44,7 @@ class PlayVideoEvent extends SongEvent
         resync: data.value.resync,
         zIndex: data.value.zIndex,
         mute: data.value.mute,
-        timestamp: Conductor.instance.songPosition
+        timestamp: data.time
       }
     ]);
   }

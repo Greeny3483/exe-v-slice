@@ -93,33 +93,27 @@
     },
     "countdownThree": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introTHREE"
+        "audioPath": null
       },
       "assetPath": null
     },
     "countdownTwo": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introTWO"
+        "audioPath": null
       },
-      "assetPath": "shared:ui/countdown/funkin/ready",
-      "scale": 1.0,
-      "isPixel": false
+      "assetPath": null
     },
     "countdownOne": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introONE"
+        "audioPath": null
       },
-      "assetPath": "shared:ui/countdown/funkin/set",
-      "scale": 1.0,
-      "isPixel": false
+      "assetPath": null
     },
     "countdownGo": {
       "data": {
-        "audioPath": "shared:gameplay/countdown/funkin/introGO"
+        "audioPath": null
       },
-      "assetPath": "shared:ui/countdown/funkin/go",
-      "scale": 1.0,
-      "isPixel": false
+      "assetPath": null
     },
     "judgementSick": {
       "assetPath": "default:ui/popup/exe1/sick",

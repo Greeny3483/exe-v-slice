@@ -1,0 +1,50 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.FlxCamera;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+//import funkin.Highscore.Tallies;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.Module;
+import flixel.text.FlxText;
+
+
+class EXEHud extends Module
+{
+    private var missCounter:FlxText;
+
+    public function new()
+    {
+        super('EXEHud');
+    }
+    
+    override function onCreate(event:ScriptEvent):Void
+    {
+        super.onCreate(event);
+        
+        if (ReflectUtil.getClassNameOf(FlxG.state) == "funkin.play.PlayState")
+        {
+            game = PlayState.instance;
+
+            // Initialize the miss counter
+            missCounter = new FlxText(10, FlxG.height - 30, 200, "Misses: 0");
+            missCounter.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+            missCounter.scrollFactor.set();
+            missCounter.cameras = [game.camHUD];
+            game.add(missCounter);
+
+            // Update the miss counter on every update
+            game.onUpdate.add(function(elapsed:Float):Void {
+                missCounter.text = "Misses: " +  PlayState.Highscore.tallies.missed;
+            });
+        }
+    }
+}

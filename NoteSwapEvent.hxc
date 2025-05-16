@@ -1,0 +1,183 @@
+import funkin.play.PlayState;
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import funkin.play.scoring.Scoring;
+import funkin.Preferences;
+
+import funkin.Highscore;
+
+import funkin.util.Constants;
+
+import funkin.Paths;
+import flixel.FlxG;
+
+import funkin.data.notestyle.NoteStyleRegistry;
+import funkin.play.notes.notestyle.NoteStyle;
+import funkin.play.notes.notekind.NoteKindManager;
+import funkin.play.notes.NoteSplash;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+import funkin.play.notes.NoteHoldCover;
+import funkin.play.notes.NoteSprite;
+import funkin.play.components.PopUpStuff;
+
+class NoteSwapEvent extends ScriptedSongEvent {
+
+	public override function handleEvent(data) {
+		if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+
+        switch(data.value.strumline) {
+			case 'playerStrumline':
+                ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapPlayerStrumlines', [data.value.notestyle]);
+            case 'opponentStrumline':
+                ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapOpponentStrumlines', [data.value.notestyle]);
+            case 'both':
+                ModuleHandler.getModule('SwappingNotestyles').scriptCall('swapStrumlines', [data.value.notestyle]);
+            } 
+	}
+
+	public function getEventSchema() {
+        var noteStyles = ["Funkin'" => "funkin", "Pixel" => "pixel"];
+		var noteStyleIds:Array<String> = NoteStyleRegistry.instance.listEntryIds();
+	
+		for (noteStyleId in noteStyleIds)
+		{
+		  var noteStyle:Null<NoteStyle> = NoteStyleRegistry.instance.fetchEntry(noteStyleId);
+		  if (noteStyle == null) continue;
+		  noteStyles.set(noteStyle.getName(), noteStyleId);
+		}
+		return [
+            {
+                name: "strumline",
+                title: "Strumline",
+                defaultValue: "playerStrumline",
+				type: "enum",
+				keys: [
+					"Player" => "playerStrumline",
+                    "Opponent" => "opponentStrumline",
+                    "Both" => "both"
+				]
+            },
+            {
+                name: "notestyle",
+                title: "Notestyle",
+                defaultValue: "funkin",
+                type: "enum",
+                keys: noteStyles,
+            }
+		];
+	}
+
+	public function getTitle() {
+		return "Notestyle Swapper";
+	}
+	
+	public function new() {
+		super('NoteSwapEvent');
+	}
+}
+
+class SwappingNotestyles extends Module
+{
+	function new()
+	{
+		super('SwappingNotestyles');
+	}
+
+	override function onSongLoaded(event) {
+		super.onSongLoaded(event);
+		var noteStyleIds:Array<String> = NoteStyleRegistry.instance.listEntryIds();
+		for (noteStyleId in noteStyleIds)
+		{
+			@:privateAccess
+			NoteStyleRegistry.instance.fetchEntry(noteStyleId).buildNoteFrames();
+		}
+	}	
+
+	var hasTriggeredEvent:Bool = false;
+	
+    function swapPlayerStrumlines(stylePlayer:String){
+		newPopUps(stylePlayer);
+		hasTriggeredEvent = true;
+		setupNotes(PlayState.instance.playerStrumline, stylePlayer);
+	}
+
+	function setupNotes(strumline:Strumline, style:String){
+		var noteStyleId:String = style;
+		var noteStyle:NoteStyle = NoteStyleRegistry.instance.fetchEntry(noteStyleId) ?? NoteStyleRegistry.instance.fetchDefault();
+		var ogNoteStyle = strumline.noteStyle;
+		strumline.noteStyle = noteStyle;
+		//Clear all notesplashes and hold covers so the game can make new ones (Do this first so I can redo these with the notes)
+		strumline.noteSplashes.clear();
+		strumline.noteHoldCovers.clear();
+		for (i in 0...Strumline.KEY_COUNT)
+			{
+				strumline.strumlineNotes.members[i].kill();
+				strumline.strumlineNotes.remove(strumline.strumlineNotes.members[i]);
+				var child:StrumlineNote = new StrumlineNote(noteStyle, strumline.isPlayer, Strumline.DIRECTIONS[i]);
+				child.x = strumline.getXPos(Strumline.DIRECTIONS[i]);
+				child.x += Strumline.INITIAL_OFFSET;
+				child.y = 0;
+				noteStyle.applyStrumlineOffsets(child);
+				strumline.strumlineNotes.add(child);
+			}		
+		for (notes in strumline.notes){
+			var noteKindStyle:NoteStyle = NoteKindManager.getNoteStyle(notes.kind, strumline.noteStyle.id) ?? noteStyle;
+			notes.setupNoteGraphic(noteKindStyle);
+			notes.playNoteAnimation(notes.noteData.getDirection());
+			if (notes.get_isHoldNote()) {
+				notes.holdNoteSprite.setupHoldNoteGraphic(noteStyle);
+				notes.holdNoteSprite.noteStyleOffsets = noteStyle.getHoldNoteOffsets();
+				notes.holdNoteSprite.graphicWidth = notes.holdNoteSprite.graphic.width / 8 * notes.holdNoteSprite.zoom; // amount of notes * 2
+				notes.holdNoteSprite.graphicHeight = notes.holdNoteSprite.sustainLength * Constants.PIXELS_PER_MS * strumline?.scrollSpeed ?? 1.0;			
+	
+				notes.holdNoteSprite.updateHitbox();	
+				notes.holdNoteSprite.updateClipping();
+				notes.holdNoteSprite.updateColorTransform();
+	
+				//Recenter hold notes
+				notes.holdNoteSprite.x = strumline.x;
+				notes.holdNoteSprite.x += strumline.getXPos(Strumline.DIRECTIONS[notes.noteData.getDirection() % Strumline.KEY_COUNT]);
+				notes.holdNoteSprite.x += Strumline.STRUMLINE_SIZE / 2;
+				notes.holdNoteSprite.x -= notes.holdNoteSprite.graphicWidth / 2;	
+
+				//Replay hold cover anim
+				if (notes.holdNoteSprite.hitNote){
+					strumline.playNoteHoldCover(notes.holdNoteSprite);
+				}
+			}
+			strumline.onNoteIncoming.dispatch(notes); //Restarts just in case a note uses it
+		}
+	}
+
+	function swapOpponentStrumlines(styleOpponent:String){
+		hasTriggeredEvent = true;
+		setupNotes(PlayState.instance.opponentStrumline, styleOpponent);
+	}
+
+	function newPopUps(newComboStyle:String){
+		var noteStyleId:String = newComboStyle;
+		var noteStyle:NoteStyle = NoteStyleRegistry.instance.fetchEntry(noteStyleId) ?? NoteStyleRegistry.instance.fetchDefault();
+		// Initialize the judgements and combo meter.
+		PlayState.instance.comboPopUps.noteStyle = noteStyle;
+	}
+
+
+	function swapStrumlines(style:String){
+		newPopUps(style);
+		hasTriggeredEvent = true;
+		setupNotes(PlayState.instance.playerStrumline, style);
+		setupNotes(PlayState.instance.opponentStrumline, style);
+	}
+
+	override function onSongRetry(event) {
+		super.onSongRetry(event);
+		if (hasTriggeredEvent) {
+			swapStrumlines(PlayState.instance.currentChart.noteStyle, true);
+			hasTriggeredEvent = false;
+		}
+	}	
+}

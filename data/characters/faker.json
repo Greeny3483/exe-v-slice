@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Faker",
+    "assetPath": "characters/Faker_EXE_assets",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "faker",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "FAKER IDLE instance 1",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "FAKER LEFT instance 1",
+            "offsets": [
+                165,
+                14
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "FAKER DOWN instance 1",
+            "offsets": [
+                -90,
+                -45
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "FAKER UP instance 1",
+            "offsets": [
+                0,
+                61
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "FAKER RIGHT instance 1",
+            "offsets": [
+                12,
+                30
+            ]
+        }
+    ],
+    "flipX": false
+}

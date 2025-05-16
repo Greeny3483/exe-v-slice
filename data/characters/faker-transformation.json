@@ -1,0 +1,49 @@
+{
+    "version": "1.0.0",
+    "name": "Faker Transformation",
+    "assetPath": "characters/Faker_Transformation",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": null,
+    "healthIcon": {
+        "id": "faker-exe",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "TransformationDOWN instance",
+            "offsets": [
+                0,
+                30
+            ]
+        },
+        {
+            "name": "transLeft",
+            "prefix": "TransformationLEFT instance 1",
+            "offsets": [
+                30,
+                150
+            ]
+        },
+        {
+            "name": "transRight",
+            "prefix": "TransformationRIGHT instance 1",
+            "offsets": [
+                -80,
+                180
+            ]
+        },
+        {
+            "name": "transUp",
+            "prefix": "TransformationUP instance 1",
+            "offsets": [
+                -90,
+                350
+            ]
+        }
+    ],
+    "flipX": false
+}

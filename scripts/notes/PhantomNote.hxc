@@ -14,7 +14,7 @@ import flixel.FlxG;
 
 class PhantomNote extends Module {
 
-    private var drainRate:Float = 0.01; // The rate of the health drain.
+    private var drainRate:Float = 0.002; // Slower health drain rate.
     private var drainTimer:FlxTimer;
 
     function new() {
@@ -41,14 +41,14 @@ class PhantomNote extends Module {
 	}
 
 	private function startHealthDrain():Void {
-		drainTimer.start(0.1, function(timer:FlxTimer):Void {
-			PlayState.instance.health -= drainRate; // Drain health.
-			if (PlayState.instance.health <= 0) {
+		drainTimer.start(0.2, function(timer:FlxTimer):Void { // Slower timer interval.
+			PlayState.instance.health = Math.max(0.01, PlayState.instance.health - drainRate); // Drain health but ensure it doesn't go below 0.01.
+			if (PlayState.instance.health <= 0.01) { // Stop draining at minimum HP.
 				if (drainTimer != null) {
 				    drainTimer.stop();
 				}
 			}
-		}, 70); // Run for 7 seconds (0.1 * 70).
+		}, 50); // Run for 10 seconds (0.2 * 50).
 	}
 
 	function onNoteIncoming(event:NoteScriptEvent) {
