@@ -4,7 +4,7 @@
 
 > ⚠️ **Work in Progress**  
 > This mod is a major **W.I.P.** — most, if not everything, is **subject to change**.  
-> ❌ **No, I will not cancel the mod.**
+> ❌ **No, I will not cancel the mod. Inactivity means nothing.**
 
 ---
 
