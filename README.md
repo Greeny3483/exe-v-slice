@@ -1,63 +1,63 @@
 ![Oops! Image didn't load! (Insert EXE logo)](dump/exeV.png)
 
 # Versus Sonic.exe V-Slice Port
+Relive VS Sonic.Exe on a new engine!
 
 > ⚠️ **Work in Progress**  
-> This mod is a major **W.I.P.** — most, if not everything, is **subject to change**.  
-> ❌ **No, I will not cancel the mod. Inactivity means nothing.**
+> This mod is a major **W.I.P.** — a lot is **subject to change**.  
+> ❌ **No, I will not cancel the mod. Inactivity means nothing.** <br>
+> *This is **not** a restoration — this is just a **port.***
+---
+
+## Version 1.0.0
+
+*Includes 8 FULLY FUNCTIONAL songs!*
+
+### **Round 1**
+- Too Slow  
+- You Can't Run  
+- Triple Trouble  
+
+### **Round 2**
+- Endless  
+- Cycles  
+- Faker  
+- Black Sun  
+- Fatality  
+
+Each song is complete with cutscenes, mechanics, and **EASY**, **NORMAL**, and **HARD** difficulties.
+
+This mod is also **highly customizable**, with a separate category located in the Preferences menu.
 
 ---
 
-## 📦 Pack Contents
+## Installation Instructions
 
-### ✅ 100% Completed Songs
-- **Too Slow**
-- **Triple Trouble**
-- **Fatality**
-- **Personel (Serious)**
-
-### 🔧 Mostly Completed Songs
-- **You Can't Run**
-
-### 🚧 Heavily W.I.P. Songs
-- **Chaos**  
-  _Needs camera work, animations, and events._
-- **Final Escape**  
-  _Needs transitions, animations, events, and much more._
-
-### ❗Noticed Issues (READ)
-> These songs are still fully functional in the grand scheme of things, most of these things shouldn't bother you.
-
-- **Too Slow**  
-  _Scaling in Too Slow isn't accurate, and there are missing but not very noticable BG elements_
-- **Fatality**  
-  _Script fails to load when opening the song at random times, press F5 to reload the script and it will work._
-- **Personel (Serious)**  
-  _Rank percentage will be 75% (G) no matter if you 100% "Sick!" the song or not._
-- **Triple Trouble**  
-  _Currently uses old stage assets. (I found this out after I'd already finished the song, Lol.)_
-
-> ⚙️ _Note: All songs still need proper transitions._
+- Drag and drop `sonic v-slice.zip` into your base game `mods` folder.  
+- If you do not have one, create one.  
+- Extraction is optional, but may be necessary if the mod doesn't work as intended.
 
 ---
 
-## 🧩 Other Elements in Progress
+## My Other Mods
 
-- HUD elements  
-- Freeplay icons  
-
-> These may not be available until the full mod is complete.
+- [Smoke 'Em Out Struggle V-Slice Port](https://gamebanana.com/mods/511838)  
+- [VS Annie OC Week V-Slice Port](https://gamebanana.com/mods/581764)
 
 ---
 
-## ⚠️ Restored Asset Notice
+## Recommended Mods
 
-Some elements in this mod are taken from the **RESTORED** version of the Versus Sonic.exe mod (by Merphi and his team).  
-This means **they were not made by the EXE team** and could pose a takedown risk.  
-If necessary, I may be required to remove the following songs and/or their assets:
+- [V-SLICE GHOSTTAPPING](https://gamebanana.com/mods/510828)
 
-- **Personel (Serious)**
-- **More** _(unfinished)_
+---
+
+## Original Mods
+
+- [Friday Night Funkin': Vs. Sonic.Exe (UPDATE 2 OUT)](https://gamebanana.com/mods/316022)  
+- [Notestyle Swap Event (V-Slice)](https://gamebanana.com/mods/592314)  
+- [V-Slice Change Character Event (Tool)](https://gamebanana.com/tools/16835)  
+- [Lyrics Event (Post)](https://gamebanana.com/posts/12192849)
 
 ---
 
