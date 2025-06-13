@@ -35,7 +35,7 @@ class XenoStage extends Stage
 	var knucklesJump:FunkinSprite;
 	var eggmanJump:FunkinSprite;
 
-	var stepCounter:FlxText;
+	var stepCounter:FlxText; // These were used in testing, before the debug mod was released
 	var beatCounter:FlxText;
 
 
