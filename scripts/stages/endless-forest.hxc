@@ -1,0 +1,167 @@
+import flixel.FlxG;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxTimer;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import flixel.FlxCamera;
+import funkin.audio.FunkinSound;
+import funkin.Conductor;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.module.ScriptedModule;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.events.ScriptEventDispatcher;
+import funkin.util.ReflectUtil;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.play.stage.Stage;
+import funkin.play.stage.Bopper;
+import funkin.play.stage.StageProp;
+import funkin.data.stage.StageRegistry;
+import funkin.play.character.CharacterType;
+import funkin.play.character.BaseCharacter;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.song.Song;
+import flixel.FlxSprite;
+import haxe.Json;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.StrumlineNote;
+import flixel.math.FlxMath;
+import flixel.math.FlxPoint;
+
+class EndlessForest extends Stage
+{
+	public function new()
+	{
+		super('endless-forest');
+	}
+
+	var endCount1:FunkinSprite;
+	var endCount2:FunkinSprite;
+	var endCount3:FunkinSprite;
+	var endCount4:FunkinSprite;
+
+	var camDefaultZoom:Float = 0;
+	var camZoomEnable:Bool = false;
+	var hudAlphaChanged:Bool = false;
+
+	var majinCounts:Array<FunkinSprite> = [];
+
+	override function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
+
+		game = PlayState.instance;
+
+		endCount1 = FunkinSprite.create(250, 0, 'majin-count/three');
+		endCount1.alpha = 0;
+		endCount1.cameras = [game.camCutscene];
+		endCount1.visible = false;
+		endCount1.scrollFactor.set(0, 0);
+
+		endCount2 = FunkinSprite.create(250, 0, 'majin-count/two');
+		endCount2.alpha = 0;
+		endCount2.cameras = [game.camCutscene];
+		endCount2.visible = false;
+		endCount2.scrollFactor.set(0, 0);
+
+		endCount3 = FunkinSprite.create(250, 0, 'majin-count/one');
+		endCount3.alpha = 0;
+		endCount3.cameras = [game.camCutscene];
+		endCount3.visible = false;
+		endCount3.scrollFactor.set(0, 0);
+
+		endCount4 = FunkinSprite.create(250, 0, 'majin-count/gofun');
+		endCount4.alpha = 0;
+		endCount4.cameras = [game.camCutscene];
+		endCount4.visible = false;
+		endCount4.scrollFactor.set(0, 0);
+
+		majinCounts = [endCount1, endCount2, endCount3, endCount4];
+
+		for (sprite in majinCounts) {
+			game.add(sprite);
+		}
+	}
+
+	public function majinCountEvent(value1:Int, value2:Bool)
+	{
+		var idx = value1 - 1;
+		if (idx < 0 || idx >= majinCounts.length) return;
+		var sprite = majinCounts[idx];
+
+		sprite.visible = true;
+		sprite.alpha = 0.7;
+		sprite.y = 0;
+
+		new FlxTimer().start(0.001, function(_) {
+			FlxTween.tween(sprite, {alpha: 0}, 0.3, {
+				onComplete: function(_) {
+					sprite.visible = false;
+					sprite.alpha = 0;
+					sprite.y = 0;
+					sprite.setGraphicSize(sprite.frameWidth, sprite.frameHeight);
+				}
+			});
+		});
+
+		/*if (value1 < 3) {
+			if (!camZoomEnable) camDefaultZoom = game.camGame.zoom;
+			camZoomEnable = true;
+			game.camGame.zoom += 0.1;
+			game.camHUD.alpha = 1;
+			hudAlphaChanged = false;
+		} else {
+			game.camHUD.alpha = 1;
+			game.camGame.zoom = camDefaultZoom;
+			camZoomEnable = false;
+		}*/
+	}
+
+	override function buildStage()
+	{
+		super.buildStage();
+	}
+
+	function onStepHit(event:SongTimeScriptEvent):Void
+	{
+        if (!PlayState.instance.currentSong.id.toLowerCase() == "endless") return;
+
+		if (event.step == 884) {
+			FlxTween.tween(PlayState.instance.camHUD, {alpha: 0}, 0.5, {
+				onComplete: function(_) {
+					PlayState.instance.camHUD.alpha = 0;
+				}
+			});
+		}
+
+		if (event.step == 888) {
+			majinCountEvent(1, true);
+		} else if (event.step == 892) {
+			majinCountEvent(2, false);
+		} else if (event.step == 896) {
+			majinCountEvent(3, false);
+		} else if (event.step == 900) {
+			majinCountEvent(4, false);
+		}
+		if (event.step == 900) {
+			FlxTween.tween(PlayState.instance.camHUD, {alpha: 1}, 0.5, {
+				onComplete: function(_) {
+					PlayState.instance.camHUD.alpha = 1;
+				}
+			});
+		}
+		
+	}
+
+	// Optional: call this in update to mimic the y movement
+	override function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+		if (!camZoomEnable) camDefaultZoom = game.camGame.zoom;
+		for (sprite in majinCounts) {
+			if (sprite.visible) sprite.y += 5;
+		}
+	}
+}

@@ -27,6 +27,7 @@ import flixel.FlxSprite;
 import haxe.Json;
 import funkin.play.notes.Strumline;
 import funkin.play.notes.StrumlineNote;
+import funkin.modding.module.ModuleHandler;
 
 //This script adds the proper events for Too Slow.
 
@@ -37,7 +38,6 @@ class HillZone extends Stage
 		super('hillZone');
 	}
 
-    var stepCounter:FlxText;
 	var staticScreen:FunkinSprite;
 	var sonicJumpscare:FunkinSprite;
 	var sonicJump:FunkinSprite;
@@ -48,41 +48,51 @@ class HillZone extends Stage
 	{
 		super.onCreate(event);
 
-		FunkinSprite.cacheTexture(Paths.image('staticNotes')); // Cache the objects no matter what
+		enableStatic = ModuleHandler.getModule("EXEOptions").scriptGet("screenstatic");
+		enableJumpscare = ModuleHandler.getModule("EXEOptions").scriptGet("dojumpscares");
+
+		FunkinSprite.cacheTexture(Paths.image('staticNotes'));
 		FunkinSprite.cacheTexture(Paths.image('sonicJUMPSCARE'));
+		FunkinSprite.cacheTexture(Paths.image('characters/sonicexe-gotcha')); // Will this work?
+
 		game = PlayState.instance;
 
 		if (game.currentSong.id.toLowerCase() == "too-slow") {
 
-			sonicJumpscare = FunkinSprite.create(100, 0);
-            sonicJumpscare.frames = Paths.getSparrowAtlas('sonicJUMPSCARE');
-            sonicJumpscare.animation.addByPrefix('spook', 'sonicSPOOK', 24, false); // org. framerate is 36 // 24 (base game)
-            sonicJumpscare.animation.play('spook');
-            sonicJumpscare.zIndex = 5000;
-			sonicJumpscare.cameras = [game.camHUD];
-			game.add(sonicJumpscare);
-			sonicJumpscare.visible = false;
-			sonicJumpscare.animation.finishCallback = function() {
-                sonicJumpscare.visible = false;
-            };
+			if (enableJumpscare) {
+			    sonicJumpscare = FunkinSprite.create(100, 0);
+                sonicJumpscare.frames = Paths.getSparrowAtlas('sonicJUMPSCARE');
+                sonicJumpscare.animation.addByPrefix('spook', 'sonicSPOOK', 24, false); // org. framerate is 36 // 24 (base game)
+                sonicJumpscare.animation.play('spook');
+                sonicJumpscare.zIndex = 5000;
+			    sonicJumpscare.cameras = [game.camCutscene];
+			    game.add(sonicJumpscare);
+			    sonicJumpscare.visible = false;
+			    sonicJumpscare.animation.finishCallback = function() {
+                    sonicJumpscare.visible = false;
+                };
 
-			sonicJump = FunkinSprite.create(0, 0, 'simplejump720'); // Resized it to 720p because I did NOT feel like doing all of that. 
-			sonicJump.cameras = [game.camHUD];
-			game.add(sonicJump);
-			sonicJump.visible = false;
+			    sonicJump = FunkinSprite.create(0, 0, 'simplejump720'); // Resized it to 720p because I did NOT feel like doing all of that. 
+			    sonicJump.cameras = [game.camCutscene];
+			    game.add(sonicJump);
+			    sonicJump.visible = false;
+			}
 
-			staticScreen = FunkinSprite.create(100, 0);
-            staticScreen.frames = Paths.getSparrowAtlas('daSTAT');
-            staticScreen.animation.addByPrefix('static', 'staticFLASH', 30, false); // Speed it up
-            staticScreen.animation.play('static');
-			staticScreen.scale.set(5, 5);
-            staticScreen.zIndex = 5000;
-			staticScreen.cameras = [game.camHUD];
-			game.add(staticScreen);
-			staticScreen.visible = false;
-			staticScreen.animation.finishCallback = function() {
-                staticScreen.visible = false;
-            };
+			if (enableStatic) {
+				staticScreen = FunkinSprite.create(100, 0);
+                staticScreen.frames = Paths.getSparrowAtlas('daSTAT');
+                staticScreen.animation.addByPrefix('static', 'staticFLASH', 30, false); // Speed it up
+                staticScreen.animation.play('static');
+			    staticScreen.scale.set(5, 5);
+                staticScreen.zIndex = 5000;
+			    staticScreen.cameras = [game.camHUD];
+			    game.add(staticScreen);
+			    staticScreen.visible = false;
+
+			    staticScreen.animation.finishCallback = function() {
+                    staticScreen.visible = false;
+                };
+			}
 
 			// The "Cinematics"
 			topBorder = new FlxSprite(0, 0).makeGraphic(FlxG.width, 50, 0xFF000000);
@@ -92,20 +102,14 @@ class HillZone extends Stage
 	
 			topBorder.cameras = [game.camCutscene];
 			bottomBorder.cameras = [game.camCutscene];
+
+			topBorder.alpha = 0;
+			bottomBorder.alpha = 0;
 	
 			game.add(topBorder);
 			game.add(bottomBorder);
-			topBorder.visible = false;
-			bottomBorder.visible = false;
 
 		}
-
-		stepCounter = new FlxText(10, 200, 300, "Step: 0");
-		stepCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
-		stepCounter.color = 0xFFFFFFFF; // Set text color to white
-		stepCounter.scrollFactor.set(0, 0);
-		stepCounter.cameras = [game.camHUD];
-		game.add(stepCounter);
 	}
 
 	override function buildStage()
@@ -117,9 +121,7 @@ class HillZone extends Stage
 	{
 		super.onStepHit(event);
 
-		stepCounter.text = "Step: " + event.step; // Add a "debug" step counter, because base game tracks steps differently than Psych Engine
-
-		if (game.currentSong.id.toLowerCase() == "too-slow" && (event.beat == 2 || event.beat % 50 == 0)) // Show static screen at beat 2 and every 50 beats
+		if (game.currentSong.id.toLowerCase() == "too-slow" && enableStatic && (event.beat == 2 || event.beat % 50 == 0)) // Show static screen at beat 2 and every 50 beats
 		{
 			staticScreen.visible = true;
 			staticScreen.animation.play('static');
@@ -130,19 +132,18 @@ class HillZone extends Stage
 				}
 			});
 		}
-		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 763 && game.currentSong.difficulty != "encore")
+		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 763 && game.currentVariation != "encore")
 		{
 			FlxG.camera.flash(0xFFFF0000, 1);    
 		}
-		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1166 && game.currentSong.difficulty != "encore")
+		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1166 && game.currentVariation != "encore")
 		{
 			// Fade in borders
-			topBorder.visible = true;
-			bottomBorder.visible = true;
 			FlxTween.tween(topBorder, { alpha: 1 }, 1);
 			FlxTween.tween(bottomBorder, { alpha: 1 }, 1);
+			game.camHUD.alpha = 0;
 		}
-		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1190 && game.currentSong.difficulty != "encore")
+		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1190 && enableJumpscare && game.currentVariation != "encore")
 		{
 			sonicJump.visible = true;
 			new FlxTimer().start(0.3, function(timer:FlxTimer) {
@@ -150,7 +151,7 @@ class HillZone extends Stage
 			}); // Hide after 0.3 seconds
 			FunkinSound.playOnce(Paths.sound("sppok"), 1);
 		}
-		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1270 && game.currentSong.difficulty != "encore")
+		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1261 && game.currentVariation != "encore")
 		{
 			// Fade out borders
 			FlxTween.tween(topBorder, { alpha: 0 }, 1, {
@@ -163,8 +164,9 @@ class HillZone extends Stage
 					bottomBorder.visible = false;
 				}
 			});
+			FlxTween.tween(game.camHUD, { alpha: 1 }, 1);
 		}
-		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1472 && game.currentSong.difficulty != "encore")
+		if (game.currentSong.id.toLowerCase() == "too-slow" && event.step == 1472 && enableJumpscare && game.currentVariation != "encore")
 		{
 			sonicJumpscare.visible = true;
 			sonicJumpscare.animation.play('spook');

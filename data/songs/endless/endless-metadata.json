@@ -1,0 +1,31 @@
+{
+  "version": "2.2.2",
+  "songName": "Endless",
+  "artist": "MarStarBro",
+  "charter": "MarStarBro",
+  "playData": {
+    "album": "exeVol2OST",
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf-endless",
+      "girlfriend": "",
+      "opponent": "majin",
+      "instrumental": "",
+      "altInstrumentals": []
+    },
+    "songVariations": [],
+    "stage": "endless-forest",
+    "noteStyle": "funkinExe",
+    "ratings": {"easy": 6, "normal": 7, "hard": 7},
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "bpm": 155
+    }
+  ]
+}

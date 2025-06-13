@@ -14,7 +14,7 @@ import funkin.modding.module.Module;
 
 class ExeSplashText extends Module
 {
-  public var exeVNUM:String = ''; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
+  public var exeVNUM:String = '1.0.0'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
 
   public function new()
   {
@@ -29,7 +29,7 @@ class ExeSplashText extends Module
     {
       /* Using Constants.VERSION eliminates the need to update this script when a new version of the game is released.
           * Unless the game code changes the way the version number is handled of course. */
-      FlxG.state.leftWatermarkText.text = "FRIDAY NIGHT FUNKIN' " + Constants.VERSION + " | VERSUS SONIC.EXE BETA (GitHub Initial Release)" + exeVNUM;
+      FlxG.state.leftWatermarkText.text = "FRIDAY NIGHT FUNKIN' " + Constants.VERSION + " | VERSUS SONIC.EXE V-SLICE v" + exeVNUM;
     }
   }
 }

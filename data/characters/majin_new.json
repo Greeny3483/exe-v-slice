@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Majin Sonic (New-OG)",
+    "assetPath": "characters/MajinOG",
+    "singTime": 6,
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "majin-og",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Majin_IDLE",
+            "offsets": [
+                -20,
+                -3
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Majin_UP",
+            "offsets": [
+                -1,
+                106
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Majin_DOWN",
+            "offsets": [
+                -11,
+                -70
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Majin_LEFT",
+            "offsets": [
+                173,
+                11
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Majin_RIGHT",
+            "offsets": [
+                -20,
+                -33
+            ]
+        }
+    ],
+    "flipX": false
+}

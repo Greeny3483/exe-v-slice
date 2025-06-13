@@ -1,0 +1,218 @@
+{
+	"props": [
+		{
+			"danceEvery": 0,
+			"zIndex": 292,
+			"isPixel": false,
+			"position": [
+				-1610,
+				-720
+			],
+			"assetPath": "LordXStage/sky",
+			"scroll": [
+				0.9,
+				0.9
+			],
+			"scale": [
+				0.5,
+				0.5
+			],
+			"name": "cyclesSky"
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 293,
+			"isPixel": false,
+			"position": [
+				-1529,
+				-500
+			],
+			"assetPath": "LordXStage/hills1",
+			"scroll": [
+				0.95,
+				0.95
+			],
+			"scale": [
+				0.5,
+				0.5
+			],
+			"name": "cyclesMontain"
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 500,
+			"position": [
+				-1531,
+				-473
+			],
+			"scale": [
+				0.55,
+				0.55
+			],
+			"name": "cyclesGround",
+			"animType": "sparrow",
+			"flipX": false,
+			"isPixel": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "LordXStage/floor"
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 504,
+			"position": [
+				-1810,
+				-411
+			],
+			"scale": [
+				0.6,
+				0.6
+			],
+			"name": "cyclesPlant",
+			"animType": "sparrow",
+			"flipX": false,
+			"isPixel": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "LordXStage/smallflower"
+		},
+		{
+			"danceEvery": 0,
+			"zIndex": 501,
+			"position": [
+				-1652,
+				-718
+			],
+			"scale": [
+				0.65,
+				0.65
+			],
+			"name": "cyclesTree1",
+			"animType": "sparrow",
+			"flipX": false,
+			"isPixel": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "LordXStage/tree"
+		},
+		{
+			"zIndex": 502,
+			"position": [
+				-800,
+				-550
+			],
+			"scale": [
+				0.55,
+				0.55
+			],
+			"animType": "sparrow",
+			"name": "cyclesNotKnux",
+			"flipX": false,
+			"startingAnimation": "hands",
+			"flipY": false,
+			"isPixel": false,
+			"assetPath": "LordXStage/NotKnuckles_Assets",
+			"scroll": [
+				1,
+				1
+			],
+			"animations": [
+				{
+					"offsets": [
+						0,
+						0
+					],
+					"flipY": false,
+					"frameRate": 24,
+					"prefix": "Notknuckles",
+					"looped": true,
+					"flipX": false,
+					"name": "hands"
+				}
+			]
+		},
+		{
+			"zIndex": 503,
+			"position": [
+				-1200,
+				-250
+			],
+			"scale": [
+				0.8,
+				0.8
+			],
+			"animType": "sparrow",
+			"name": "cyclesTree2",
+			"flipX": false,
+			"startingAnimation": "tree",
+			"flipY": false,
+			"isPixel": false,
+			"assetPath": "LordXStage/WeirdAssFlower_Assets",
+			"scroll": [
+				1,
+				1
+			],
+			"animations": [
+				{
+					"offsets": [
+						0,
+						0
+					],
+					"flipY": false,
+					"frameRate": 24,
+					"prefix": "flower",
+					"looped": true,
+					"flipX": false,
+					"name": "tree"
+				}
+			]
+		}
+	],
+	"cameraZoom": 0.9,
+	"version": "1.0.0",
+	"characters": {
+		"bf": {
+			"zIndex": 1000,
+			"position": [
+				0,
+				500
+			],
+			"cameraOffsets": [
+				-100,
+				-100
+			]
+		},
+		"dad": {
+			"zIndex": 1000,
+			"position": [
+				-700,
+				300
+			],
+			"cameraOffsets": [
+				300,
+				0
+			]
+		},
+		"gf": {
+			"zIndex": 100,
+			"cameraOffsets": [
+				0,
+				50
+			],
+			"position": [
+				400,
+				130
+			]
+		}
+	},
+	"name": "Mutant Hill Zone"
+}

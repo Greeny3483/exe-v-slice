@@ -11,9 +11,9 @@
       "girlfriend": "gf",
       "opponent": "sonicexe",
       "instrumental": "",
-      "altInstrumentals": ["encore"]
+      "altInstrumentals": []
     },
-    "songVariations": ["encore"],
+    "songVariations": [],
     "stage": "hillZone",
     "noteStyle": "exeFourKey",
     "ratings": {"easy": 5, "normal": 6, "hard": 7},

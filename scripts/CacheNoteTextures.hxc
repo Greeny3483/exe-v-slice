@@ -1,0 +1,23 @@
+import funkin.play.PlayState;
+import flixel.FlxG;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import funkin.Paths;
+import funkin.graphics.FunkinSprite;
+
+class CacheNoteTextures extends Module {
+    /* This script should prevent lag for encountering the Static and Phantom Notes after just opening the game.
+      * As well as preventing lag when hitting a Static note after just opening the game.
+    */
+    public function new() {
+        super("cache-note-textures");
+    }
+
+    override public function onCreate():Void {
+        if (PlayState.instance == null) return;
+
+        FunkinSprite.cacheTexture(Paths.image('staticNotes'));
+        FunkinSprite.cacheTexture(Paths.image('PhantomNote'));
+        FunkinSprite.cacheTexture(Paths.image('hitStatic'));
+    }
+}

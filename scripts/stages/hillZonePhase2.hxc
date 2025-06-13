@@ -28,6 +28,7 @@ import flixel.FlxSprite;
 import haxe.Json;
 import funkin.play.notes.Strumline;
 import funkin.play.notes.StrumlineNote;
+import funkin.modding.module.ModuleHandler;
 
 // This script adds the proper events for You Can't Run.
 
@@ -50,6 +51,8 @@ class HillZonePhase2 extends Stage
 	{
 		super.onCreate(event);
 
+		enableStatic = ModuleHandler.getModule("EXEOptions").scriptGet("screenstatic");
+
 		game = PlayState.instance;
 		if (game.currentSong.id.toLowerCase() == "you-cant-run") {
 			FunkinSprite.cacheTexture(Paths.image('staticNotes'));
@@ -60,19 +63,21 @@ class HillZonePhase2 extends Stage
 			
             // Green Hill Zone is added through the stage props.
 
-			staticScreen = FunkinSprite.create(100, 0);
-            staticScreen.frames = Paths.getSparrowAtlas('daSTAT');
-            staticScreen.animation.addByPrefix('static', 'staticFLASH', 30, false); // Speed it up
-            staticScreen.animation.play('static');
-			staticScreen.scale.set(5, 5);
-            staticScreen.zIndex = 5000;
-			staticScreen.cameras = [game.camHUD];
-			game.add(staticScreen);
-			staticScreen.visible = false;
+			if (enableStatic) {
+				staticScreen = FunkinSprite.create(100, 0);
+                staticScreen.frames = Paths.getSparrowAtlas('daSTAT');
+                staticScreen.animation.addByPrefix('static', 'staticFLASH', 30, false); // Speed it up
+                staticScreen.animation.play('static');
+			    staticScreen.scale.set(5, 5);
+                staticScreen.zIndex = 5000;
+			    staticScreen.cameras = [game.camHUD];
+			    game.add(staticScreen);
+			    staticScreen.visible = false;
 
-			staticScreen.animation.finishCallback = function() {
-                staticScreen.visible = false;
-            };
+			    staticScreen.animation.finishCallback = function() {
+                    staticScreen.visible = false;
+                };
+			}
 
 			redVignette = FunkinSprite.create(0, 0, 'RedVG');
 			//redVignette.alpha = 0.5;
@@ -82,13 +87,6 @@ class HillZonePhase2 extends Stage
 			game.add(redVignette);
 			redVignette.visible = false;
 		}
-
-		stepCounter = new FlxText(10, 200, 300, "Step: 0");
-		stepCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
-		stepCounter.color = 0xFFFFFFFF; // Set text color to white
-		stepCounter.scrollFactor.set(0, 0);
-		stepCounter.cameras = [game.camHUD];
-		game.add(stepCounter);
 	}
 
 	override function buildStage()
@@ -102,9 +100,7 @@ class HillZonePhase2 extends Stage
 
 		var greenHill = getNamedProp('GreenHill');
 
-		stepCounter.text = "Step: " + event.step;
-
-		if (game.currentSong.id.toLowerCase() == "you-cant-run" && (event.beat == 2 || event.beat % 50 == 0)) // Show static screen at beat 2 and every 50 beats
+		if (game.currentSong.id.toLowerCase() == "you-cant-run" && enableStatic && (event.beat == 2 || event.beat % 50 == 0)) // Show static screen at beat 2 and every 50 beats
 		{
 			staticScreen.visible = true;
 			staticScreen.animation.play('static');

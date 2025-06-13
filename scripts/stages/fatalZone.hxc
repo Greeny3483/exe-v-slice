@@ -12,6 +12,7 @@ import funkin.play.song.Song;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+import funkin.modding.module.ModuleHandler;
 
 /* ---------------------------------------
     Script by Greeny3483
@@ -20,136 +21,141 @@ import flixel.math.FlxPoint;
 
 class FatalZone extends Stage
 {
-
 	var statix:FunkinSprite;
 	var leftBorder:FlxSprite;
 	var rightBorder:FlxSprite;
-	var popups:Array<FlxSprite>;
-	public var popupTimer:FlxTimer;
 	var fatalCursor:FlxSprite;
 
-
+	var popups:Array<FlxSprite>;
+	public var popupTimer:FlxTimer;
 	public var popup = FunkinSprite.create(FlxG.random.float(0, FlxG.width - 300), FlxG.random.float(0, FlxG.height - 300)); // Insert popup as a class-level variable
 
 	public function new()
 	{
 		super("fatalZone");
-		trace("FatalZone stage initialized."); // Trace added here
 	}
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
-		trace("FatalZone stage onCreate called."); // Trace added here
 
 		game = PlayState.instance;
-
+        
+		// Get Options
+		enableFatalPopups = ModuleHandler.getModule("EXEOptions").scriptGet("fatalpopups");
+		screenRatioEdit = ModuleHandler.getModule("EXEOptions").scriptGet("screenratio");
 
 		FunkinSprite.cacheTexture(Paths.image('fatal/domain'));
 		FunkinSprite.cacheTexture(Paths.image('fatal/domain2'));
 		FunkinSprite.cacheTexture(Paths.image('fatal/truefatalstage'));
 		FunkinSprite.cacheTexture(Paths.image('error_popups'));
 
-
-			statix = FunkinSprite.create(0, 0);
-			statix.frames = Paths.getSparrowAtlas('statix');
-			statix.animation.addByPrefix('static', 'statixx', 44, false);
-			statix.animation.play('static');
-			statix.scale.set(5.5, 5.5);
-			statix.cameras = [game.camHUD];
-			game.add(statix);
+		statix = FunkinSprite.create(0, 0);
+		statix.frames = Paths.getSparrowAtlas('statix');
+		statix.animation.addByPrefix('static', 'statixx', 44, false);
+		statix.animation.play('static');
+		statix.scale.set(5.5, 5.5);
+		statix.cameras = [game.camHUD];
+		game.add(statix);
+		statix.visible = false;
+		statix.animation.finishCallback = function() {
 			statix.visible = false;
-			statix.animation.finishCallback = function() {
-				statix.visible = false;
-			};
-	
-			leftBorder = new FlxSprite(0, 0).makeGraphic(50, FlxG.height, 0xFF000000); // You can edit screen ratio with scripting, but I didn't feel like it. This works just as good
+		};
+
+		if (screenRatioEdit) {
+			leftBorder = new FlxSprite(0, 0).makeGraphic(50, FlxG.height, 0xFF000000);
 			leftBorder.scrollFactor.set(0, 0);
 			leftBorder.scale.set(5, 3);
 			leftBorder.cameras = [game.camHUD];
 			game.add(leftBorder);
-	
+
 			rightBorder = new FlxSprite(FlxG.width - 50, 0).makeGraphic(50, FlxG.height, 0xFF000000);
 			rightBorder.scrollFactor.set(0, 0);
 			rightBorder.scale.set(5, 3);
 			rightBorder.cameras = [game.camHUD];
 			game.add(rightBorder);
+		}
 
-		fatalCursor = new FlxSprite();
-		fatalCursor.loadGraphic(Paths.image('fatal_mouse_cursor'));
-		fatalCursor.scrollFactor.set(0, 0);
-		fatalCursor.cameras = [game.camHUD];
-		fatalCursor.setGraphicSize(Std.int(fatalCursor.width * 1.5), Std.int(fatalCursor.height * 1.5));
-		fatalCursor.updateHitbox();
-		fatalCursor.antialiasing = false;
-		game.add(fatalCursor);
+		if (enableFatalPopups) {
+			fatalCursor = new FlxSprite();
+			fatalCursor.loadGraphic(Paths.image('fatal_mouse_cursor'));
+			fatalCursor.scrollFactor.set(0, 0);
+			fatalCursor.cameras = [game.camHUD];
+			fatalCursor.setGraphicSize(Std.int(fatalCursor.width * 1.5), Std.int(fatalCursor.height * 1.5));
+			fatalCursor.updateHitbox();
+			fatalCursor.antialiasing = false;
+			game.add(fatalCursor);
 
-		fatalCursor.zIndex = 9999;
-		fatalCursor.cameras = [game.camCutscene];
-		PlayState.instance.currentStage.refresh();
+			fatalCursor.zIndex = 9999;
+			fatalCursor.cameras = [game.camCutscene];
+			PlayState.instance.currentStage.refresh();
 
-		FlxG.mouse.visible = false; // Hide the default system cursor
+			FlxG.mouse.visible = false;
 
-		popups = [];
-		popupTimer = new FlxTimer();
+			popups = [];
+			popupTimer = new FlxTimer();
+		}
 	}
 
 	function createPopup():Void
 	{
-		// Create a new popup
-		var popup = FunkinSprite.create(
-			FlxG.random.float(0, FlxG.width - 400), // Random X position, adjusted for popup width
-			FlxG.random.float(0, FlxG.height - 300) // Random Y position, adjusted for popup height
-		);
-		popup.frames = Paths.getSparrowAtlas('error_popups');
-		if (popup.frames != null) {
-			popup.animation.addByPrefix('popup_anim', 'idle', 24, false);
-			popup.animation.addByPrefix('bye', 'bye', 24, false);
-			popup.animation.play('popup_anim');
-		}
-		popup.scrollFactor.set(0, 0);
-		popup.cameras = [game.camHUD];
-		popup.scale.set(1.6, 1.6);
-		popup.zIndex = 8000;
-		popup.updateHitbox();
-		popup.antialiasing = false;
-		game.add(popup);
-		popups.push(popup);
+		if (enableFatalPopups) {
+			var popup = FunkinSprite.create(
+				FlxG.random.float(0, FlxG.width - 400), // Random X position, adjusted for popup width
+				FlxG.random.float(0, FlxG.height - 300) // Random Y position, adjusted for popup height
+			);
+			popup.frames = Paths.getSparrowAtlas('error_popups');
+			if (popup.frames != null) {
+				popup.animation.addByPrefix('popup_anim', 'idle', 24, false);
+				popup.animation.addByPrefix('bye', 'bye', 24, false);
+				popup.animation.play('popup_anim');
+			}
+			popup.scrollFactor.set(0, 0);
+			popup.cameras = [game.camHUD];
+			popup.scale.set(1.6, 1.6);
+			popup.zIndex = 8000;
+			popup.updateHitbox();
+			popup.antialiasing = false;
+			game.add(popup);
+			popups.push(popup);
 
-		PlayState.instance.currentStage.refresh();
+			PlayState.instance.currentStage.refresh();
+		}
 	}
 
 	function clearPopups():Void
 	{
-		// Remove all popups
-		for (popup in popups)
-		{
-			game.remove(popup);
-			popup.destroy();
+		if (enableFatalPopups) {
+			for (popup in popups)
+			{
+				game.remove(popup);
+				popup.destroy();
+			}
+			popups = [];
 		}
-		popups = [];
 	}
 
 	function clearPopupsQuickly():Void
 	{
-		// Remove all popups one at a time, very quickly
-		var delay:Float = 0;
-		for (popup in popups)
-		{
-			if (popup != null)
+		if (enableFatalPopups) {
+			var delay:Float = 0;
+			for (popup in popups)
 			{
-				var timer = new FlxTimer();
-				timer.start(delay, function(timer:FlxTimer):Void {
-					removePopup(popup);
-				});
-				delay += 0.07; // Reduced delay for faster removal
+				if (popup != null)
+				{
+					var timer = new FlxTimer();
+					timer.start(delay, function(timer:FlxTimer):Void {
+						removePopup(popup);
+					});
+					delay += 0.07; // Reduced delay for faster removal
+				}
 			}
 		}
 	}
 
 	function removePopup(popup:FlxSprite):Void
 	{
-		if (popup != null && popup.animation != null) {
+		if (enableFatalPopups && popup != null && popup.animation != null) {
 			popup.animation.play('bye');
 			popup.animation.finishCallback = function() {
 				if (popup != null) {
@@ -165,44 +171,45 @@ class FatalZone extends Stage
 	{
 		super.update(elapsed);
 
-		// Add a custom cursor
-		var mousePos = FlxG.mouse.getWorldPosition(game.camHUD); 
-		fatalCursor.x = mousePos.x - (fatalCursor.width / 2);
-		fatalCursor.y = mousePos.y - (fatalCursor.height / 2);
+		if (enableFatalPopups) {
+			// Add a custom cursor
+			var mousePos = FlxG.mouse.getWorldPosition(game.camHUD); 
+			fatalCursor.x = mousePos.x - (fatalCursor.width / 2);
+			fatalCursor.y = mousePos.y - (fatalCursor.height / 2);
 
-		fatalCursor.scale.set(1 + 0.05 * Math.sin(FlxG.game.ticks / 10), 1 + 0.05 * Math.sin(FlxG.game.ticks / 10));
+			fatalCursor.scale.set(1 + 0.05 * Math.sin(FlxG.game.ticks / 10), 1 + 0.05 * Math.sin(FlxG.game.ticks / 10));
 
-		if (FlxG.mouse.justPressed)
-		{
-			var mousePos = FlxG.mouse.getWorldPosition(game.camHUD);
-			for (popup in popups)
+			if (FlxG.mouse.justPressed)
 			{
-				if (popup.overlapsPoint(mousePos, true))
+				var mousePos = FlxG.mouse.getWorldPosition(game.camHUD);
+				for (popup in popups)
 				{
-					removePopup(popup);
-					break;
+					if (popup.overlapsPoint(mousePos, true))
+					{
+						removePopup(popup);
+						break;
+					}
 				}
 			}
-		}
 
-		// Remove popups that have finished their "bye" animation
-		for (popup in popups)
-		{
-			if (popup.animation.curAnim != null && popup.animation.curAnim.name == 'bye' && popup.animation.curAnim.finished)
+			// Remove popups that have finished their "bye" animation
+			for (popup in popups)
 			{
-				game.remove(popup);
-				popups.remove(popup);
-				popup.destroy();
+				if (popup.animation.curAnim != null && popup.animation.curAnim.name == 'bye' && popup.animation.curAnim.finished)
+				{
+					game.remove(popup);
+					popups.remove(popup);
+					popup.destroy();
+				}
 			}
 		}
 	}
 
 	function onCountdownStart()
 	{
-		if (game.opponentStrumline != null && game.playerStrumline != null) {
+		if (game.opponentStrumline != null && game.playerStrumline != null && screenRatioEdit) {
 			game.opponentStrumline.x = 150;
 			game.playerStrumline.x = 692;
-            
 			// Adjust the position of the Player and Opponent's strumlines to match the "makeshift" screen ratio.
 		}
 	}
@@ -234,39 +241,47 @@ class FatalZone extends Stage
 			phase2.zIndex = 12;
 			PlayState.instance.currentStage.refresh();
 
-			// Start creating popups at 257 (Phase 2)
-			popupTimer.start(2, function(timer:FlxTimer):Void {
-				createPopup();
-			}, 0);
+			if (enableFatalPopups) {
+				popupTimer.start(2, function(timer:FlxTimer):Void {
+					createPopup();
+				}, 0);
+			}
 		}
 
 		if (event.step == 513)
 		{
-			// Start creating popups every 2 beats
-			popupTimer.start(event.beat % 2 == 0, function(timer:FlxTimer):Void {
-				createPopup();
-			}, 0);
+			if (enableFatalPopups) {
+				popupTimer.start(event.beat % 2 == 0, function(timer:FlxTimer):Void {
+					createPopup();
+				}, 0);
+			}
 		}
 
 		if (event.step == 897)
 		{
-			clearPopups();
-			popupTimer.start(2, function(timer:FlxTimer):Void {
-				createPopup();
-			}, 0);
+			if (enableFatalPopups) {
+				clearPopups();
+				popupTimer.start(2, function(timer:FlxTimer):Void {
+					createPopup();
+				}, 0);
+			}
 		}
 
 		if (event.step == 1727)
 		{
-			clearPopupsQuickly();
+			if (enableFatalPopups) {
+				clearPopupsQuickly();
+			}
 		}
 
-	    if (event.step == 1984)
+		if (event.step == 1984)
 		{
-			clearPopups();
-			popupTimer.start(event.beat % 1 == 0, function(timer:FlxTimer):Void { // Intense
-				createPopup();
-			}, 0);
+			if (enableFatalPopups) {
+				clearPopups();
+				popupTimer.start(event.beat % 1 == 0, function(timer:FlxTimer):Void { // Intense
+					createPopup();
+				}, 0);
+			}
 			
 			statix.visible = true;
 			statix.animation.play('static');
@@ -287,7 +302,9 @@ class FatalZone extends Stage
 		}
 		if (event.step == 2527)
 		{
-			clearPopupsQuickly();
+			if (enableFatalPopups) {
+				clearPopupsQuickly();
+			}
 		}
 	}
 }

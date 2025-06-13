@@ -1,0 +1,79 @@
+{
+    "assetPath": "characters/SONIC_X",
+    "name": "Lord X",
+    "singTime": 4,
+    "version": "1.0.0",
+    "scale": 1.1,
+    "flipX": false,
+    "isPixel": false,
+    "offsets": [
+        0,
+        180
+    ],
+    "cameraOffsets": [
+        -220,
+        -50
+    ],
+    "healthIcon": {
+        "id": "lord-x",
+        "offsets": [
+            0,
+            0
+        ],
+        "flipX": false,
+        "isPixel": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "X_Left",
+            "looped": false,
+            "offsets": [
+                75,
+                154
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "X_Down",
+            "looped": false,
+            "offsets": [
+                130,
+                120
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singUP",
+            "prefix": "X_Up",
+            "looped": false,
+            "offsets": [
+                91,
+                247
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "X_Right",
+            "looped": false,
+            "offsets": [
+                -8,
+                172
+            ],
+            "frameRate": 24
+        },
+        {
+            "name": "idle",
+            "prefix": "X_Idle",
+            "looped": false,
+            "offsets": [
+                56,
+                140
+            ],
+            "frameRate": 26
+        }
+    ]
+}

@@ -85,21 +85,6 @@ class XenoStage extends Stage
 			screenGlitch1.animation.finishCallback = function() {
                 screenGlitch1.visible = false;
             };
-
-			stepCounter = new FlxText(10, 200, 300, "Step: 0");
-			stepCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
-			stepCounter.color = 0xFFFFFFFF; // Set text color to white
-			stepCounter.scrollFactor.set(0, 0);
-			stepCounter.cameras = [game.camHUD];
-			game.add(stepCounter);
-
-			beatCounter = new FlxText(10, 250, 300, "Beat: 0");
-			beatCounter.setFormat(Paths.font('vcr.ttf'), 32, FlxTextBorderStyle.OUTLINE);
-			beatCounter.color = 0xFFFFFFFF; // Set text color to white
-			beatCounter.scrollFactor.set(0, 0);
-			beatCounter.cameras = [game.camHUD];
-			game.add(beatCounter);
-
 		}
 	}
 
@@ -118,9 +103,6 @@ class XenoStage extends Stage
 		var strumLine = game.playerStrumline; // This is kinda useless but I took code from my VS Annie OC Week port
         var opStrum = game.opponentStrumline; 
 		var p3_Stats = getNamedProp('p3_Stats');
-
-		stepCounter.text = "Step: " + event.step;
-		beatCounter.text = "Beat: " + event.beat;
 
 		if (game.currentSong.id.toLowerCase() == "triple-trouble" && event.step == 4) // Song start, start a static screen
 		{

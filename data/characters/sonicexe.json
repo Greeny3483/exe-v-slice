@@ -1,101 +1,118 @@
 {
-    "assetPath": "characters/sonicexe",
-    "name": "Sonic.exe",
-    "singTime": 4,
-    "renderType": "multisparrow",
-    "version": "1.0.0",
-    "scale": 0.8,
-    "flipX": false,
-    "isPixel": false,
-    "offsets": [
-        0,
-        0
-    ],
-    "cameraOffsets": [
-        -10,
-        110
-    ],
-    "healthIcon": {
-        "id": "sonic-exe",
-        "offsets": [
-            0,
-            0
-        ],
-        "flipX": false,
-        "isPixel": false,
-        "scale": 1
-    },
-    "animations": [
-        {
-            "name": "singDOWN-alt",
-            "prefix": "SONIClaugh",
-            "looped": false,
-            "offsets": [
-                0,
-                -40
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singUP",
-            "prefix": "SONICmoveUP",
-            "looped": false,
-            "offsets": [
-                34,
-                31
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singRIGHT",
-            "prefix": "SONICmoveRIGHT",
-            "looped": false,
-            "offsets": [
-                -90,
-                -16
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "idle",
-            "prefix": "SONICmoveIDLE",
-            "looped": true,
-            "offsets": [
-                -60,
-                -80
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singDOWN",
-            "prefix": "SONICmoveDOWN",
-            "looped": false,
-            "offsets": [
-                20,
-                -160
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "singLEFT",
-            "prefix": "SONICmoveLEFT",
-            "looped": false,
-            "offsets": [
-                110,
-                -63
-            ],
-            "frameRate": 24
-        },
-        {
-            "name": "gotcha",
-            "prefix": "Gotcha",
-            "assetPath": "characters/sonicexe-gotcha",
-            "looped": false,
-            "offsets": [
-                100,
-                0
-            ],
-            "frameRate": 24 
-        }
-    ]
+	"renderType": "multisparrow",
+	"version": "1.0.0",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Sonic.exe",
+	"flipX": false,
+	"cameraOffsets": [
+		-10,
+		110
+	],
+	"isPixel": false,
+	"singTime": 4,
+	"startingAnimation": "idle",
+	"assetPath": "characters/sonicexe",
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "sonic-exe",
+		"flipX": false
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				0,
+				-40
+			],
+			"frameRate": 24,
+			"prefix": "SONIClaugh",
+			"flipX": false,
+			"name": "singDOWN-alt",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				29,
+				31
+			],
+			"frameRate": 24,
+			"prefix": "SONICmoveUP",
+			"flipX": false,
+			"name": "singUP",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-90,
+				-16
+			],
+			"frameRate": 24,
+			"prefix": "SONICmoveRIGHT",
+			"flipX": false,
+			"name": "singRIGHT",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-60,
+				-80
+			],
+			"frameRate": 24,
+			"prefix": "SONICmoveIDLE",
+			"flipX": false,
+			"name": "idle",
+			"looped": true
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				20,
+				-160
+			],
+			"frameRate": 24,
+			"prefix": "SONICmoveDOWN",
+			"flipX": false,
+			"name": "singDOWN",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				110,
+				-63
+			],
+			"frameRate": 24,
+			"prefix": "SONICmoveLEFT",
+			"flipX": false,
+			"name": "singLEFT",
+			"looped": false
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				175,
+				-5
+			],
+			"frameRate": 24,
+			"assetPath": "characters/sonicexe-gotcha",
+			"scale": 0.9,
+			"prefix": "Gotcha",
+			"flipX": false,
+			"name": "gotcha",
+			"looped": false
+		}
+	]
 }

@@ -1,365 +1,374 @@
 {
-    "props": [
-        {
-            "danceEvery": 0,
-            "zIndex": 1,
-            "position": [
-                -1800.0,
-                -1270.0
-            ],
-            "scale": [
-                1.305,
-                1.305
-            ],
-            "name": "TooSlowBG",
-            "isPixel": false,
-            "assetPath": "PolishedP1/BGSky",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 500,
-            "position": [
-                -1880.0,
-                -970.0
-            ],
-            "scale": [
-                1.35,
-                1.35
-            ],
-            "name": "TooSlowTrees",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesFG",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": -13,
-            "position": [
-                -1650.0,
-                -1020.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesFront",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesFront",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 5,
-            "position": [
-                -1850.0,
-                -1070.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesLeft",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesLeft",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 4,
-            "position": [
-                -1850.0,
-                -1270.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesMid",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesMid",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 2,
-            "position": [
-                -1850.0,
-                -1270.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesMidBack",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesMidBack",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 6,
-            "position": [
-                -1650.0,
-                -1070.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesRight",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesRight",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 12,
-            "position": [
-                -1650.0,
-                -1020.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesFront",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesFront",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 7,
-            "position": [
-                -2000.0,
-                -1120.0
-            ],
-            "scale": [
-                1.45,
-                1.45
-            ],
-            "name": "TooSlowGroundBG",
-            "isPixel": false,
-            "assetPath": "PolishedP1/OuterBush",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 8,
-            "position": [
-                -2000.0,
-                -1070.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowGround",
-            "isPixel": false,
-            "assetPath": "PolishedP1/Grass",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 10,
-            "position": [
-                -2050.0,
-                -1120.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowKnux",
-            "isPixel": false,
-            "assetPath": "PolishedP1/DeadKnux",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 11,
-            "position": [
-                -1950.0,
-                -1120.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowEgg",
-            "isPixel": false,
-            "assetPath": "PolishedP1/DeadEgg",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 13,
-            "position": [
-                -1920.0,
-                -1120.0
-            ],
-            "scale": [
-                1.45,
-                1.45
-            ],
-            "name": "TooSlowTopOverlay",
-            "isPixel": false,
-            "assetPath": "PolishedP1/OuterBushUp",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 9,
-            "position": [
-                -1950.0,
-                -1070.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowTail",
-            "isPixel": false,
-            "assetPath": "PolishedP1/DeadTailz1",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 9,
-            "position": [
-                -1950.0,
-                -1070.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowTail",
-            "isPixel": false,
-            "assetPath": "PolishedP1/DeadTailz2",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 9,
-            "position": [
-                -1950.0,
-                -1070.0
-            ],
-            "scale": [
-                1.405,
-                1.405
-            ],
-            "name": "TooSlowTail",
-            "isPixel": false,
-            "assetPath": "PolishedP1/DeadTailz3",
-            "scroll": [
-                1,
-                1
-            ]
-        },
-        {
-            "danceEvery": 0,
-            "zIndex": 3,
-            "position": [
-                -1850.0,
-                -1270.0
-            ],
-            "scale": [
-                1.25,
-                1.25
-            ],
-            "name": "TooSlowTreesOuterMid",
-            "isPixel": false,
-            "assetPath": "PolishedP1/TreesOuterMid",
-            "scroll": [
-                1,
-                1
-            ]
-        }
-    ],
-    "cameraZoom": 0.75,
-    "version": "1.0.0",
-    "characters": {
-        "bf": {
-            "zIndex": 300,
-            "position": [
-                -270,
-                100
-            ],
-            "cameraOffsets": [
-                -150,
-                -100
-            ]
-        },
-        "dad": {
-            "zIndex": 200,
-            "position": [
-                -1010,
-                0
-            ],
-            "cameraOffsets": [
-                160,
-                -100
-            ]
-        },
-        "gf": {
-            "zIndex": 100,
-            "cameraOffsets": [
-                -970,
-                50
-            ],
-            "position": [
-                -420,
-                0
-            ]
-        }
-    },
-    "name": "... Zone"
+	"version": "1.0.0",
+	"cameraZoom": 0.65,
+	"props": [
+		{
+			"isPixel": false,
+			"zIndex": 1,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/BGSky",
+			"position": [
+				-1800,
+				-1270
+			],
+			"scale": [
+				1.305,
+				1.305
+			],
+			"name": "TooSlowBG"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 500,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesFG",
+			"position": [
+				-1880,
+				-970
+			],
+			"scale": [
+				1.35,
+				1.35
+			],
+			"name": "TooSlowTrees"
+		},
+		{
+			"isPixel": false,
+			"zIndex": -13,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesFront",
+			"position": [
+				-1650,
+				-1020
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"name": "TooSlowTreesFront"
+		},
+		{
+			"zIndex": 4,
+			"danceEvery": 0,
+			"position": [
+				-1854,
+				-1065
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"flipX": false,
+			"name": "TooSlowTreesLeft",
+			"isPixel": false,
+			"flipY": false,
+			"assetPath": "PolishedP1/TreesLeft",
+			"scroll": [
+				1,
+				1
+			]
+		},
+		{
+			"isPixel": false,
+			"zIndex": 5,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesMid",
+			"position": [
+				-1850,
+				-1270
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"name": "TooSlowTreesMid"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 2,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesMidBack",
+			"position": [
+				-1850,
+				-1270
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"name": "TooSlowTreesMidBack"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 6,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesRight",
+			"position": [
+				-1657,
+				-1071
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"name": "TooSlowTreesRight"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 7,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/OuterBush",
+			"position": [
+				-2000,
+				-1120
+			],
+			"scale": [
+				1.45,
+				1.45
+			],
+			"name": "TooSlowGroundBG"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 8,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/Grass",
+			"position": [
+				-2000,
+				-1070
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"name": "TooSlowGround"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 10,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/DeadKnux",
+			"position": [
+				-2050,
+				-1120
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"name": "TooSlowKnux"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 11,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/DeadEgg",
+			"position": [
+				-1950,
+				-1120
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"name": "TooSlowEgg"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 13,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/OuterBushUp",
+			"position": [
+				-1920,
+				-1120
+			],
+			"scale": [
+				1.45,
+				1.45
+			],
+			"name": "TooSlowTopOverlay"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 9,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/DeadTailz1",
+			"position": [
+				-1950,
+				-1070
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"name": "TooSlowTail1"
+		},
+		{
+			"isPixel": false,
+			"zIndex": 10,
+			"danceEvery": 0,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/DeadTailz2",
+			"position": [
+				-1950,
+				-1070
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"name": "TooSlowTail2"
+		},
+		{
+			"zIndex": 9,
+			"danceEvery": 0,
+			"position": [
+				-1700,
+				-1300
+			],
+			"scale": [
+				1.405,
+				1.405
+			],
+			"flipX": false,
+			"name": "TooSlowTail3",
+			"isPixel": false,
+			"flipY": false,
+			"assetPath": "PolishedP1/DeadTailz3",
+			"scroll": [
+				1,
+				1
+			]
+		},
+		{
+			"zIndex": 3,
+			"danceEvery": 0,
+			"position": [
+				-1795,
+				-1179
+			],
+			"scale": [
+				1.25,
+				1.25
+			],
+			"flipX": false,
+			"name": "TooSlowTreesOuterMid",
+			"isPixel": false,
+			"flipY": false,
+			"assetPath": "PolishedP1/TreesOuterMid1",
+			"scroll": [
+				1,
+				1
+			]
+		},
+		{
+			"zIndex": 4,
+			"danceEvery": 0,
+			"position": [
+				-1916,
+				-1269
+			],
+			"scale": [
+				1,
+				1
+			],
+			"flipX": false,
+			"name": "TreesOuterMid2",
+			"isPixel": false,
+			"flipY": false,
+			"scroll": [
+				1,
+				1
+			],
+			"assetPath": "PolishedP1/TreesOuterMid2"
+		}
+	],
+	"directory": "Stage Generated By: Nova Stage Editor v0.1.0",
+	"characters": {
+		"bf": {
+			"zIndex": 300,
+			"cameraOffsets": [
+				-150,
+				-100
+			],
+			"position": [
+				-230,
+				0
+			]
+		},
+		"gf": {
+			"zIndex": 100,
+			"position": [
+				-500,
+				-90
+			],
+			"cameraOffsets": [
+				-970,
+				50
+			]
+		},
+		"dad": {
+			"zIndex": 200,
+			"cameraOffsets": [
+				160,
+				-100
+			],
+			"position": [
+				-950,
+				-70
+			]
+		}
+	},
+	"name": "... Zone"
 }

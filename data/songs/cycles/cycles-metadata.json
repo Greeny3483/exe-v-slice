@@ -1,0 +1,31 @@
+{
+  "version": "2.2.2",
+  "songName": "Cycles",
+  "artist": "MarStarBro",
+  "charter": "MarStarBro",
+  "playData": {
+    "album": "exeVol2OST",
+    "difficulties": ["easy", "normal", "hard"],
+    "characters": {
+      "player": "bf",
+      "girlfriend": "",
+      "opponent": "lordx",
+      "instrumental": "",
+      "altInstrumentals": []
+    },
+    "songVariations": [],
+    "stage": "hillZoneM",
+    "noteStyle": "exeFourKey",
+    "ratings": {"easy": 6, "normal": 6, "hard": 6},
+    "previewStart": 0,
+    "previewEnd": 15000
+  },
+  "generatedBy": "Chart Editor Import (FNF Legacy)",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "bpm": 155
+    }
+  ]
+}

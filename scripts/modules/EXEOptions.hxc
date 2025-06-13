@@ -1,0 +1,136 @@
+import funkin.modding.module.Module;
+import Std;
+import funkin.ui.options.OptionsState;
+import flixel.util.FlxSave;
+import flixel.FlxG;
+import funkin.play.PlayState;
+import Type;
+import funkin.util.ReflectUtil;
+import funkin.util.Constants;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.BaseCharacter;
+import funkin.ui.PixelatedIcon;
+import funkin.ui.freeplay.SongMenuItem;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.PlayerSettings;
+
+class EXEOptions extends Module
+{
+    /* Functions for the options are located in these scripts:
+        * scripts/NoteCamera.hxc - Note Camera Movement
+        * scripts/stages/hillZone.hxc - Screen Static/Jumpscares
+        * scripts/stages/hillZonePhase2.hxc - Screen Static/Vignette
+        * scripts/stages/xenoStage.hxc - Jumpscares/Vignette
+        * scripts/stages/fatalZone.hxc - Fatal Error Popups/Screen Ratio Editing
+        * scripts/stages/finalstage.hxc - Vignette/Screen Shake
+        * scripts/stages/finalstageErect - Vignette/Screen Shake
+        * scripts/events/LyricsEvent.hxc - Lyrics
+    */
+
+    public var save = null;
+    public var char:BaseCharacter;
+
+    public var fatalpopups:Bool = true;
+    public var screenstatic:Bool = true;
+    public var screenratio:Bool = true;
+    public var dojumpscares:Bool = true;
+    public var cameramove:Bool = true;
+    public var dolyrics:Bool = true;
+    public var cameramoveIntensity:Int = 20; // New: Intensity value
+
+    function bindSave(){
+        save = new FlxSave();
+        save.bind("exeoptions", "Greeny3483");
+    }
+
+    function closeSave(){
+        if(save != null)save.close();
+        save = null;
+    }
+
+    public function new(){
+        super("EXEOptions", 1);
+        bindSave();
+
+        if(save.data.fatalpopups == null) save.data.fatalpopups = true;
+        if(save.data.screenstatic == null) save.data.screenstatic = true;
+        if(save.data.screenratio == null) save.data.screenratio = true;
+        if(save.data.dojumpscares == null) save.data.dojumpscares = true;
+        if(save.data.cameramove == null) save.data.cameramove = true;
+        if(save.data.dolyrics == null) save.data.dolyrics = true;
+        if(save.data.cameramoveIntensity == null) save.data.cameramoveIntensity = 20; // New: default intensity
+
+        fatalpopups = save.data.fatalpopups;
+        screenstatic = save.data.screenstatic;
+        screenratio = save.data.screenratio;
+        dojumpscares = save.data.dojumpscares;
+        cameramove = save.data.cameramove;
+        dolyrics = save.data.dolyrics;
+        cameramoveIntensity = save.data.cameramoveIntensity; // New: load intensity
+
+        closeSave();
+    }
+
+    public var inOptions:Bool = false;
+
+    override function onStateChangeEnd(event){
+        super.onStateChangeEnd(event);
+        inOptions = false;
+        if(Std.isOfType(event.targetState, OptionsState)){
+            var prefs = event.targetState.optionsCodex.pages.get("preferences");
+            inOptions = true;
+
+            bindSave();
+
+            prefs.items.createItem(120, 120 * prefs.items.length + 30, "VERSUS SONIC.EXE:", "bold", () -> false); // Separate options from the default preferences OR modded preferences.
+			prefs.preferenceDesc.push(""); // Prevent null errors.
+
+            prefs.createPrefItemCheckbox("Note Camera Movement", "Makes the camera move depending on note-hit direction. \nUsed in all songs.", function(value) {
+                save.data.cameramove = value;
+                cameramove = value;
+            }, save.data.cameramove);
+
+            prefs.createPrefItemNumber(
+                "Movement Intensity",
+                "How far the camera moves when hitting a note. \nToo high a value can cause out of bounds issues.",
+                function(value:Float) {
+                    // Only allow changing if Note Camera Movement is enabled
+                    if (save.data.cameramove) {
+                        save.data.cameramoveIntensity = Std.int(value);
+                        cameramoveIntensity = Std.int(value);
+                    }
+                },
+                null,
+                save.data.cameramoveIntensity,
+                5, 100, 5, 0
+            );
+
+            prefs.createPrefItemCheckbox("Lyrics", "Toggles lyrics for certain songs.", function(value) {
+                save.data.dolyrics = value;
+                dolyrics = value;
+            }, save.data.dolyrics);
+
+            prefs.createPrefItemCheckbox("Jumpscares", "Enables jumpscares for certain songs. \nUsed in: Too Slow, Triple Trouble", function(value) {
+                save.data.dojumpscares = value;
+                dojumpscares = value;
+            }, save.data.dojumpscares);
+
+            prefs.createPrefItemCheckbox("Screen Static", "Enables the static overlay that appears throughout certain songs. \nUsed in: Too Slow, You Can't Run", function(value) {
+                save.data.screenstatic = value;
+                screenstatic = value;
+            }, save.data.screenstatic);
+
+            prefs.createPrefItemCheckbox("Fatal Error Popups", "Enables the visibility of the 'Fatal Error' popups. \nUsed in: Fatality", function(value) {
+                save.data.fatalpopups = value;
+                fatalpopups = value;
+            }, save.data.fatalpopups);
+
+            prefs.createPrefItemCheckbox("Screen Ratio Editing", "Allows certain songs to adjust the screen width. \nUsed in: Fatality", function(value) {
+                save.data.screenratio = value;
+                screenratio = value;
+            }, save.data.screenratio);
+
+        }else if(inOptions)
+            closeSave();
+    }
+}

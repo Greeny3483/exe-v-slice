@@ -45,30 +45,79 @@ class BlackSunSong extends Song {
 
         super.onCreate(event);
         FunkinSprite.cacheTexture(Paths.image('staticNotes'));
-        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-too-slow')); // An automated system is in progress.
-        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-too-slow')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-black-sun')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-black-sun')); // An automated system is in progress.
 
         PlayState.instance.opponentStrumline.visible = false;
 
+        game = PlayState.instance;
+
     }
 
-    /*public function listDifficulties(variationId:String, variationIds:Array<String>, showLocked:Bool):Array<String>
-	{
-		if (showLocked || Save.instance.hasBeatenSong('faker', null, 'default'))
-		{
-			return super.listDifficulties(variationId, variationIds);
-		}
+    public override function onCountdownStart(event:CountdownScriptEvent):Void {
+        super.onCountdownStart(event);
 
-		// Hide all difficulties if the player has not beaten the week.
-		return [];
-	}*/
+        // Start the custom Sonic intro
+        startSonicIntro();
+    }
 
-    // Reset the script state on game over
     function onGameOver():Void {
         super.onGameOver();
     }
     function onSongRetry():Void {
         super.onSongRetry();
+    }
+
+    function startSonicIntro():Void {
+
+        var blackBackground = new FlxSprite(0, 0);
+        blackBackground.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+        blackBackground.cameras = [PlayState.instance.camCutscene];
+        blackBackground.zIndex = 999;
+        game.add(blackBackground);
+
+        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-black-sun');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        songIntroCircle.x = FlxG.width;
+        game.add(songIntroCircle);
+
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-black-sun');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        songIntroText.x = -songIntroText.width;
+        game.add(songIntroText);
+
+        FlxTween.tween(songIntroCircle, {x: (FlxG.width / 2) - (songIntroCircle.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroCircle, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroCircle);
+                    }
+                });
+            }
+        });
+
+        FlxTween.tween(songIntroText, {x: (FlxG.width / 2) - (songIntroText.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroText, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroText);
+                    }
+                });
+
+                FlxTween.tween(blackBackground, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(blackBackground);
+                    }
+                });
+            }
+        });
     }
 
 }

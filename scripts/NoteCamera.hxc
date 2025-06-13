@@ -1,0 +1,41 @@
+import flixel.FlxG;
+import funkin.play.PlayState;
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import flixel.math.FlxPoint;
+import flixel.util.FlxTimer;
+
+class NoteCamera extends Module {
+
+    public function new() {
+        super("NoteCamera");
+    }
+
+    override function onNoteHit(event) {
+        super.onNoteHit(event);
+                
+        enableCameraMovement = ModuleHandler.getModule("EXEOptions").scriptGet("cameramove");
+        var intensity: Int = 20;
+        if (enableCameraMovement) {
+            var mod = ModuleHandler.getModule("EXEOptions");
+            var val = mod.scriptGet("cameramoveIntensity");
+            if (val != null) intensity = Std.int(val);
+        }
+
+        if (PlayState.instance == null || !enableCameraMovement)
+            return;
+
+        FlxG.camera.targetOffset.set(0, 0);
+
+        switch(event.note.direction) {
+            case 0:
+                FlxG.camera.targetOffset.x = -intensity;
+            case 1:
+                FlxG.camera.targetOffset.y = intensity;
+            case 2:
+                FlxG.camera.targetOffset.y = -intensity;
+            case 3:
+                FlxG.camera.targetOffset.x = intensity;
+        }
+    }
+}

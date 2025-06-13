@@ -1,0 +1,57 @@
+{
+    "version": "1.0.0",
+    "name": "Majin Sonic",
+    "assetPath": "characters/SonicFunAssets",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "majin",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "singLEFT",
+            "prefix": "SONICFUNLEFT",
+            "offsets": [
+                275,
+                54
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "SONICFUNUP",
+            "offsets": [
+                39,
+                196
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "SONICFUNDOWN",
+            "offsets": [
+                51,
+                45
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "SONICFUNRIGHT",
+            "offsets": [
+                -51,
+                133
+            ]
+        },
+        {
+            "name": "idle",
+            "prefix": "SONICFUNIDLE",
+            "offsets": [
+                -42,
+                183
+            ]
+        }
+    ],
+    "flipX": false
+}

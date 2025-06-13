@@ -25,7 +25,8 @@ import flixel.FlxSprite;
 import haxe.Json;
 import funkin.play.notes.Strumline;
 import funkin.play.notes.StrumlineNote;
-//import haxe.Sys;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.PlayStatePlaylist;
 
 // Check the other script in scripts/stages/xenoStage for the stage prop editing, everything else is done here.
 
@@ -42,8 +43,27 @@ class TripleTroubleSong extends Song {
 
     var screenGlitch1:FunkinSprite;
 
+    var hasPlayedCutscene:Bool;
+
     public function new() {
         super("triple-trouble");
+
+        hasPlayedCutscene = false;
+    }
+
+    override function onCreate(event:ScriptEvent):Void {
+
+        super.onCreate(event);
+
+        FunkinSprite.cacheTexture(Paths.image('staticNotes'));
+
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-triple-trouble')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-triple-trouble')); // An automated system is in progress.
+
+        game = PlayState.instance;
+
+        hasPlayedCutscene = false;
+
     }
 
     // Reset the script state on game over
@@ -53,7 +73,81 @@ class TripleTroubleSong extends Song {
     function onSongRetry():Void {
         super.onSongRetry();
 
-        //onCreate(null);
+        hasPlayedCutscene = true;
+    }
+
+    public override function onCountdownStart(event:CountdownScriptEvent):Void {
+        super.onCountdownStart(event);
+
+        if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+
+        if (!hasPlayedCutscene) {
+           trace('Pausing countdown to play a video cutscene (`too slow`)');
+
+           hasPlayedCutscene = true;
+
+           event.cancel(); // CANCEL THE COUNTDOWN!
+
+           startVideo();
+        } else {
+            startSonicIntro();
+        }
+    }
+
+    function startVideo() {
+        VideoCutscene.play(Paths.videos('youcantruncutscene2'));
+    }
+
+    function startSonicIntro():Void {
+
+        var blackBackground = new FlxSprite(0, 0);
+        blackBackground.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+        blackBackground.cameras = [PlayState.instance.camCutscene];
+        blackBackground.zIndex = 999;
+        game.add(blackBackground);
+
+        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-triple-trouble');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        songIntroCircle.x = FlxG.width;
+        game.add(songIntroCircle);
+
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-triple-trouble');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        songIntroText.x = -songIntroText.width;
+        game.add(songIntroText);
+
+        FlxTween.tween(songIntroCircle, {x: (FlxG.width / 2) - (songIntroCircle.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroCircle, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroCircle);
+                    }
+                });
+            }
+        });
+
+        FlxTween.tween(songIntroText, {x: (FlxG.width / 2) - (songIntroText.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroText, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroText);
+                    }
+                });
+
+                FlxTween.tween(blackBackground, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(blackBackground);
+                    }
+                });
+            }
+        });
     }
 }
 

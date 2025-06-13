@@ -1,0 +1,92 @@
+{
+	"version": "1.0.0",
+	"offsets": [
+		-180,
+		-100
+	],
+	"renderType": "sparrow",
+	"danceEvery": 1,
+	"scale": 12,
+	"name": "Sonic.exe (Final Escape - Pixel)",
+	"cameraOffsets": [
+		-450,
+		-400
+	],
+	"flipX": true,
+	"isPixel": true,
+	"singTime": 4,
+	"startingAnimation": "idle",
+	"assetPath": "characters/ycr_sonic_sheet",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"isPixel": false,
+		"scale": 1,
+		"id": "pixelsonic",
+		"flipX": false
+	},
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				-105,
+				-54
+			],
+			"frameRate": 24,
+			"prefix": "ycr sonic idle",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-106,
+				-50
+			],
+			"frameRate": 24,
+			"prefix": "ycr sonic up",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-106,
+				-50
+			],
+			"frameRate": 24,
+			"prefix": "ycr sonic down",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-106,
+				-50
+			],
+			"frameRate": 24,
+			"prefix": "ycr sonic left",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-106,
+				-50
+			],
+			"frameRate": 24,
+			"prefix": "ycr sonic right",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
+	]
+}

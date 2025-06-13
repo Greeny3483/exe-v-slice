@@ -1,0 +1,137 @@
+{
+    "version": "1.0.0",
+    "name": "Boyfriend (Endless)",
+    "assetPath": "characters/endless-bf",
+    "singTime": 4,
+    "isPixel": false,
+    "scale": 1,
+    "healthIcon": {
+        "id": "bf",
+        "isPixel": false,
+        "flipX": false,
+        "scale": 1
+    },
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "BF idle dance",
+            "offsets": [
+                -5,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "BF NOTE LEFT0",
+            "offsets": [
+                5,
+                -6
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "BF NOTE DOWN0",
+            "offsets": [
+                -20,
+                -51
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "BF NOTE UP0",
+            "offsets": [
+                -46,
+                27
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "BF NOTE RIGHT0",
+            "offsets": [
+                -48,
+                -7
+            ]
+        },
+        {
+            "name": "singLEFTmiss",
+            "prefix": "BF NOTE LEFT MISS",
+            "offsets": [
+                7,
+                19
+            ]
+        },
+        {
+            "name": "singDOWNmiss",
+            "prefix": "BF NOTE DOWN MISS",
+            "offsets": [
+                -15,
+                -19
+            ]
+        },
+        {
+            "name": "singUPmiss",
+            "prefix": "BF NOTE UP MISS",
+            "offsets": [
+                -46,
+                27
+            ]
+        },
+        {
+            "name": "singRIGHTmiss",
+            "prefix": "BF NOTE RIGHT MISS",
+            "offsets": [
+                -44,
+                22
+            ]
+        },
+        {
+            "name": "hey",
+            "prefix": "BF HEY",
+            "offsets": [
+                -3,
+                5
+            ]
+        },
+        {
+            "name": "hurt",
+            "prefix": "BF hit",
+            "offsets": [
+                14,
+                18
+            ]
+        },
+        {
+            "name": "scared",
+            "prefix": "BF idle shaking",
+            "offsets": [
+                -4,
+                0
+            ]
+        },
+        {
+            "name": "dodge",
+            "prefix": "boyfriend dodge",
+            "offsets": [
+                -10,
+                -16
+            ]
+        },
+        {
+            "name": "attack",
+            "prefix": "boyfriend attack",
+            "offsets": [
+                294,
+                267
+            ]
+        },
+        {
+            "name": "pre-attack",
+            "prefix": "bf pre attack",
+            "offsets": [
+                -40,
+                -40
+            ]
+        }
+    ],
+    "flipX": true
+}

@@ -43,18 +43,25 @@ class FakerSong extends Song {
     override function onCreate(event:ScriptEvent):Void {
 
         super.onCreate(event);
+
         FunkinSprite.cacheTexture(Paths.image('staticNotes'));
-        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-too-slow')); // An automated system is in progress.
-        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-too-slow')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Circle-faker')); // An automated system is in progress.
+        FunkinSprite.cacheTexture(Paths.image('StartScreens/Text-faker')); // An automated system is in progress.
 
-        //PlayState.instance.opponentStrumline.visible = false;
+        game = PlayState.instance;
 
-    }
+        /*songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-faker');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        songIntroCircle.visible = false;
+        game.add(songIntroCircle);
 
-    override function onSongEnd():Void {
-        super.onSongEnd();
-        //Save.instance.saveResults("faker"); // Save results for the current song
-        PlayState.instance.startSong("black-sun");
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-faker');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        songIntroText.visible = false;
+        game.add(songIntroText);*/
+
     }
 
     // Reset the script state on game over
@@ -63,6 +70,65 @@ class FakerSong extends Song {
     }
     function onSongRetry():Void {
         super.onSongRetry();
+    }
+
+    public override function onCountdownStart(event:CountdownScriptEvent):Void {
+        super.onCountdownStart(event);
+
+        // Start the custom Sonic intro
+        startSonicIntro();
+    }
+
+    function startSonicIntro():Void {
+
+        var blackBackground = new FlxSprite(0, 0);
+        blackBackground.makeGraphic(FlxG.width, FlxG.height, 0xFF000000);
+        blackBackground.cameras = [PlayState.instance.camCutscene];
+        blackBackground.zIndex = 999;
+        game.add(blackBackground);
+
+        songIntroCircle = FunkinSprite.create(0, 0, 'StartScreens/Circle-faker');
+        songIntroCircle.cameras = [PlayState.instance.camCutscene];
+        songIntroCircle.zIndex = 1000;
+        songIntroCircle.x = FlxG.width;
+        game.add(songIntroCircle);
+
+        songIntroText = FunkinSprite.create(0, 0, 'StartScreens/Text-faker');
+        songIntroText.cameras = [PlayState.instance.camCutscene];
+        songIntroText.zIndex = 1000;
+        songIntroText.x = -songIntroText.width;
+        game.add(songIntroText);
+
+        FlxTween.tween(songIntroCircle, {x: (FlxG.width / 2) - (songIntroCircle.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroCircle, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroCircle);
+                    }
+                });
+            }
+        });
+
+        FlxTween.tween(songIntroText, {x: (FlxG.width / 2) - (songIntroText.width / 2)}, 1.5, {
+            ease: FlxEase.quadOut,
+            onComplete: function(tween:FlxTween) {
+                FlxTween.tween(songIntroText, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(songIntroText);
+                    }
+                });
+
+                FlxTween.tween(blackBackground, {alpha: 0}, 1, {
+                    ease: FlxEase.quadOut,
+                    onComplete: function(tween:FlxTween) {
+                        game.remove(blackBackground);
+                    }
+                });
+            }
+        });
     }
 
 }

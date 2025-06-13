@@ -26,18 +26,26 @@ import flixel.FlxSprite;
 import haxe.Json;
 import funkin.play.notes.Strumline;
 import funkin.play.notes.StrumlineNote;
+import funkin.play.PlayStatePlaylist;
+import funkin.play.cutscene.VideoCutscene;
 
-// Check the other script in scripts/stages/xenoStage for the stage prop editing, everything else is done here.
-
+// Too Slow
+// No I don't know how to fix offset notes in the song
+// No I'm not going to rechart those areas, there's a lot of them
+// Yes I know it's annoying
+// It's really annoying
 class TooSlowSong extends Song {
     var game;
     
     public var songIntroCircle:FunkinSprite;
     public var songIntroText:FunkinSprite;
 
+    var hasPlayedCutscene:Bool;
 
     public function new() {
         super("too-slow");
+
+        hasPlayedCutscene = false;
     }
 
     override function onCreate(event:ScriptEvent):Void {
@@ -60,6 +68,8 @@ class TooSlowSong extends Song {
         songIntroText.visible = false;
         game.add(songIntroText);
 
+        hasPlayedCutscene = false;
+
         // Add intro images for "too-slow"*/
     }
 
@@ -70,15 +80,30 @@ class TooSlowSong extends Song {
     function onSongRetry():Void {
         super.onSongRetry();
 
-        //onCreate(null);
+        hasPlayedCutscene = true;
     }
 
-	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+    public override function onCountdownStart(event:CountdownScriptEvent):Void {
         super.onCountdownStart(event);
 
-        // Start the custom Sonic intro
-        startSonicIntro();
+        if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+
+        if (!hasPlayedCutscene) {
+           trace('Pausing countdown to play a video cutscene (`too slow`)');
+
+           hasPlayedCutscene = true;
+
+           event.cancel(); // CANCEL THE COUNTDOWN!
+
+           startVideo();
+        } else {
+            startSonicIntro();
+        }
     }
+
+  function startVideo() {
+    VideoCutscene.play(Paths.videos('tooslowcutscene1'));
+  }
 
     function startSonicIntro():Void {
 

@@ -1,0 +1,288 @@
+{
+    "props": [
+        {
+            "danceEvery": 0,
+            "zIndex": -9,
+            "position": [
+                -1360.0,
+                -720.0
+            ],
+            "scale": [
+                0.85,
+                0.85
+            ],
+            "name": "endlessSky",
+            "isPixel": false,
+            "assetPath": "FunInfiniteStage/sonicFUNsky",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -8,
+            "position": [
+                -1000.0,
+                -120.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "endlessBG",
+            "isPixel": false,
+            "assetPath": "FunInfiniteStage/Bush 1",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -7,
+            "position": [
+                -1000.0,
+                -320.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "endlessBG2",
+            "isPixel": false,
+            "assetPath": "FunInfiniteStage/Bush2",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "danceEvery": 0,
+            "zIndex": -6,
+            "position": [
+                -1360.0,
+                -30.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "name": "endlessGround",
+            "isPixel": false,
+            "assetPath": "FunInfiniteStage/floor BG",
+            "scroll": [
+                1,
+                1
+            ]
+        },
+        {
+            "zIndex": -5,
+            "position": [
+                -800.0,
+                -850
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "endlessTreeBack",
+            "isPixel": false,
+            "startingAnimation": "tree",
+            "assetPath": "FunInfiniteStage/Majin Boppers Back",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "MajinBop2 instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "tree"
+                }
+            ]
+        },
+        {
+            "zIndex": -4,
+            "position": [
+                -1145.0,
+                -910.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "endlessTreeFront2",
+            "isPixel": false,
+            "startingAnimation": "tree",
+            "assetPath": "FunInfiniteStage/Majin Boppers Front",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "MajinBop1 instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "tree"
+                }
+            ]
+        },
+        {
+            "zIndex": -3,
+            "position": [
+                -350.0,
+                -920.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "endlessTreeFront",
+            "isPixel": false,
+            "startingAnimation": "tree",
+            "assetPath": "FunInfiniteStage/Majin Boppers Front",
+            "scroll": [
+                1,
+                1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "MajinBop1 instance 1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "tree"
+                }
+            ]
+        },
+        {
+            "zIndex": 1000,
+            "position": [
+                -1300.0,
+                80.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "endlessSonic",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FunInfiniteStage/majin FG2",
+            "scroll": [
+                1.1,
+                1.1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "majin front bopper2",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        },
+        {
+            "zIndex": 1000,
+            "position": [
+                0.0,
+                80.0
+            ],
+            "scale": [
+                1,
+                1
+            ],
+            "animType": "sparrow",
+            "name": "endlessSonic2",
+            "isPixel": false,
+            "startingAnimation": "idle",
+            "assetPath": "FunInfiniteStage/majin FG1",
+            "scroll": [
+                1.1,
+                1.1
+            ],
+            "animations": [
+                {
+                    "offsets": [
+                        0,
+                        0
+                    ],
+                    "flipY": false,
+                    "frameRate": 24,
+                    "prefix": "majin front bopper1",
+                    "looped": true,
+                    "flipX": false,
+                    "name": "idle"
+                }
+            ]
+        }
+    ],
+    "cameraZoom": 0.9,
+    "version": "1.0.0",
+    "characters": {
+        "bf": {
+            "zIndex": 300,
+            "position": [
+                200,
+                320
+            ],
+            "cameraOffsets": [
+                -100,
+                -100
+            ]
+        },
+        "dad": {
+            "zIndex": 200,
+            "position": [
+                -550,
+                500
+            ],
+            "cameraOffsets": [
+                250,
+                -250
+            ]
+        },
+        "gf": {
+            "zIndex": 100,
+            "cameraOffsets": [
+                0,
+                50
+            ],
+            "position": [
+                400,
+                1230
+            ]
+        }
+    },
+    "name": "Fun Is Infinite"
+}
