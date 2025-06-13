@@ -44,6 +44,7 @@ class FatalZone extends Stage
 		// Get Options
 		enableFatalPopups = ModuleHandler.getModule("EXEOptions").scriptGet("fatalpopups");
 		screenRatioEdit = ModuleHandler.getModule("EXEOptions").scriptGet("screenratio");
+		forceMiddleScroll = ModuleHandler.getModule("EXEOptions").scriptGet("forcemiddlescroll");
 
 		FunkinSprite.cacheTexture(Paths.image('fatal/domain'));
 		FunkinSprite.cacheTexture(Paths.image('fatal/domain2'));
@@ -293,8 +294,10 @@ class FatalZone extends Stage
 				});
 			}
 
-			PlayState.instance.playerStrumline.x = FlxG.width / 2 - game.playerStrumline.width / 2;
-			PlayState.instance.opponentStrumline.visible = false;
+			if (forceMiddleScroll) {
+			    PlayState.instance.playerStrumline.x = FlxG.width / 2 - game.playerStrumline.width / 2;
+			    PlayState.instance.opponentStrumline.visible = false;
+			}
 			
 			phase3bg.zIndex = 20;
 			PlayState.instance.currentStage.refresh(); // Apply Z-Index.

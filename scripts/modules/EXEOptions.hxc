@@ -36,6 +36,7 @@ class EXEOptions extends Module
     public var dojumpscares:Bool = true;
     public var cameramove:Bool = true;
     public var dolyrics:Bool = true;
+    public var forcemiddlescroll:Bool = true;
     public var cameramoveIntensity:Int = 20; // New: Intensity value
 
     function bindSave(){
@@ -58,6 +59,7 @@ class EXEOptions extends Module
         if(save.data.dojumpscares == null) save.data.dojumpscares = true;
         if(save.data.cameramove == null) save.data.cameramove = true;
         if(save.data.dolyrics == null) save.data.dolyrics = true;
+        if(save.data.forcemiddlescroll == null) save.data.forcemiddlescroll = true;
         if(save.data.cameramoveIntensity == null) save.data.cameramoveIntensity = 20; // New: default intensity
 
         fatalpopups = save.data.fatalpopups;
@@ -66,6 +68,7 @@ class EXEOptions extends Module
         dojumpscares = save.data.dojumpscares;
         cameramove = save.data.cameramove;
         dolyrics = save.data.dolyrics;
+        forcemiddlescroll = save.data.forcemiddlescroll;
         cameramoveIntensity = save.data.cameramoveIntensity; // New: load intensity
 
         closeSave();
@@ -129,6 +132,11 @@ class EXEOptions extends Module
                 save.data.screenratio = value;
                 screenratio = value;
             }, save.data.screenratio);
+
+            prefs.createPrefItemCheckbox("Forceable Middlescroll", "Allows certain songs to force the middlescroll mechanic. \nUsed in: Fatality", function(value) {
+                save.data.forcemiddlescroll = value;
+                forcemiddlescroll = value;
+            }, save.data.forcemiddlescroll);
 
         }else if(inOptions)
             closeSave();
