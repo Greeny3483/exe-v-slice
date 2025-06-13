@@ -1,7 +1,7 @@
 {
   "title": "VERSUS SONIC.EXE [V-Slice Add-On | W.I.P]",
   "description": "Port of VERSUS SONIC.EXE to the base game engine through softcode!",
-  "homepage": "https://gamebanana.com/mods/511838",
+  "homepage": "https://gamebanana.com/mods/600193",
   "contributors": [
     {
       "name": "Greeny3483",
@@ -9,12 +9,27 @@
       "url": "https://gamebanana.com/members/1895178"
     },
     {
-      "name": "SONIC.EXE Team || Place Holder",
+      "name": "Comedy Lost",
+      "role": "Notestyle Swap Event",
+      "url": "https://gamebanana.com/members/2287198"
+    },
+    {
+      "name": "DaWaterMalone",
+      "role": "Lyrics Event",
+      "url": "https://gamebanana.com/members/1847964"
+    },
+    {
+      "name": "MayoOddToSee",
+      "role": "Change Character Event",
+      "url": "https://gamebanana.com/members/1790554"
+    },
+    {
+      "name": "SONIC.EXE Team",
       "role": "Art, Animation, Music",
       "url": "https://gamebanana.com/mods/316022"
     }
   ],
   "api_version": "0.6.4",
-  "mod_version": "1.0.0",
+  "mod_version": "1.0.1",
   "license": "Apache-2.0"
 }

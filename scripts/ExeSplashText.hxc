@@ -14,7 +14,7 @@ import funkin.modding.module.Module;
 
 class ExeSplashText extends Module
 {
-  public var exeVNUM:String = '1.0.0'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
+  public var exeVNUM:String = '1.0.1'; // Add "Modified Build" if it is a GitHub commit that isn't being marked as a main release.
 
   public function new()
   {
